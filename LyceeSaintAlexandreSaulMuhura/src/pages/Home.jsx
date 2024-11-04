@@ -2,11 +2,12 @@ import React from "react"
 import heroImg from "../components/assets/images/hero.png"
 // import heroImgback from "../components/assets/images/hero-shape-purple.png"
 import { BsFillLightningChargeFill } from "react-icons/bs"
-import { FaBookReader, FaGraduationCap, FaUsers } from "react-icons/fa"
+import { FaGraduationCap, FaUsers } from "react-icons/fa"
 import { About } from "./About"
 import { Courses } from "./WhyLycee"
 import { Instructor } from "./ContactUs"
 import { Blog } from "./NewsEvent"
+import { FaDesktop } from "react-icons/fa";
 
 
 export const Home = () => {
@@ -51,7 +52,6 @@ export const HomeContent = () => {
                   </div>
                   <div className='text flex flex-col items-start px-4'>
                     <span className='text-sm text-black'>Computer System and Architecture </span>
-                    <span className='text-[12px]'>Your admission completed</span>
                   </div>
                 </button>
                 <button className='bg-white shadow-md absolute bottom-32 left-48 z-30 p-2 flex items-center rounded-md pr-8'>
@@ -74,11 +74,10 @@ export const HomeContent = () => {
                 </button>
                 <button className='bg-white shadow-md absolute top-32 right-32 z-30 p-2 flex items-center rounded-md'>
                   <div className='icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-indigo-400'>
-                    <FaBookReader size={20} />
+                    <FaDesktop size={20} /> {/* Replace the previous icon with the computer icon */}
                   </div>
                   <div className='text flex flex-col items-start px-2'>
                     <span className='text-sm text-black'>Computer System and Architecture</span>
-
                   </div>
                 </button>
               </div>
