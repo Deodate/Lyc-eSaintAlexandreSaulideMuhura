@@ -86,3 +86,5 @@ header .container {
 .img {
   animation: moveLeftToRight 10s linear infinite alternate; /* Adjust the duration and timing function as needed */
 }
+
+
