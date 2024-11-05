@@ -83,6 +83,10 @@ header .container {
   }
 }
 
+.text-crimson {
+  color: black;
+}
+
 .img {
   animation: moveLeftToRight 10s linear infinite alternate; /* Adjust the duration and timing function as needed */
 }

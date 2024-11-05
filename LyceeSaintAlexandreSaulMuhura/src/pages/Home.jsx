@@ -32,7 +32,7 @@ export const HomeContent = () => {
           <div className='flex items-center justify-center md:flex-col'>
             <div className='left w-1/2 text-black md:w-full'>
               <h1 className='text-4xl leading-tight text-black font-semibold'>
-                Welcome To<br /> Lycée Saint Alexandre Sauli de Muhura <br />
+                Welcome To<br /> Lycée Saint Alexandre Sauli Muhura <br />
               </h1>
 
               <nav>
@@ -105,6 +105,7 @@ export const HomeContent = () => {
           </div>
         </div>
       </section>
+      {/* ©Copyright © 2024 Lycée Saint Alexandre Sauli Muhura. All rights reserved. | Privacy Policy | Cookies */}
     </>
   )
 }
