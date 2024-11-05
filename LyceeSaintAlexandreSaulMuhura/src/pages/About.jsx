@@ -8,11 +8,11 @@ import { AiOutlineCheck } from "react-icons/ai"
 export const About = () => {
   return (
     <>
-      <section className='about py-16'>
+      <section className='about py-4'>
         <div className='container'>
           <div className='heading text-center py-12'>
-            <h1 className='text-3xl font-semibold text-black'>Why An Scholercity Out Of The Ordinary</h1>
-            <span className='text-sm mt-2 block'>you don't have to struggle alone, you've got our assistance and help.</span>
+          <span className='text-sm mt-2 block'>REASONS TO CHOOSE</span>
+          <h1 className='text-6xl font-bold text-gray-800 tracking-tight'>St. Saint Alexandre Sauli Secondary School</h1>
           </div>
           <div className='grid grid-cols-4 gap-5 mt-5 md:grid-cols-2'>
             <AboutCard color='bg-[#2D69F0]' icon={<FaBookDead size={50} />} title='4,000 Online courses' desc="You don't have to struggle alone, you've " />

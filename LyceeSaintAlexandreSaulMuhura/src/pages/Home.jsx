@@ -101,7 +101,6 @@ export const HomeContent = () => {
                     <span className='text-sm text-black'>Software Development</span>
                   </div>
                 </button>
-
               </div>
             </div>
           </div>
