@@ -1,6 +1,5 @@
 import React from "react"
 import heroImg from "../components/assets/images/hero.png"
-// import heroImgback from "../components/assets/images/hero-shape-purple.png"
 import { BsFillLightningChargeFill } from "react-icons/bs"
 import { FaUsers } from "react-icons/fa"
 import { About } from "./About"

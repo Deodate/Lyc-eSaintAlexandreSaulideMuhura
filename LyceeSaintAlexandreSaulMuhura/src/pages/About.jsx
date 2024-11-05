@@ -1,8 +1,6 @@
 import React from "react"
 import aboutImg from "../components/assets/images/about.jpg"
-import aboutImgBanner from "../components/assets/images/about-banner.jpg"
-import imgs from "../components/assets/images/join1.png"
-import { FaBookDead } from "react-icons/fa"
+// import aboutImgBanner from "../components/assets/images/about-banner.jpg"
 import { AiOutlineCheck } from "react-icons/ai"
 
 export const About = () => {
@@ -10,16 +8,16 @@ export const About = () => {
     <>
       <section className='about py-4'>
         <div className='container'>
-          <div className='heading text-center py-12'>
-          <span className='text-sm mt-2 block'>REASONS TO CHOOSE</span>
-          <h1 className='text-6xl font-bold text-gray-800 tracking-tight'>St. Saint Alexandre Sauli Secondary School</h1>
+          <div className='heading text-center py-1'>
+            <span className='text-sm mt-2 block text-red-500 font-bold'>REASONS TO CHOOSE</span>
+            <h1 className='text-6xl font-bold text-gray-800 tracking-tight'>St. Saint Alexandre Sauli Secondary School</h1>
           </div>
-          <div className='grid grid-cols-4 gap-5 mt-5 md:grid-cols-2'>
+          {/* <div className='grid grid-cols-4 gap-5 mt-5 md:grid-cols-2'>
             <AboutCard color='bg-[#2D69F0]' icon={<FaBookDead size={50} />} title='4,000 Online courses' desc="You don't have to struggle alone, you've " />
             <AboutCard color='bg-[#DD246E]' icon={<FaBookDead size={50} />} title='4,000 Online courses' desc="You don't have to struggle alone, you've " />
             <AboutCard color='bg-[#8007E6]' icon={<FaBookDead size={50} />} title='4,000 Online courses' desc="You don't have to struggle alone, you've " />
             <AboutCard color='bg-[#0CAE74]' icon={<FaBookDead size={50} />} title='4,000 Online courses' desc="You don't have to struggle alone, you've " />
-          </div>
+          </div> */}
         </div>
       </section>
       <AboutContent />
@@ -44,34 +42,40 @@ export const AboutContent = () => {
       <div className='container flex md:flex-col'>
         <div className='left w-1/3 md:w-full mr-8 md:mr-0 relative'>
           <img src={aboutImg} alt='aboutImg' className=' rounded-xl' />
-          <img src={aboutImgBanner} alt='aboutImg' className='rounded-xl absolute -bottom-14 -left-24 h-56 md:left-80' />
+          {/* <img src={aboutImgBanner} alt='aboutImg' className='rounded-xl absolute -bottom-14 -left-24 h-56 md:left-80' /> */}
           <div className='img-group ml-24 mt-3'>
-            <img src={imgs} alt='' />
-            <span className='text-[14px]'>
-              Join over <label className='text-black text-sm'>4,000+</label> students
-            </span>
           </div>
+          <span className='text-sm mt-2 block text-black text-center w-full'>Père Mario Maria Falconi</span>
+          <span className='text-sm mt-2 block text-black text-center w-full'>Co-founder and Former Head Master</span>
         </div>
-        <div className='right w-2/3 md:w-full md:mt-16'>
-          <div className='heading w-4/5 md:w-full'>
-            <h1 className='text-3xl font-semibold text-black'>Achieve Your Goals With Educal</h1>
-            <span className='text-sm mt-2 block leading-6'> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam officia, reiciendis sapiente adipisci nulla non consequuntur eos repellendus laborum veritatis obcaecati neque est id porro voluptatum. Fuga iure nulla cum. Lost the plot bobby such a fibber bleeding bits and bobs don't get shirty with me bugger all mate chinwag super pukka william barney, horse play buggered.</span>
+        <div className='right w-3/4 md:w-full md:mt-16'>
+          <div className='heading' style={{ width: '99%' }}>
+            <h1 className='text-2xl font-semibold text-black'>Vision and Values</h1>
+            <span className='text-sm mt-2 leading-6 w-full'> Lycée Saint Alexandre Sauli Muhura is Secondary school funded by the Barnabite Fathers of the Catholic Church, focused on helping students achieve high academic standards in a supportive, Christian environment. Guided by the Church, students develop strong morals, a sense of community, and a commitment to service, preparing them for success in their education and future contributions to society.</span>
             <ul className='my-5'>
-              <li className='text-sm flex items-center gap-5'>
-                <AiOutlineCheck className='text-green-500' /> Upskill your organization.
+              <li className='text-sm flex items-center gap-5 text-black'>
+                <AiOutlineCheck className='text-green-500' /> Accounting
               </li>
-              <li className='text-sm flex items-center gap-5 my-2'>
-                <AiOutlineCheck className='text-green-500' />
-                Access more then 100K online courses
+              <li className='text-sm flex items-center gap-5 text-black'>
+                <AiOutlineCheck className='text-green-500' /> Fashion Design
               </li>
-              <li className='text-sm flex items-center gap-5'>
-                <AiOutlineCheck className='text-green-500' />
-                Learn the latest skills
+              <li className='text-sm flex items-center gap-5 text-black'>
+                <AiOutlineCheck className='text-green-500' /> Software Development
+              </li>
+              <li className='text-sm flex items-center gap-5 my-2 text-black'>
+                <AiOutlineCheck className='text-green-500' /> Network and Internet Technology
+              </li>
+              <li className='text-sm flex items-center gap-5 text-black'>
+                <AiOutlineCheck className='text-green-500' /> Computer System and Architecture
               </li>
             </ul>
-            <button className='px-5 py-2 border border-gray-300 rounded-md text-sm'>Apply Now</button>
+
+            <button style={{ backgroundColor: 'brown', color: 'white' }} className='px-5 py-2 border border-gray-300 rounded-md text-sm'>
+              More News &rarr;
+            </button>
           </div>
         </div>
+
       </div>
     </section>
   )
