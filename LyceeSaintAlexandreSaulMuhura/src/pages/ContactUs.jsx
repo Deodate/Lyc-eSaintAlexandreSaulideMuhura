@@ -1,6 +1,16 @@
 import React from "react"
 import { FaGraduationCap, FaUsers } from "react-icons/fa"
 import { GiEvilBook, GiWorld } from "react-icons/gi"
+// import { courses } from "../components/assets/data/dummydata"; // Remove if not needed
+
+const items = [
+  {
+    cover: "../images/Accounting.jpg",
+  },
+  {
+    cover: "../images/Accounting.jpg",
+  },
+];
 
 export const Instructor = () => {
   return (
@@ -8,18 +18,26 @@ export const Instructor = () => {
       <section className='instructor mb-16'>
         <div className='container'>
           <div className='heading py-12 text-center w-2/3 m-auto md:w-full'>
-            <h1 className='text-3xl font-semibold text-black'>What Is Skilline?</h1>
-            <span className='text-[14px] mt-2 block'>Sloshed faff about me old mucker blatant bubble and squeak hanky panky some dodgy chav bevvy arse chimney pot I, ruddy plastered buggered smashing blow off I'm telling up the kyver he legged it bleeder jolly good,</span>
+            <h1 className='text-3xl font-semibold text-black'>Transforming Lives, Every Day</h1>
+            <span className='text-[14px] mt-2 block'>
+              At Lycée Saint Alexandre Sauli, we are dedicated to making a positive impact on our students' lives every day. Through quality education and strong support, we help students grow academically and personally. Our caring community fosters respect, compassion, and service, empowering students to reach their full potential. Together, we are transforming lives for a brighter future.
+            </span>
           </div>
           <div className='content grid grid-cols-2 gap-5 md:grid-cols-1'>
-            <div className='images rounded-lg relative overflow-hidden h-72 w-ful before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
-              <img src='https://bdevs.net/wp/educal/wp-content/uploads/2021/09/what-1.jpg' alt='' className='rounded-t-lg object-cover w-full h-72' />
-              <div className='categ flex flex-col gap-4 absolute top-5 z-30 m-3 p-8 items-center justify-center text-center'>
-                <h2 className='text-3xl text-white font-semibold'>Mostly Online Learning</h2>
-                <button className='text-[15px] py-2 px-4 border border-gray-200 rounded-md text-white'>Start a class today</button>
+            {items.map((item, index) => (
+              <div key={index} className='images rounded-lg relative overflow-hidden h-72 w-full before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
+                <img
+                  src={item.cover}
+                  alt=''
+                  className='rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300'
+                />
+                <div className='categ flex flex-col gap-4 absolute top-5 z-30 m-3 p-8 items-center justify-center text-center'>
+                  <h2 className='text-3xl text-white font-semibold'>Mostly Online Learning</h2>
+                  <button className='text-[15px] py-2 px-4 border border-gray-200 rounded-md text-white'>Start a class today</button>
+                </div>
               </div>
-            </div>
-            <div className='images rounded-lg relative overflow-hidden h-72 w-ful before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
+            ))}
+            <div className='images rounded-lg relative overflow-hidden h-72 w-full before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
               <img src='https://bdevs.net/wp/educal/wp-content/uploads/2021/09/what-2.jpg' alt='' className='rounded-t-lg object-cover w-full h-72 relative' />
               <div className='categ flex flex-col gap-4 absolute top-5 z-30 m-3 p-8 items-center justify-center text-center'>
                 <h2 className='text-3xl text-white font-semibold'>Become an Instructor</h2>
@@ -44,6 +62,7 @@ export const Instructor = () => {
     </>
   )
 }
+
 export const InstructorCard = (props) => {
   return (
     <div className={`box p-5 py-5 rounded-md`}>

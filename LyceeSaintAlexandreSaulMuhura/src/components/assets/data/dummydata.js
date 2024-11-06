@@ -38,37 +38,33 @@ export const LinkData = [
 export const courses = [
   {
     id: 1,
-    cover: "../images/course-2-1.jpg",
-    title: "The Power of Podcast for Storytelling",
+    cover: "../images//fashion.jpeg",
+    title: "Fashion Design",
+    CourseName: "FAD",
   },
   {
     id: 2,
-    cover: "../images/course-4-1.jpg",
-    title: "Fashion and Luxury Fashion in a Changing",
+    cover: "../images/computer.jpg",
+    title: "Computer System and Architecture",
+    CourseName: "CSA",
   },
   {
     id: 3,
-    cover: "../images/course-5-1.jpg",
-    title: "Creative writing through Storytelling",
+    cover: "../images/Neworking.jpg",
+    title: "Network and Internet Technology",
+    CourseName: "NIT",
   },
   {
     id: 4,
-    cover: "../images/course-6-1.jpg",
-    title: "Improving The Accessibility Of Your Markdown",
+    cover: "../images/Software.jpeg",
+    title: "Software Development",
+    CourseName: "SWD",
   },
   {
     id: 5,
-    cover: "../images/course11.jpg",
-    title: "Product Manager Learn the Skills & job.",
-  },
-  {
-    id: 6,
-    cover: "../images/course12.jpg",
-    title: "The business Intelligence analyst Course 2022",
-  },
-  {
-    id: 7,
-    cover: "../images/course12.jpg",
-    title: "The business Intelligence analyst Course 2022",
-  },
-]
+    cover: "../images/Accounting.jpg",
+    title: "ACCOUNTING",
+    CourseName: "Accounting",
+  }
+];
+
