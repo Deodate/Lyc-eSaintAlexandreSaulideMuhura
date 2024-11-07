@@ -33,7 +33,7 @@ export const Blog = () => {
                     </div>
                     <div className='flex items-center'>
                       <AiTwotoneCalendar />
-                      <span className='text-[14px] ml-2'> Sep 16, 2021</span>
+                      <span className='text-[14px] ml-2'> Sept 1, 2020</span>
                     </div>
                   </div>
                 </div>

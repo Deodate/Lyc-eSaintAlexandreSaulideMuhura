@@ -72,7 +72,7 @@ export const HomeContent = () => {
                     <span className='text-sm text-black'>Computer System and Architecturee </span>
                   </div>
                 </button>
-                
+
                 <button className='bg-white shadow-md absolute bottom-32 left-48 z-30 p-2 flex items-center rounded-md pr-8' style={{ width: '328px' }}>
                   <div className='icon w-10 h-10 text-white rounded-full flex items-center justify-center bg-blue-400'>
 

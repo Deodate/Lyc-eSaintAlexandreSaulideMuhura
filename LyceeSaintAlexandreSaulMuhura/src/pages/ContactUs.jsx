@@ -1,15 +1,13 @@
 import React from "react"
-import { FaGraduationCap, FaUsers } from "react-icons/fa"
-import { GiEvilBook, GiWorld } from "react-icons/gi"
-// import { courses } from "../components/assets/data/dummydata"; // Remove if not needed
+// import { FaGraduationCap, FaUsers } from "react-icons/fa"
+// import { GiEvilBook, GiWorld } from "react-icons/gi"
+
 
 const items = [
   {
     cover: "../images/Accounting.jpg",
-  },
-  {
-    cover: "../images/Accounting.jpg",
-  },
+  }
+
 ];
 
 export const Instructor = () => {
@@ -17,44 +15,28 @@ export const Instructor = () => {
     <>
       <section className='instructor mb-16'>
         <div className='container'>
-          <div className='heading py-12 text-center w-2/3 m-auto md:w-full'>
-            <h1 className='text-3xl font-semibold text-black'>Transforming Lives, Every Day</h1>
-            <span className='text-[14px] mt-2 block'>
-              At Lycée Saint Alexandre Sauli, we are dedicated to making a positive impact on our students' lives every day. Through quality education and strong support, we help students grow academically and personally. Our caring community fosters respect, compassion, and service, empowering students to reach their full potential. Together, we are transforming lives for a brighter future.
-            </span>
-          </div>
-          <div className='content grid grid-cols-2 gap-5 md:grid-cols-1'>
-            {items.map((item, index) => (
-              <div key={index} className='images rounded-lg relative overflow-hidden h-72 w-full before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
-                <img
-                  src={item.cover}
-                  alt=''
-                  className='rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300'
-                />
-                <div className='categ flex flex-col gap-4 absolute top-5 z-30 m-3 p-8 items-center justify-center text-center'>
-                  <h2 className='text-3xl text-white font-semibold'>Mostly Online Learning</h2>
-                  <button className='text-[15px] py-2 px-4 border border-gray-200 rounded-md text-white'>Start a class today</button>
+          <div className='flex flex-wrap md:flex-col items-center'>
+            {/* Left Side (Text) */}
+            <div className='flex-1 p-4 w-[60%]'>
+              <h1 className='text-2xl font-semibold text-black mb-4'>Transforming Lives, Every Day</h1>
+              <div className='text-[14px] mt-2 block'>
+                <p>
+                  At Lycée Saint Alexandre Sauli, we are dedicated to making a positive impact on our students' lives every day. Through quality education and strong support, we help students grow academically and personally. Our caring community fosters respect, compassion, and service, empowering students to reach their full potential. Together, we are transforming lives for a brighter future.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Side (Images) */}
+            <div className='flex-1 p-4 w-[40%]'>
+              {items.map((item, index) => (
+                <div key={index} className='images rounded-lg relative overflow-hidden h-52 w-full mb-4'>
+                  <img
+                    src={item.cover}
+                    alt=''
+                    className='rounded-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300'
+                  />
                 </div>
-              </div>
-            ))}
-            <div className='images rounded-lg relative overflow-hidden h-72 w-full before:bg-backbg before:h-72 before:w-full before:absolute before:top-0 before:left-0 before:content before:z-10'>
-              <img src='https://bdevs.net/wp/educal/wp-content/uploads/2021/09/what-2.jpg' alt='' className='rounded-t-lg object-cover w-full h-72 relative' />
-              <div className='categ flex flex-col gap-4 absolute top-5 z-30 m-3 p-8 items-center justify-center text-center'>
-                <h2 className='text-3xl text-white font-semibold'>Become an Instructor</h2>
-                <button className='text-[15px] py-2 px-4 border border-gray-200 rounded-md text-white'>Start a class today</button>
-              </div>
-            </div>
-          </div>
-          <div className='content'>
-            <div className='heading py-12 text-center w-2/3 m-auto md:w-full'>
-              <h1 className='text-3xl font-semibold text-black'>We Are Proud</h1>
-              <span className='text-[14px] mt-2 block'>You don't have to struggle alone, you've got our assistance and help.</span>
-            </div>
-            <div className='content grid grid-cols-4 gap-5 md:grid-cols-2'>
-              <InstructorCard color='text-red-500' icon={<FaUsers size={40} />} title='63' desc='Students Enrolled' />
-              <InstructorCard color='text-orange-500' icon={<GiEvilBook size={40} />} title='20' desc='Total Courses' />
-              <InstructorCard color='text-purple-500' icon={<FaGraduationCap size={40} />} title='4' desc='Online Learners' />
-              <InstructorCard color='text-indigo-500' icon={<GiWorld size={40} />} title='4' desc='Online Learners' />
+              ))}
             </div>
           </div>
         </div>
