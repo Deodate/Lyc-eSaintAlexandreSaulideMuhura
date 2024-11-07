@@ -105,7 +105,7 @@ export const HomeContent = () => {
           </div>
         </div>
       </section>
-      {/* ©Copyright © 2024 Lycée Saint Alexandre Sauli Muhura. All rights reserved. | Privacy Policy | Cookies */}
+    
     </>
   )
 }

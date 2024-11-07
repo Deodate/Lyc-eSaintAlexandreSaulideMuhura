@@ -1,47 +1,55 @@
-import React from "react"
-import { courses } from "../components/assets/data/dummydata"
-import { AiTwotoneCalendar } from "react-icons/ai"
-import { NavLink } from "react-router-dom"
+import React from "react";
 
 export const Blog = () => {
   return (
     <>
-      <section className='courses'>
-        <div className='w-4/5 m-auto'>
-          <div className='heading text-center py-12'>
-            <h1 className='text-3xl font-semibold text-black'>
-              We Share <br />
-              Our Thoughts On Design
-            </h1>
-            <span className='text-sm mt-2 block'>you don't have to struggle alone, you've got our assistance and help.</span>
+      <section className="latest-news">
+        <div className="news-cards flex flex-row justify-center space-x-5">
+          <div className="w-[250px] h-[100px]">
+            <h2 className="text-3xl font-semibold text-black">Latests News</h2>
+            <p className="text-sm ml-4 bg-transparent">
+              Stay informed about the latest happenings at UAB. From groundbreaking
+              research discoveries to exciting campus events, we capture it all.
+            </p>
+            <button className="more-news mt-4 bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-md">
+              More News →
+            </button>
+           
           </div>
-          <div className='grid grid-cols-3 gap-5 md:grid-cols-1'>
-            {courses.slice(0, 3).map((item) => (
-              <div className='box rounded-lg shadow-shadow1 bg-white'>
-                <div className='images rounded-t-lg relative overflow-hidden h-40 w-ful'>
-                  <img src={item.cover} alt='' className='rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300' />
-                </div>
-                <div className='text p-3'>
-                  <span className='text-[12px] bg-backbg p-1 px-3 text-white rounded-[5px]'>Lifestyle</span>
-                  <NavLink to='/single-blog'>
-                    <h3 className='text-black my-4 font-medium h-10'>{item.title}</h3>
-                  </NavLink>
-                  <div className='user flex items-center justify-between'>
-                    <div className='flex items-center'>
-                      <img className='rounded-full w-7 h-7 object-cover shadow-shadow1' src='https://secure.gravatar.com/avatar/75ec18a5bf959aab895830be3a78cb34?s=50&d=mm&r=g' alt='' />
-                      <span className='text-[14px] ml-2'> sunil</span>
-                    </div>
-                    <div className='flex items-center'>
-                      <AiTwotoneCalendar />
-                      <span className='text-[14px] ml-2'> Sept 1, 2020</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="news-card rounded-lg shadow-lg bg-white w-[250px] h-[100px]">
+            <div className="relative overflow-hidden h-full w-full">
+              <img
+                src="/path/to/image2.jpg"
+                alt="News 2"
+                className="rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300"
+              />
+            </div>
+            <div className="news-details p-4">
+              <span className="text-sm text-gray-600">Health & Medicine</span>
+              <span className="news-date text-sm text-gray-600 ml-1">
+                Nov 05, 2024
+              </span>
+             
+            </div>
+          </div>
+          <div className="news-card rounded-lg shadow-lg bg-white w-[250px] h-[180px]">
+            <div className="relative overflow-hidden h-full w-full">
+              <img
+                src="/path/to/image3.jpg"
+                alt="News 3"
+                className="rounded-t-lg object-cover w-full h-full transition ease-in-out delay-150 cursor-pointer hover:scale-125 duration-300"
+              />
+            </div>
+            <div className="news-details p-4">
+              <span className="text-sm text-gray-600">News You Can Use</span>
+              <span className="news-date text-sm text-gray-600 ml-1">
+                {/* Nov 05, */}
+              </span>
+             
+            </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
