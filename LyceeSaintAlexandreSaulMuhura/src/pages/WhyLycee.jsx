@@ -15,7 +15,7 @@ export const Courses = () => {
             <h1 className='text-3xl font-semibold text-black'>
               Supporting Your Success <br />
             </h1>
-            <span className='text-sm mt-2 block'>A Place to Grow</span>
+            <span className='text-sm mt-2 block'>A Place to Grows</span>
           </div>
           <div className='grid grid-cols-3 gap-8 md:grid-cols-1'>
             {courses.map((item) => (

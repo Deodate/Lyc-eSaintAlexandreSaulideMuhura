@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
-import { Menu } from 'lucide-react';
+
+import React, { useState, useRef, useEffect } from 'react';
+import { Menu, LogOut, ChevronDown } from 'lucide-react';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
   const [isNavExpanded, setIsNavExpanded] = useState(true);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Rest of the component remains the same until the profile section
   return (
     <div className="h-screen flex flex-col">
-      {/* Top Navigation - Styled to match exactly */}
+      {/* Top Navigation */}
       <div className={`bg-white border-b fixed top-0 w-full h-14 md:h-16 flex items-center justify-between px-2 md:px-4 z-50 transition-all duration-300 ${isNavExpanded ? 'pl-48 md:pl-64' : 'pl-16 md:pl-20'}`}>
         <div className="flex items-center gap-2 md:gap-4">
           <button 
@@ -25,14 +41,40 @@ const DashboardLayout = () => {
             </svg>
             Switch Account
           </button>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 md:w-8 md:h-8 bg-gray-200 rounded-full flex items-center justify-center">
-              <span className="text-xs md:text-sm">JD</span>
-            </div>
-            <div className="flex flex-col text-right">
-              <span className="text-xs md:text-sm font-medium">John Doe</span>
-              <span className="text-xs text-gray-500">mail@example.com</span>
-            </div>
+          
+          {/* Profile Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button 
+              onClick={() => setIsProfileOpen(!isProfileOpen)}
+              className="flex items-center gap-2 hover:bg-gray-50 rounded-lg px-2 py-1 transition-colors"
+            >
+              <div className="w-6 h-6 md:w-8 md:h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                <span className="text-xs md:text-sm">JD</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="flex flex-col text-right">
+                  <span className="text-xs md:text-sm font-medium">John Doe</span>
+                  <span className="text-xs text-gray-500">mail@example.com</span>
+                </div>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isProfileOpen ? 'rotate-180' : ''}`} />
+              </div>
+            </button>
+
+            {/* Dropdown Menu */}
+            {isProfileOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50 border">
+                <button 
+                  onClick={() => {
+                    // Add logout logic here
+                    setIsProfileOpen(false);
+                  }}
+                  className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  <LogOut className="w-4 h-4" />
+                  <span>Logout</span>
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -168,3 +210,4 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
