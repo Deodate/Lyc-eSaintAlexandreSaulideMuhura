@@ -53,8 +53,8 @@ const DashboardLayout = () => {
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex flex-col text-right">
-                  <span className="text-xs md:text-sm font-medium">John Doe</span>
-                  <span className="text-xs text-gray-500">mail@example.com</span>
+                  <span className="text-xs md:text-sm font-medium">Lycee Saint</span>
+                  <span className="text-xs text-gray-500">lycee@lsam.com</span>
                 </div>
                 <ChevronDown className={`w-4 h-4 transition-transform ${isProfileOpen ? 'rotate-180' : ''}`} />
               </div>
@@ -83,9 +83,11 @@ const DashboardLayout = () => {
       <div className={`fixed left-0 top-0 h-full bg-blue-600 text-white transition-all duration-300 ${isNavExpanded ? 'w-48 md:w-64' : 'w-16 md:w-20'} pt-14 md:pt-16`}>
         <div className="flex flex-col space-y-1 p-2 md:p-3">
           {[
-            { id: 'gov', label: 'Gov', icon: '🏛️' },
-            { id: 'integration', label: 'Integration', icon: '🔄' },
-            { id: 'report', label: 'Report', icon: '📊' }
+            { id: 'dashboard', label: 'Dashboard', icon: '🏛️' },
+            { id: 'about', label: 'About', icon: '🔄' },
+            { id: 'courses', label: 'Courses', icon: '📊' },
+            { id: 'staff', label: 'Staff', icon: '📊' },
+            { id: 'activity', label: 'activity', icon: '📊' }
           ].map((item) => (
             <button
               key={item.id}
