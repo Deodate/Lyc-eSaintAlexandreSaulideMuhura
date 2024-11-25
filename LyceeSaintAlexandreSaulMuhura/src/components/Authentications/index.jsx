@@ -32,7 +32,7 @@ const DashboardLayout = () => {
           >
             <Menu className="w-5 h-5 md:w-6 md:h-6" />
           </button>
-          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADDONS DASHBOARD</span>
+          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADMIN DASHBOARD</span>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <button className="flex items-center text-xs md:text-sm text-blue-600">
@@ -49,7 +49,7 @@ const DashboardLayout = () => {
               className="flex items-center gap-2 hover:bg-gray-50 rounded-lg px-2 py-1 transition-colors"
             >
               <div className="w-6 h-6 md:w-8 md:h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                <span className="text-xs md:text-sm">JD</span>
+                <span className="text-xs md:text-sm">LS</span>
               </div>
               <div className="flex items-center gap-1">
                 <div className="flex flex-col text-right">
@@ -85,9 +85,10 @@ const DashboardLayout = () => {
           {[
             { id: 'dashboard', label: 'Dashboard', icon: '🏛️' },
             { id: 'about', label: 'About', icon: '🔄' },
-            { id: 'courses', label: 'Courses', icon: '📊' },
             { id: 'staff', label: 'Staff', icon: '📊' },
-            { id: 'activity', label: 'activity', icon: '📊' }
+            { id: 'babyeyi', label: 'Babyeyi', icon: '📊' },
+            { id: 'comments', label: 'Comments', icon: '📊' },
+            { id: 'gallery', label: 'Gallery', icon: '📊' }
           ].map((item) => (
             <button
               key={item.id}
