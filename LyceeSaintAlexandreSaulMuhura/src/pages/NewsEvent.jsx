@@ -8,8 +8,8 @@ export const Blog = () => {
           <div className="w-[250px] h-[100px]">
             <h2 className="text-3xl font-semibold text-black">Latests News</h2>
             <p className="text-sm ml-4 bg-transparent">
-              Stay informed about the latest happenings at UAB. From groundbreaking
-              research discoveries to exciting campus events, we capture it all.
+              Stay informed about the latest happenings at St. Alexandre Sauli. From groundbreaking
+              research discoveries to exciting school events, we capture it all.
             </p>
             <button className="more-news mt-4 bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-md">
               More News →

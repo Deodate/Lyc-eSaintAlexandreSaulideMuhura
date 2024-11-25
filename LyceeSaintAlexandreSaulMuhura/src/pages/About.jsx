@@ -53,10 +53,23 @@ export const AboutContent = () => {
             <h1 className='text-2xl font-semibold text-black relative inline-block'>
               Vision and Values
               <span className='block w-1/5 h-1 bg-green-500 absolute left-0 bottom-0'></span>
-            </h1><br></br><br></br>
-            <span className='text-sm mt-2 leading-6 w-full text-crimson'>
+            </h1><br></br>
+            <div className='text-sm mt-2 leading-6 w-full text-crimson mb-4'>
               Lycée Saint Alexandre Sauli Muhura is a secondary school funded by the Barnabite Fathers of the Catholic Church, focused on helping students achieve high academic standards in a supportive, Christian environment. Guided by the Church, students develop strong morals, a sense of community, and a commitment to service, preparing them for success in their education and future contributions to society.
-            </span>
+            </div>
+            <h1 className='text-2xl font-semibold text-black relative inline-block'>
+            History & Location
+              <span className='block w-1/5 h-1 bg-green-500 absolute left-0 bottom-0'></span>
+            </h1><br></br>
+
+            <div className='text-sm mt-2 leading-6 w-full text-crimson'>
+              Now known as Lycée Saint Alexandre Sauli de Muhura, was founded on September 17, 1990, by the Barnabite Fathers, who initiated the project with the local mayor's support. Initially operating under the name ASSOPEM, the school aimed to serve the community, apply the Barnabite charism, and support the country’s sustainable development. The school opened with two academic tracks in <b>Law</b>, <b>Administration</b> and <b>Economics</b>.
+            </div>
+
+            <div className='text-sm mt-2 leading-6 w-full text-crimson'>
+            In 1991, the Barnabite Fathers sought full control to establish it as a private, subsidized institution. By 1992, the government recognized it as such, and on October 7, 1992, the foundations were laid for new facilities. Since then, the school has focused on practical, skill-based education to prepare students for independent work and entrepreneurship, offering programs in:
+            </div>
+            
             <ul className='my-5'>
               <li className='text-sm flex items-center gap-5 text-black'>
                 <AiOutlineCheck className='text-green-500' /> Accounting
@@ -75,6 +88,9 @@ export const AboutContent = () => {
                 <AiOutlineCheck className='text-green-500' /> Computer System and Architecture / (CSA)
               </li>
             </ul>
+            <div className='text-sm mt-2 leading-6 w-full text-crimson'>
+            Today, Lycée Saint Alexandre Sauli Muhura serves 657 students, fostering job readiness and reducing unemployment in the community. The school officially received accreditation in 2010, marking a milestone in its mission to provide quality education aligned with the Barnabite Fathers’ values.
+            </div>
             <button style={{ backgroundColor: 'brown', color: 'white' }} className='px-5 py-2 border border-gray-300 rounded-md text-sm'>
               More News &rarr;
             </button>
