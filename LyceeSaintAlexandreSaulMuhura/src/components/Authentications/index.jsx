@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Menu, LogOut, ChevronDown } from 'lucide-react';
+import { Menu, LogOut, ChevronDown, Bell } from 'lucide-react';
 import logo from '../assets/images/logo-black.png';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
   const [isNavExpanded, setIsNavExpanded] = useState(true);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(5);
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -34,7 +35,7 @@ const DashboardLayout = () => {
       />
 
       {/* Top Navigation */}
-      <div className={`bg-white border-b fixed top-0 w-full h-14 md:h-16 flex items-center justify-between px-2 md:px-4 z-50 transition-all duration-300 ${isNavExpanded ? 'pl-48 md:pl-64' : 'pl-16 md:pl-20'}`}>
+      <div className={`bg-[#cee9fd] border-b fixed top-0 w-full h-14 md:h-16 flex items-center justify-between px-2 md:px-4 z-50 transition-all duration-300 ${isNavExpanded ? 'pl-48 md:pl-64' : 'pl-16 md:pl-20'}`}>
         <div className="flex items-center gap-2 md:gap-4">
           <button
             onClick={() => setIsNavExpanded(!isNavExpanded)}
@@ -51,6 +52,16 @@ const DashboardLayout = () => {
             </svg>
             Switch Account
           </button>
+
+          {/* Notification Icon */}
+          <div className="relative mr-2">
+            <Bell className="w-5 h-5 text-gray-600 hover:text-blue-600 cursor-pointer" />
+            {notificationCount > 0 ? (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                {notificationCount}
+              </span>
+            ) : null}
+          </div>
 
           {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>
@@ -93,12 +104,19 @@ const DashboardLayout = () => {
       <div className={`fixed left-0 top-0 h-full bg-blue-600 text-white transition-all duration-300 ${isNavExpanded ? 'w-48 md:w-64' : 'w-16 md:w-20'} pt-14 md:pt-16`}>
         <div className="flex flex-col space-y-1 p-2 md:p-3">
           {[
-            { id: 'dashboard', label: 'Dashboard', icon: '🏛️' }, 
-            { id: 'about', label: 'About', icon: 'ℹ️' }, 
-            { id: 'staff', label: 'Staff', icon: '👥' }, 
-            { id: 'babyeyi', label: 'Babyeyi', icon: '🧒' }, 
-            { id: 'comments', label: 'Comments', icon: '💬' }, 
-            { id: 'gallery', label: 'Gallery', icon: '🖼️' }, 
+            { id: 'student', label: 'List of Students', icon: '🎓' }, // A graduation cap represents students.
+            { id: 'home', label: 'Home', icon: '🏠' }, // A house represents the home page.
+            { id: 'about', label: 'About', icon: 'ℹ️' }, // Information symbol fits the "About" section.
+            { id: 'staff', label: 'Staff', icon: '👩‍🏫' }, // Teacher or staff member emoji.
+            { id: 'babyeyi', label: 'Babyeyi', icon: '🧒' }, // Represents children.
+            { id: 'comments', label: 'Comments', icon: '💬' }, // Speech bubble for comments.
+            { id: 'gallery', label: 'Gallery', icon: '📸' },
+            { id: 'header', label: 'Header', icon: '🔝' }, // Top arrow represents a header.
+            { id: 'footer', label: 'Footer', icon: '🔽' }, // Down arrow for footer.
+            { id: 'contact', label: 'Contact', icon: '📞' }, // Telephone for contact.
+            { id: 'newsEvents', label: 'News & Events', icon: '📰' }, // Newspaper for news.
+            { id: 'whyLyce', label: 'Why Lycee', icon: '❓' },
+            { id: 'logout', label: 'Logout', icon: '⛔' }
           ].map((item) => (
             <button
               key={item.id}
@@ -127,17 +145,51 @@ const DashboardLayout = () => {
 
       {/* Main Content Area - Responsive padding and spacing */}
       <div className={`mt-14 md:mt-16 transition-all duration-300 relative z-10 ${isNavExpanded ? 'ml-48 md:ml-64' : 'ml-16 md:ml-20'} p-3 md:p-6`}>
-        {activeMenu === 'integration' && (
+        {activeMenu === 'about' && (
           <div className="bg-white rounded-lg shadow p-3 md:p-6">
-            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Searchs/Filter Integration data</h2>
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Update/ Current Information</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10 justify-items-center"> {/* Center items in the grid */}
+              <div className="space-y-1 md:space-y-2">
+                <label className="block text-xs md:text-sm text-black font-bold">Vision and Values</label>
+                <input
+    type="text"
+    className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+    placeholder="Vision and Values"
+  />
+</div>
+<div className="space-y-1 md:space-y-2 ml-[30px]">
+<label className="block text-xs md:text-sm text-black font-bold">History & Location</label>
+  <input
+    type="text"
+    className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+    placeholder="History & Location"
+  />
+              </div>
+            </div>
+            <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
+            <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
+                Clear Filter
+              </button>
+              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg">
+                Update
+              </button>
+
+            </div>
+          </div>
+        )}
+
+
+        {activeMenu === '' && (
+          <div className="bg-white rounded-lg shadow p-3 md:p-6">
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Update/ Current Information</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">Application number</label>
-                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="Application Number" />
+                <label className="block text-xs md:text-sm text-gray-600">Vision and Values</label>
+                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="Vision and Values" />
               </div>
               <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">Bill Reference Number</label>
-                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="BRN" />
+                <label className="block text-xs md:text-sm text-gray-600">History & Location</label>
+                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="History & Location" />
               </div>
               <div className="space-y-1 md:space-y-2">
                 <label className="block text-xs md:text-sm text-gray-600">Payment status</label>
@@ -167,7 +219,7 @@ const DashboardLayout = () => {
           </div>
         )}
 
-        {activeMenu === 'report' && (
+        {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow">
             <div className="p-3 md:p-4 flex justify-between items-center">
               <h2 className="text-base md:text-lg font-semibold">Data</h2>
