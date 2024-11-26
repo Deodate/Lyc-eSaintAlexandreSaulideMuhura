@@ -1,6 +1,6 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, LogOut, ChevronDown } from 'lucide-react';
+import logo from '../assets/images/logo-black.png';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -20,14 +20,24 @@ const DashboardLayout = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Rest of the component remains the same until the profile section
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-screen flex flex-col relative">
+      {/* Background Logo */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat bg-center z-0 flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${logo})`,
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.4,
+        }}
+      />
+
       {/* Top Navigation */}
       <div className={`bg-white border-b fixed top-0 w-full h-14 md:h-16 flex items-center justify-between px-2 md:px-4 z-50 transition-all duration-300 ${isNavExpanded ? 'pl-48 md:pl-64' : 'pl-16 md:pl-20'}`}>
         <div className="flex items-center gap-2 md:gap-4">
-          <button 
-            onClick={() => setIsNavExpanded(!isNavExpanded)} 
+          <button
+            onClick={() => setIsNavExpanded(!isNavExpanded)}
             className="p-1.5 md:p-2 hover:bg-gray-100 rounded-lg transition-all"
           >
             <Menu className="w-5 h-5 md:w-6 md:h-6" />
@@ -41,10 +51,10 @@ const DashboardLayout = () => {
             </svg>
             Switch Account
           </button>
-          
+
           {/* Profile Dropdown */}
           <div className="relative" ref={dropdownRef}>
-            <button 
+            <button
               onClick={() => setIsProfileOpen(!isProfileOpen)}
               className="flex items-center gap-2 hover:bg-gray-50 rounded-lg px-2 py-1 transition-colors"
             >
@@ -63,7 +73,7 @@ const DashboardLayout = () => {
             {/* Dropdown Menu */}
             {isProfileOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50 border">
-                <button 
+                <button
                   onClick={() => {
                     // Add logout logic here
                     setIsProfileOpen(false);
@@ -83,12 +93,12 @@ const DashboardLayout = () => {
       <div className={`fixed left-0 top-0 h-full bg-blue-600 text-white transition-all duration-300 ${isNavExpanded ? 'w-48 md:w-64' : 'w-16 md:w-20'} pt-14 md:pt-16`}>
         <div className="flex flex-col space-y-1 p-2 md:p-3">
           {[
-            { id: 'dashboard', label: 'Dashboard', icon: '🏛️' },
-            { id: 'about', label: 'About', icon: '🔄' },
-            { id: 'staff', label: 'Staff', icon: '📊' },
-            { id: 'babyeyi', label: 'Babyeyi', icon: '📊' },
-            { id: 'comments', label: 'Comments', icon: '📊' },
-            { id: 'gallery', label: 'Gallery', icon: '📊' }
+            { id: 'dashboard', label: 'Dashboard', icon: '🏛️' }, 
+            { id: 'about', label: 'About', icon: 'ℹ️' }, 
+            { id: 'staff', label: 'Staff', icon: '👥' }, 
+            { id: 'babyeyi', label: 'Babyeyi', icon: '🧒' }, 
+            { id: 'comments', label: 'Comments', icon: '💬' }, 
+            { id: 'gallery', label: 'Gallery', icon: '🖼️' }, 
           ].map((item) => (
             <button
               key={item.id}
@@ -116,10 +126,10 @@ const DashboardLayout = () => {
       </div>
 
       {/* Main Content Area - Responsive padding and spacing */}
-      <div className={`mt-14 md:mt-16 transition-all duration-300 ${isNavExpanded ? 'ml-48 md:ml-64' : 'ml-16 md:ml-20'} p-3 md:p-6`}>
+      <div className={`mt-14 md:mt-16 transition-all duration-300 relative z-10 ${isNavExpanded ? 'ml-48 md:ml-64' : 'ml-16 md:ml-20'} p-3 md:p-6`}>
         {activeMenu === 'integration' && (
           <div className="bg-white rounded-lg shadow p-3 md:p-6">
-            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Search/Filter Integration data</h2>
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Searchs/Filter Integration data</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
               <div className="space-y-1 md:space-y-2">
                 <label className="block text-xs md:text-sm text-gray-600">Application number</label>
@@ -213,4 +223,3 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
-
