@@ -50,7 +50,7 @@ const DashboardLayout = () => {
           >
             <Menu className="w-5 h-5 md:w-6 md:h-6" />
           </button>
-          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADMINs DASHBOARD</span>
+          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADMIN DASHBOARD</span>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <button className="flex items-center text-xs md:text-sm text-blue-600">
