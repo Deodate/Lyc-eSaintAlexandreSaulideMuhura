@@ -85,7 +85,7 @@ const StaffManagement = () => {
         <div>
             {/* Staff Form */}
             <div className="bg-white rounded-lg shadow p-3 md:p-6">
-                <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
+                <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff dManagement</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                     <div className="space-y-1 md:space-y-2">
                         <label className="block text-xs md:text-sm text-black font-bold">Full Name</label>
@@ -199,7 +199,6 @@ const StaffManagement = () => {
                                     <th className="p-2 md:p-4 text-left text-black">Photo</th>
                                     <th className="p-2 md:p-4 text-left text-black">Date Saved</th>
                                     <th className="p-2 md:p-4 text-left text-black">Actions</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -210,38 +209,25 @@ const StaffManagement = () => {
                                         <td className="p-2 md:p-4">{staff.phoneNumber}</td>
                                         <td className="p-2 md:p-4">{staff.emailAddress}</td>
                                         <td className="p-2 md:p-4">{staff.position}</td>
-                                        <td className="p-2 md:p-4">{staff.teacherOption || 'N/A'}</td>
+                                        <td className="p-2 md:p-4">{staff.teacherOption || '-'}</td>
                                         <td className="p-2 md:p-4">
                                             {staff.photo ? (
                                                 <img
                                                     src={URL.createObjectURL(staff.photo)}
-                                                    alt={`${staff.staffName}'s photo`}
-                                                    className="w-12 h-12 rounded-full object-cover"
+                                                    alt="Staff"
+                                                    className="w-10 h-10 rounded-full"
                                                 />
                                             ) : (
-                                                <span>No Photo</span>
+                                                '-'
                                             )}
-
                                         </td>
                                         <td className="p-2 md:p-4">{staff.dateSaved}</td>
-                                        <td className="p-2 md:p-4 flex space-x-3">
+                                        <td className="p-2 md:p-4">
                                             <button
-                                                className="text-red-600 hover:text-red-800"
-                                                onClick={() => {
-                                                    const updatedStaffData = staffData.filter(item => item.id !== staff.id);
-                                                    setStaffData(updatedStaffData);
-                                                }}
+                                                className="text-sm text-blue-500 hover:text-blue-700"
+                                                onClick={() => alert('Edit functionality coming soon')}
                                             >
-                                                <i className="fas fa-trash-alt"></i>
-                                            </button>
-                                            <button
-                                                className="text-blue-600 hover:text-blue-800"
-                                                onClick={() => {
-                                                    alert(`Update ${staff.staffName}`);
-                                                    // Implement your update logic here
-                                                }}
-                                            >
-                                                <i className="fas fa-edit"></i>
+                                                Edit
                                             </button>
                                         </td>
                                     </tr>
