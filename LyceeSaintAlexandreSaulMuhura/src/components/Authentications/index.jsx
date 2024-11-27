@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Menu, LogOut, ChevronDown, Bell } from 'lucide-react';
 import logo from '../assets/images/logo-black.png';
+import StaffManagement from './StaffManagement';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -61,8 +62,8 @@ const DashboardLayout = () => {
 
           {/* Notification Icon */}
           <div className="relative mr-2">
-            <Bell 
-              className="w-5 h-5 text-gray-600 hover:text-blue-600 cursor-pointer" 
+            <Bell
+              className="w-5 h-5 text-gray-600 hover:text-blue-600 cursor-pointer"
               onClick={updateNotifications}  // Added click handler
             />
             {notificationCount > 0 ? (
@@ -187,52 +188,7 @@ const DashboardLayout = () => {
         )}
 
         {activeMenu === 'staff' && (
-          <div className="bg-white rounded-lg shadow p-3 md:p-6">
-            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10">
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-black font-bold">Staff Name</label>
-                <input
-                  type="text"
-                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                  placeholder="Enter Staff Name"
-                />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-black font-bold">Position</label>
-                <input
-                  type="text"
-                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                  placeholder="Enter Position"
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10 mt-4">
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-black font-bold">Contact Information</label>
-                <input
-                  type="text"
-                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                  placeholder="Enter Contact Info"
-                />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-black font-bold">Employment Date</label>
-                <input
-                  type="date"
-                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                />
-              </div>
-            </div>
-            <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
-                Clear
-              </button>
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg">
-                Save
-              </button>
-            </div>
-          </div>
+          <StaffManagement />
         )}
 
         {activeMenu === '' && (
