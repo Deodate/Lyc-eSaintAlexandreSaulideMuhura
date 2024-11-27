@@ -21,6 +21,12 @@ const DashboardLayout = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Example function to demonstrate use of setNotificationCount
+  const updateNotifications = () => {
+    // Simulate updating notification count, e.g., after reading notifications
+    setNotificationCount(prevCount => Math.max(0, prevCount - 1));
+  };
+
   return (
     <div className="h-screen flex flex-col relative">
       {/* Background Logo */}
@@ -43,19 +49,22 @@ const DashboardLayout = () => {
           >
             <Menu className="w-5 h-5 md:w-6 md:h-6" />
           </button>
-          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADMIN DASHBOARD</span>
+          <span className="text-sm md:text-base lg:text-xl font-normal text-gray-700">ADMINs DASHBOARD</span>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <button className="flex items-center text-xs md:text-sm text-blue-600">
             <svg className="w-4 h-4 md:w-5 md:h-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
             </svg>
-            Switch Account
+            Students List
           </button>
 
           {/* Notification Icon */}
           <div className="relative mr-2">
-            <Bell className="w-5 h-5 text-gray-600 hover:text-blue-600 cursor-pointer" />
+            <Bell 
+              className="w-5 h-5 text-gray-600 hover:text-blue-600 cursor-pointer" 
+              onClick={updateNotifications}  // Added click handler
+            />
             {notificationCount > 0 ? (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 {notificationCount}
@@ -104,7 +113,6 @@ const DashboardLayout = () => {
       <div className={`fixed left-0 top-0 h-full bg-blue-600 text-white transition-all duration-300 ${isNavExpanded ? 'w-48 md:w-64' : 'w-16 md:w-20'} pt-14 md:pt-16`}>
         <div className="flex flex-col space-y-1 p-2 md:p-3">
           {[
-            { id: 'student', label: 'List of Students', icon: '🎓' }, // A graduation cap represents students.
             { id: 'home', label: 'Home', icon: '🏠' }, // A house represents the home page.
             { id: 'about', label: 'About', icon: 'ℹ️' }, // Information symbol fits the "About" section.
             { id: 'staff', label: 'Staff', icon: '👩‍🏫' }, // Teacher or staff member emoji.
@@ -152,22 +160,22 @@ const DashboardLayout = () => {
               <div className="space-y-1 md:space-y-2">
                 <label className="block text-xs md:text-sm text-black font-bold">Vision and Values</label>
                 <input
-    type="text"
-    className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-    placeholder="Vision and Values"
-  />
-</div>
-<div className="space-y-1 md:space-y-2 ml-[30px]">
-<label className="block text-xs md:text-sm text-black font-bold">History & Location</label>
-  <input
-    type="text"
-    className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-    placeholder="History & Location"
-  />
+                  type="text"
+                  className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                  placeholder="Vision and Values"
+                />
+              </div>
+              <div className="space-y-1 md:space-y-2 ml-[30px]">
+                <label className="block text-xs md:text-sm text-black font-bold">History & Location</label>
+                <input
+                  type="text"
+                  className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                  placeholder="History & Location"
+                />
               </div>
             </div>
             <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
-            <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
+              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
                 Clear Filter
               </button>
               <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg">
@@ -178,6 +186,54 @@ const DashboardLayout = () => {
           </div>
         )}
 
+        {activeMenu === 'staff' && (
+          <div className="bg-white rounded-lg shadow p-3 md:p-6">
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10">
+              <div className="space-y-1 md:space-y-2">
+                <label className="block text-xs md:text-sm text-black font-bold">Staff Name</label>
+                <input
+                  type="text"
+                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                  placeholder="Enter Staff Name"
+                />
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <label className="block text-xs md:text-sm text-black font-bold">Position</label>
+                <input
+                  type="text"
+                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                  placeholder="Enter Position"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10 mt-4">
+              <div className="space-y-1 md:space-y-2">
+                <label className="block text-xs md:text-sm text-black font-bold">Contact Information</label>
+                <input
+                  type="text"
+                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                  placeholder="Enter Contact Info"
+                />
+              </div>
+              <div className="space-y-1 md:space-y-2">
+                <label className="block text-xs md:text-sm text-black font-bold">Employment Date</label>
+                <input
+                  type="date"
+                  className="w-[37vw] h-[5vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
+                />
+              </div>
+            </div>
+            <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
+              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
+                Clear
+              </button>
+              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg">
+                Save
+              </button>
+            </div>
+          </div>
+        )}
 
         {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow p-3 md:p-6">
