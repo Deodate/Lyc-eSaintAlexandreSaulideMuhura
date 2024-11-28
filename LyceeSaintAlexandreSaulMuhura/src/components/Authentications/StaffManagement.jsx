@@ -4,6 +4,7 @@ import "@ag-grid-community/styles/ag-grid.css";
 import "@ag-grid-community/styles/ag-theme-quartz.css";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
 import { ModuleRegistry } from "@ag-grid-community/core";
+import './index.css';
 
 // Register AG Grid Modules
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
@@ -17,12 +18,12 @@ const StaffManagement = () => {
     const [teacherOption, setTeacherOption] = useState("");
     const [staffData, setStaffData] = useState([]);
     
-
+    
     useEffect(() => {
         const sampleStaffData = [
             {
                 id: 1,
-                staffName: "John Doe",
+                staffName: "Kigali Paul",
                 phoneNumber: "+250 788 123 456",
                 emailAddress: "johndoe@example.com",
                 position: "Teacher",
@@ -31,6 +32,24 @@ const StaffManagement = () => {
             },
             {
                 id: 2,
+                staffName: "Jane Smith",
+                phoneNumber: "+250 788 654 321",
+                emailAddress: "janesmith@example.com",
+                position: "Head Master",
+                teacherOption: null,
+                dateSaved: "2024-11-26 09:30 AM",
+            },
+            {
+                id: 3,
+                staffName: "Kamana Isae",
+                phoneNumber: "+250 788 654 321",
+                emailAddress: "kemmy@example.com",
+                position: "Teacher",
+                teacherOption: null,
+                dateSaved: "2024-11-26 09:30 AM",
+            },
+            {
+                id: 4,
                 staffName: "Jane Smith",
                 phoneNumber: "+250 788 654 321",
                 emailAddress: "janesmith@example.com",
@@ -72,19 +91,22 @@ const columnDefs = useMemo(() => [
         headerCheckboxSelection: true, // Checkbox in the header
         checkboxSelection: true,       // Checkbox for each row
         headerName: "",                // No header title for the checkbox column
-        width: 50,                     // Set the column width
+        width: 20,                     // Set the column width to 20px (not 50px)
+        maxWidth: 40,                  // Ensure the maxWidth also limits the size
+        minWidth: 40, 
     },
-    { headerName: "Name", field: "staffName", sortable: true, filter: true },
-    { headerName: "Phone", field: "phoneNumber", sortable: true, filter: true },
-    { headerName: "Email", field: "emailAddress", sortable: true, filter: true },
-    { headerName: "Position", field: "position", sortable: true, filter: true },
+    { headerName: "Name", field: "staffName", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Phone", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Email", field: "emailAddress", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Position", field: "position", sortable: true, filter: true, floatingFilter: true },
     {
         headerName: "Teacher Option",
         field: "teacherOption",
         sortable: true,
         filter: true,
+        floatingFilter: true,
     },
-    { headerName: "Date Saved", field: "dateSaved", sortable: true, filter: true },
+    { headerName: "Date Saved", field: "dateSaved", sortable: true, filter: true, floatingFilter: true },
 ], []);
 
 // Define defaultColDef separately with useMemo
@@ -95,12 +117,14 @@ const defaultColDef = useMemo(() => ({
     resizable: true,
 }), []);
 
+// AG Grid Pagination settings
+const paginationPageSize = 3;
 
     return (
         <div>
             {/* Staff Form */}
             <div className="bg-white rounded-lg shadow p-3 md:p-6">
-                <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff dManagement</h2>
+                <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                     <div className="space-y-1 md:space-y-2">
                         <label className="block text-xs md:text-sm text-black font-bold">Full Name</label>
@@ -158,7 +182,6 @@ const defaultColDef = useMemo(() => ({
                             <option value="Matron">Matron</option>
                             <option value="Patron">Patron</option>
                         </select>
-
                     </div>
 
                     {position === 'Teacher' && (
@@ -199,6 +222,8 @@ const defaultColDef = useMemo(() => ({
                     rowData={staffData}
                     columnDefs={columnDefs}
                     defaultColDef={defaultColDef}
+                    pagination={true}
+                    paginationPageSize={paginationPageSize}
                     domLayout="autoHeight"
                 />
             </div>

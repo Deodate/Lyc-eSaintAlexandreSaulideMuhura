@@ -1,0 +1,10 @@
+/* custom-styles.css */
+.ag-theme-quartz {
+    --ag-background-color: #f1f7ff; /* Set the desired background color */
+    --ag-header-background-color: #e5edfb; /* Set the desired header background color */
+    --ag-border-color: #cbd5e0; /* Set the desired border color */
+    --ag-odd-row-background-color: #f5f7fa; /* Set the desired odd row background color */
+    --ag-even-row-background-color: #e2e8f0; /* Set the desired even row background color */
+    --ag-selected-row-background-color: #c6d2e6; /* Set the desired selected row background color */
+    --ag-foreground-color: #030303; /* Set the desired text color */
+  }
