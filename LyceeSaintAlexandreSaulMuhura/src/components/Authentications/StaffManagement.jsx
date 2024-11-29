@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { AgGridReact } from "@ag-grid-community/react";
+import { Pencil, Trash2 } from 'lucide-react';
 import "@ag-grid-community/styles/ag-grid.css";
 import "@ag-grid-community/styles/ag-theme-quartz.css";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
@@ -17,7 +18,22 @@ const StaffManagement = () => {
     const [position, setPosition] = useState("SELECT");
     const [teacherOption, setTeacherOption] = useState("");
     const [staffData, setStaffData] = useState([]);
+
+    const handleUpdate = (data) => {
+        setStaffName(data.staffName);
+        setPhoneNumber(data.phoneNumber);
+        setEmailAddress(data.emailAddress);
+        setPosition(data.position);
+        setTeacherOption(data.teacherOption || "");
+        alert(`You are updating the record of ${data.staffName}`);
+    };
     
+    
+    const handleDelete = useCallback((id) => {
+        const updatedStaffData = staffData.filter((staff) => staff.id !== id);
+        setStaffData(updatedStaffData);
+        alert("Staff data deleted successfully!");
+    }, [staffData]);
     
     useEffect(() => {
         const sampleStaffData = [
@@ -28,7 +44,7 @@ const StaffManagement = () => {
                 emailAddress: "johndoe@example.com",
                 position: "Teacher",
                 teacherOption: "ICT",
-                dateSaved: "2024-11-27 10:00 AM",
+               
             },
             {
                 id: 2,
@@ -37,7 +53,7 @@ const StaffManagement = () => {
                 emailAddress: "janesmith@example.com",
                 position: "Head Master",
                 teacherOption: null,
-                dateSaved: "2024-11-26 09:30 AM",
+              
             },
             {
                 id: 3,
@@ -46,7 +62,7 @@ const StaffManagement = () => {
                 emailAddress: "kemmy@example.com",
                 position: "Teacher",
                 teacherOption: null,
-                dateSaved: "2024-11-26 09:30 AM",
+              
             },
             {
                 id: 4,
@@ -55,7 +71,7 @@ const StaffManagement = () => {
                 emailAddress: "janesmith@example.com",
                 position: "Head Master",
                 teacherOption: null,
-                dateSaved: "2024-11-26 09:30 AM",
+               
             },
         ];
         setStaffData(sampleStaffData);
@@ -86,14 +102,14 @@ const StaffManagement = () => {
     };
 
    // Define columnDefs with useMemo
-const columnDefs = useMemo(() => [
+   const columnDefs = useMemo(() => [
     {
-        headerCheckboxSelection: true, // Checkbox in the header
-        checkboxSelection: true,       // Checkbox for each row
-        headerName: "",                // No header title for the checkbox column
-        width: 20,                     // Set the column width to 20px (not 50px)
-        maxWidth: 40,                  // Ensure the maxWidth also limits the size
-        minWidth: 40, 
+        headerCheckboxSelection: true,
+        checkboxSelection: true,
+        headerName: "",
+        width: 20,
+        maxWidth: 40,
+        minWidth: 40,
     },
     { headerName: "Name", field: "staffName", sortable: true, filter: true, floatingFilter: true },
     { headerName: "Phone", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
@@ -106,8 +122,30 @@ const columnDefs = useMemo(() => [
         filter: true,
         floatingFilter: true,
     },
-    { headerName: "Date Saved", field: "dateSaved", sortable: true, filter: true, floatingFilter: true },
-], []);
+    {
+        headerName: "Action",
+        field: "action",
+        cellRendererFramework: (params) => (
+            <div className="flex space-x-2 justify-center items-center">
+                {/* Update Icon */}
+                <Pencil
+                    className="text-blue-600 hover:text-blue-800 cursor-pointer"
+                    size={20}
+                    onClick={() => handleUpdate(params.data)}
+                />
+                {/* Delete Icon */}
+                <Trash2
+                    className="text-red-600 hover:text-red-800 cursor-pointer"
+                    size={20}
+                    onClick={() => handleDelete(params.data.id)}
+                />
+            </div>
+        ),
+        sortable: false,
+        filter: false,
+    },
+], [handleDelete]);
+
 
 // Define defaultColDef separately with useMemo
 const defaultColDef = useMemo(() => ({
