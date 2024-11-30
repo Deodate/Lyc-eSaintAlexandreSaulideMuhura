@@ -18,6 +18,9 @@ const StaffManagement = () => {
     const [position, setPosition] = useState("SELECT");
     const [teacherOption, setTeacherOption] = useState("");
     const [staffData, setStaffData] = useState([]);
+    
+    // State to track selected rows
+    const [selectedRows, setSelectedRows] = useState([]);
 
     const handleUpdate = (data) => {
         setStaffName(data.staffName);
@@ -28,6 +31,21 @@ const StaffManagement = () => {
         alert(`You are updating the record of ${data.staffName}`);
     };
     
+    // Bulk delete function for selected rows
+    const handleBulkDelete = useCallback(() => {
+        if (selectedRows.length === 0) {
+            alert("No rows selected for deletion");
+            return;
+        }
+
+        const updatedStaffData = staffData.filter(
+            (staff) => !selectedRows.some((selectedStaff) => selectedStaff.id === staff.id)
+        );
+        
+        setStaffData(updatedStaffData);
+        setSelectedRows([]); // Clear selection after delete
+        alert(`Deleted ${selectedRows.length} staff record(s) successfully!`);
+    }, [staffData, selectedRows]);
     
     const handleDelete = useCallback((id) => {
         const updatedStaffData = staffData.filter((staff) => staff.id !== id);
@@ -44,7 +62,6 @@ const StaffManagement = () => {
                 emailAddress: "johndoe@example.com",
                 position: "Teacher",
                 teacherOption: "ICT",
-               
             },
             {
                 id: 2,
@@ -53,7 +70,6 @@ const StaffManagement = () => {
                 emailAddress: "janesmith@example.com",
                 position: "Head Master",
                 teacherOption: null,
-              
             },
             {
                 id: 3,
@@ -62,7 +78,6 @@ const StaffManagement = () => {
                 emailAddress: "kemmy@example.com",
                 position: "Teacher",
                 teacherOption: null,
-              
             },
             {
                 id: 4,
@@ -71,7 +86,6 @@ const StaffManagement = () => {
                 emailAddress: "janesmith@example.com",
                 position: "Head Master",
                 teacherOption: null,
-               
             },
         ];
         setStaffData(sampleStaffData);
@@ -148,7 +162,6 @@ const StaffManagement = () => {
     },
 ], [handleDelete]);
 
-
 // Define defaultColDef separately with useMemo
 const defaultColDef = useMemo(() => ({
     flex: 1,
@@ -162,6 +175,19 @@ const paginationPageSize = 3;
 
     return (
         <div>
+            {/* Bulk Delete Button */}
+            {selectedRows.length > 0 && (
+                <div className="mb-4 flex justify-end">
+                    <button
+                        className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-white bg-red-600 hover:bg-red-700 rounded-lg flex items-center space-x-2"
+                        onClick={handleBulkDelete}
+                    >
+                        <Trash2 size={16} />
+                        <span>Delete {selectedRows.length} Selected</span>
+                    </button>
+                </div>
+            )}
+
             {/* Staff Form */}
             <div className="bg-white rounded-lg shadow p-3 md:p-6">
                 <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
@@ -214,7 +240,7 @@ const paginationPageSize = 3;
                         <select
                             className="w-full p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm text-black"
                             value={position}
-                            onChange={(e) => setPosition(e.target.value)} // Correct handler
+                            onChange={(e) => setPosition(e.target.value)}
                         >
                             <option value="SELECT">SELECT</option>
                             <option value="Teacher">Teacher</option>
@@ -251,7 +277,7 @@ const paginationPageSize = 3;
                         className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg"
                         onClick={handleSave}
                     >
-                        Save
+                        Submit
                     </button>
                 </div>
             </div>
@@ -265,6 +291,12 @@ const paginationPageSize = 3;
                     pagination={true}
                     paginationPageSize={paginationPageSize}
                     domLayout="autoHeight"
+                    rowSelection="multiple"
+                    onSelectionChanged={(params) => {
+                        const selectedNodes = params.api.getSelectedNodes();
+                        const selectedData = selectedNodes.map((node) => node.data);
+                        setSelectedRows(selectedData);
+                    }}
                 />
             </div>
         </div>
