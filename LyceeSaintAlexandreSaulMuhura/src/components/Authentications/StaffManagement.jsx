@@ -141,26 +141,22 @@ const StaffManagement = () => {
         field: "action",
         cellRendererFramework: (params) => (
             <div className="flex space-x-2 justify-center items-center">
-                {/* Update Icon */}
                 <Pencil
-                    color="#2563eb"  // Tailwind blue-600
-                    className="hover:text-blue-800 cursor-pointer"
+                    className="hover:scale-110 cursor-pointer"
                     size={20}
+                    color="#2563eb"
                     onClick={() => handleUpdate(params.data)}
                 />
-                {/* Delete Icon */}
                 <Trash2
-                    color="#dc2626"  // Tailwind red-600
-                    className="hover:text-red-800 cursor-pointer"
+                    className="hover:scale-110 cursor-pointer"
                     size={20}
+                    color="#dc2626"
                     onClick={() => handleDelete(params.data.id)}
                 />
             </div>
         ),
-        sortable: false,
-        filter: false,
     },
-], [handleDelete]);
+],  [handleDelete]);
 
 // Define defaultColDef separately with useMemo
 const defaultColDef = useMemo(() => ({
