@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { AgGridReact } from "@ag-grid-community/react";
-import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import {FaTrash} from 'react-icons/fa';
 import { Trash2 } from 'lucide-react';
 import "@ag-grid-community/styles/ag-grid.css";
 import "@ag-grid-community/styles/ag-theme-quartz.css";
@@ -19,11 +19,10 @@ const StaffManagement = () => {
     const [position, setPosition] = useState("SELECT");
     const [teacherOption, setTeacherOption] = useState("");
     const [staffData, setStaffData] = useState([]);
-
+    
     // State to track selected rows
     const [selectedRows, setSelectedRows] = useState([]);
 
-    // Update staff form with existing data
     const handleUpdate = (data) => {
         setStaffName(data.staffName);
         setPhoneNumber(data.phoneNumber);
@@ -32,8 +31,8 @@ const StaffManagement = () => {
         setTeacherOption(data.teacherOption || "");
         alert(`You are updating the record of ${data.staffName}`);
     };
-
-    // Bulk delete for selected rows
+    
+    // Bulk delete function for selected rows
     const handleBulkDelete = useCallback(() => {
         if (selectedRows.length === 0) {
             alert("No rows selected for deletion");
@@ -43,25 +42,52 @@ const StaffManagement = () => {
         const updatedStaffData = staffData.filter(
             (staff) => !selectedRows.some((selectedStaff) => selectedStaff.id === staff.id)
         );
-
+        
         setStaffData(updatedStaffData);
         setSelectedRows([]); // Clear selection after delete
         alert(`Deleted ${selectedRows.length} staff record(s) successfully!`);
     }, [staffData, selectedRows]);
-
-    // Delete a specific staff record
+    
     const handleDelete = useCallback((id) => {
         const updatedStaffData = staffData.filter((staff) => staff.id !== id);
         setStaffData(updatedStaffData);
         alert("Staff data deleted successfully!");
     }, [staffData]);
-
+    
     useEffect(() => {
         const sampleStaffData = [
-            { id: 1, staffName: "Kigali Paul", phoneNumber: "+250 788 123 456", emailAddress: "johndoe@example.com", position: "Teacher", teacherOption: "ICT" },
-            { id: 2, staffName: "Jane Smith", phoneNumber: "+250 788 654 321", emailAddress: "janesmith@example.com", position: "Head Master", teacherOption: null },
-            { id: 3, staffName: "Kamana Isae", phoneNumber: "+250 788 654 321", emailAddress: "kemmy@example.com", position: "Teacher", teacherOption: null },
-            { id: 4, staffName: "Jane Smith", phoneNumber: "+250 788 654 321", emailAddress: "janesmith@example.com", position: "Head Master", teacherOption: null },
+            {
+                id: 1,
+                staffName: "Kigali Paul",
+                phoneNumber: "+250 788 123 456",
+                emailAddress: "johndoe@example.com",
+                position: "Teacher",
+                teacherOption: "ICT",
+            },
+            {
+                id: 2,
+                staffName: "Jane Smith",
+                phoneNumber: "+250 788 654 321",
+                emailAddress: "janesmith@example.com",
+                position: "Head Master",
+                teacherOption: null,
+            },
+            {
+                id: 3,
+                staffName: "Kamana Isae",
+                phoneNumber: "+250 788 654 321",
+                emailAddress: "kemmy@example.com",
+                position: "Teacher",
+                teacherOption: null,
+            },
+            {
+                id: 4,
+                staffName: "Jane Smith",
+                phoneNumber: "+250 788 654 321",
+                emailAddress: "janesmith@example.com",
+                position: "Head Master",
+                teacherOption: null,
+            },
         ];
         setStaffData(sampleStaffData);
     }, []);
@@ -90,51 +116,65 @@ const StaffManagement = () => {
         setTeacherOption("");
     };
 
-    // AG Grid Column Definitions with useMemo
-    const columnDefs = useMemo(() => [
-        {
-            headerCheckboxSelection: true,
-            checkboxSelection: true,
-            headerName: "",
-            width: 20,
-            maxWidth: 40,
-            minWidth: 40,
-        },
-        { headerName: "Name", field: "staffName", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Phone", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Email", field: "emailAddress", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Position", field: "position", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Teacher Option", field: "teacherOption", sortable: true, filter: true, floatingFilter: true },
-        {
-            headerName: "Action",
-            field: "action",
-            cellRendererFramework: (params) => (
-                <div className="flex space-x-2 justify-center items-center">
-                    <FaBear
-                        className="hover:scale-110 cursor-pointer"
-                        size={20}
-                        color="#2563eb"
-                        onClick={() => handleUpdate(params.data)}
-                    />
-                    <Trash2
-                        className="hover:scale-110 cursor-pointer"
-                        size={20}
-                        color="#dc2626"
-                        onClick={() => handleDelete(params.data.id)}
-                    />
-                </div>
-            ),
-        },
-    ], [handleDelete]);
-
-    const defaultColDef = useMemo(() => ({
-        flex: 1,
-        minWidth: 100,
+   // Define columnDefs with useMemo
+   const columnDefs = useMemo(() => [
+    {
+        headerCheckboxSelection: true,
+        checkboxSelection: true,
+        headerName: "",
+        width: 20,
+        maxWidth: 40,
+        minWidth: 40,
+        headerClass: 'text-center',
+    },
+    
+    { headerName: "Name", field: "staffName", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Phone", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Email", field: "emailAddress", sortable: true, filter: true, floatingFilter: true },
+    { headerName: "Position", field: "position", sortable: true, filter: true, floatingFilter: true },
+    {
+        headerName: "Teacher Option",
+        field: "teacherOption",
+        sortable: true,
         filter: true,
-        resizable: true,
-    }), []);
+        floatingFilter: true,
+        headerClass: 'text-center justify-center',
+    },
+    {
+        headerName: "Action",
+        field: "action",
+        cellRenderer: (params) => {
+            return (
+                <div className="flex space-x-2 justify-center items-center">
+                    <span
+                        className="cursor-pointer text-blue-600"
+                        onClick={() => handleUpdate(params.data)}
+                    >
+                        Update
+                    </span>
+                    <span
+                        className="cursor-pointer text-red-600 mr-2"
+                        onClick={() => handleDelete(params.data.id)}
+                    >
+                        <FaTrash/>
+                    </span>
+                </div>
+            );
+        },
+    },
+    
+], [handleDelete]);
 
-    const paginationPageSize = 3;
+// Define defaultColDef separately with useMemo
+const defaultColDef = useMemo(() => ({
+    flex: 1,
+    minWidth: 100,
+    filter: true,
+    resizable: true,
+}), []);
+
+// AG Grid Pagination settings
+const paginationPageSize = 3;
 
     return (
         <div>
@@ -153,7 +193,7 @@ const StaffManagement = () => {
 
             {/* Staff Form */}
             <div className="bg-white rounded-lg shadow p-3 md:p-6">
-                <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Staff Management</h2>
+            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-black">Staff Management</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                     <div className="space-y-1 md:space-y-2">
                         <label className="block text-xs md:text-sm text-black font-bold">Full Name</label>
@@ -205,45 +245,48 @@ const StaffManagement = () => {
                             value={position}
                             onChange={(e) => setPosition(e.target.value)}
                         >
-                            <option value="SELECT">Select Position</option>
+                            <option value="SELECT">SELECT</option>
                             <option value="Teacher">Teacher</option>
                             <option value="Head Master">Head Master</option>
+                            <option value="Matron">Matron</option>
+                            <option value="Patron">Patron</option>
                         </select>
                     </div>
 
-                    {position === "Teacher" && (
+                    {position === 'Teacher' && (
                         <div className="space-y-1 md:space-y-2">
                             <label className="block text-xs md:text-sm text-black font-bold">Teacher Option</label>
-                            <input
-                                type="text"
+                            <select
                                 className="w-full p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm text-black"
-                                placeholder="Enter Teacher Option"
                                 value={teacherOption}
                                 onChange={(e) => setTeacherOption(e.target.value)}
-                            />
+                            >
+                                <option value="">Select Option</option>
+                                <option value="Account">Account</option>
+                                <option value="ICT">ICT</option>
+                            </select>
                         </div>
                     )}
+                </div>
 
-                    <div className="space-y-1 md:space-y-2 flex flex-col items-start md:items-center justify-between md:flex-row space-x-2 mt-4">
-                        <button
-                            className="w-full md:w-auto bg-blue-500 hover:bg-blue-600 text-white text-xs md:text-sm font-semibold py-2 px-4 rounded-lg"
-                            onClick={handleSave}
-                        >
-                            Save
-                        </button>
-
-                        <button
-                            className="w-full md:w-auto bg-gray-500 hover:bg-gray-600 text-white text-xs md:text-sm font-semibold py-2 px-4 rounded-lg mt-2 md:mt-0"
-                            onClick={handleClear}
-                        >
-                            Clear
-                        </button>
-                    </div>
+                <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
+                    <button
+                        className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg"
+                        onClick={handleClear}
+                    >
+                        Clear
+                    </button>
+                    <button
+                        className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg"
+                        onClick={handleSave}
+                    >
+                        Submit
+                    </button>
                 </div>
             </div>
 
-            {/* AG Grid Table */}
-            <div className="ag-theme-quartz mt-6 rounded-lg shadow">
+            {/* Data Table */}
+            <div className="ag-theme-quartz mt-6" style={{ height: 400 }}>
                 <AgGridReact
                     rowData={staffData}
                     columnDefs={columnDefs}
@@ -252,7 +295,11 @@ const StaffManagement = () => {
                     paginationPageSize={paginationPageSize}
                     domLayout="autoHeight"
                     rowSelection="multiple"
-                    onSelectionChanged={(e) => setSelectedRows(e.api.getSelectedRows())}
+                    onSelectionChanged={(params) => {
+                        const selectedNodes = params.api.getSelectedNodes();
+                        const selectedData = selectedNodes.map((node) => node.data);
+                        setSelectedRows(selectedData);
+                    }}
                 />
             </div>
         </div>
