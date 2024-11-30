@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Menu, LogOut, ChevronDown, Bell } from 'lucide-react';
 import logo from '../assets/images/logo-black.png';
 import StaffManagement from './StaffManagement';
+import BabyeyiLetter from './Babyeyi';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -190,6 +191,10 @@ const DashboardLayout = () => {
         {activeMenu === 'staff' && (
           <StaffManagement />
         )}
+
+{activeMenu === 'babyeyi' && (
+  <BabyeyiLetter />
+)}
 
         {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow p-3 md:p-6">

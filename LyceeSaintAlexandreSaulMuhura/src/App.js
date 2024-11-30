@@ -53,6 +53,14 @@ function App() {
               </Layout>
             }
           />
+           <Route
+            path="/babyeyi"
+            element={
+              <Layout>
+                 <babyeyi />
+              </Layout>
+            }
+          />
           <Route
             path="/blog"
             element={
