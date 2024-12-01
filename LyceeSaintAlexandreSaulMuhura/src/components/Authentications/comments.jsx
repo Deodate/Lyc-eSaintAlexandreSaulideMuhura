@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { AgGridReact } from "@ag-grid-community/react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "@ag-grid-community/styles/ag-grid.css";
 import "@ag-grid-community/styles/ag-theme-quartz.css";
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
@@ -48,14 +50,23 @@ const Comments = () => {
     // Handle status change
     const handleStatusChange = useCallback((id, currentStatus) => {
         const newStatus = currentStatus === "Pending" ? "Publish" :
-                          currentStatus === "Publish" ? "Cancel" :
-                          "Pending"; // Cycle through Pending -> Publish -> Cancel
+            currentStatus === "Publish" ? "Cancel" :
+                "Pending"; // Cycle through Pending -> Publish -> Cancel
+
         const updatedCommentsData = commentsData.map(comment =>
             comment.id === id ? { ...comment, status: newStatus } : comment
         );
+
         setCommentsData(updatedCommentsData);
+
+        // Display notification
+        toast.success(`Status changed to "${newStatus}"`, {
+            position: "top-right",
+            autoClose: 2000,
+        });
     }, [commentsData]);
 
+    // Define columnDefs with useMemo
     // Define columnDefs with useMemo
     const columnDefs = useMemo(() => [
         {
@@ -75,24 +86,23 @@ const Comments = () => {
             headerName: "Status",
             field: "status",
             cellRenderer: (params) => {
-              const status = params.data.status;
-              let statusColor = "bg-blue-600"; // Default color for Pending
-          
-              if (status === "Cancel") statusColor = "bg-red-600";
-              if (status === "Publish") statusColor = "bg-green-600";
-          
-              return (
-                <button
-                  className={`px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-white rounded ${statusColor}`}
-                  onClick={() => handleStatusChange(params.data.id, status)}
-                >
-                  {status}
-                </button>
-              );
+                const status = params.data.status;
+                let statusColor = "bg-blue-600"; // Default color for Pending
+
+                if (status === "Cancel") statusColor = "bg-red-600";
+                if (status === "Publish") statusColor = "bg-green-600";
+
+                return (
+                    <button
+                        className={`px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-white rounded ${statusColor}`}
+                        onClick={() => handleStatusChange(params.data.id, status)}
+                    >
+                        {status}
+                    </button>
+                );
             },
-          }
-                
-    ], [commentsData, handleStatusChange]);
+        },
+    ], [handleStatusChange]);
 
     // Define defaultColDef separately with useMemo
     const defaultColDef = useMemo(() => ({
@@ -138,6 +148,9 @@ const Comments = () => {
                     }}
                 />
             </div>
+
+            {/* Toast Notifications */}
+            <ToastContainer />
         </div>
     );
 };
