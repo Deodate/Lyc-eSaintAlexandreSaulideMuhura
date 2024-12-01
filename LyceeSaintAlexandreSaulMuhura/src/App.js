@@ -62,6 +62,14 @@ function App() {
               </Layout>
             }
           />
+           <Route
+            path="/comments"
+            element={
+              <Layout>
+                 <comments />
+              </Layout>
+            }
+          />
           <Route
             path="/blog"
             element={

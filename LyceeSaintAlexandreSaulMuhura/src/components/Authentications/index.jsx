@@ -3,6 +3,7 @@ import { Menu, LogOut, ChevronDown, Bell } from 'lucide-react';
 import logo from '../assets/images/logo-black.png';
 import StaffManagement from './StaffManagement';
 import BabyeyiLetter from './Babyeyi';
+import Comments from './comments';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -234,6 +235,10 @@ const DashboardLayout = () => {
 
         {activeMenu === 'babyeyi' && (
           <BabyeyiLetter />
+        )}
+
+        {activeMenu === 'comments' && (
+          <Comments />
         )}
 
         {activeMenu === '' && (

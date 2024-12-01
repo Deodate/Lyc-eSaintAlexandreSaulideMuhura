@@ -12,7 +12,19 @@ const BabyeyiLetter = () => {
     if (editorRef.current) {
       const selection = window.getSelection();
       const range = selection.getRangeAt(0);
-      const listElement = document.createElement(type === 'ol' ? 'ol' : 'ul');
+      let listElement;
+
+      if (type === 'ul') {
+        listElement = document.createElement('ul');
+      } else if (type === 'ol') {
+        listElement = document.createElement('ol');
+      } else if (type === 'ol-roman') {
+        listElement = document.createElement('ol');
+        listElement.style.listStyleType = 'lower-roman';
+      } else if (type === 'ol-alpha') {
+        listElement = document.createElement('ol');
+        listElement.style.listStyleType = 'lower-alpha';
+      }
 
       // Create a list item
       const listItem = document.createElement('li');
@@ -63,7 +75,6 @@ const BabyeyiLetter = () => {
       className: "text-black"
     }
   ];
-  
 
   // List style options
   const listStyles = [
@@ -185,7 +196,7 @@ const BabyeyiLetter = () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow p-6">
-     <h2 className="text-lg font-semibold mb-4 text-black">Babyeyi Letter Editor</h2>
+      <h2 className="text-lg font-semibold mb-4 text-black">Babyeyi Letter Editor</h2>
 
       {/* Extended Toolbar */}
       <div className="mb-2 flex items-center space-x-2">
@@ -227,39 +238,32 @@ const BabyeyiLetter = () => {
         style={{
           color: 'black',
           caretColor: 'black',
-          fontFamily: '"Times New Roman", Times, serif', 
-          fontSize: '12px', 
+          fontFamily: '"Times New Roman", Times, serif',
+          fontSize: '12px',
         }}
       ></div>
 
-
       {/* Action Buttons */}
       <div className="flex justify-end space-x-4">
+
+        <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-purple-600 bg-[#d1caf7] hover:bg-[#b4ace2] rounded-lg font-bold" onClick={handleDownloadPDF}>
+          <Download size={18} className="mr-2 inline" />
+          Download PDF
+        </button>
+        <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-green-600 bg-[#d5f4d2] hover:bg-[#aed2ab] rounded-lg font-bold" onClick={handlePrint}>
+          <Printer size={18} className="mr-2 inline" />
+          Prints
+        </button>
         <button
-          className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+          className="px-3 py-2 md:px-4 md:py-2 text-xs md:text-sm text-red-600 hover:bg-[#ff8f8c] rounded-lg"
           onClick={handleClear}
+          style={{ fontSize: '12px', textDecoration: 'underline' }}
         >
           Clear
         </button>
-        <button
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          onClick={handleSave}
-        >
+
+        <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#f0f5ff] hover:bg-[#7bb8e6] rounded-lg font-bold" onClick={handleSave}>
           Submit
-        </button>
-        <button
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-          onClick={handlePrint}
-        >
-          <Printer size={18} className="mr-2 inline" />
-          Print
-        </button>
-        <button
-          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
-          onClick={handleDownloadPDF}
-        >
-          <Download size={18} className="mr-2 inline" />
-          Download PDF
         </button>
       </div>
     </div>
