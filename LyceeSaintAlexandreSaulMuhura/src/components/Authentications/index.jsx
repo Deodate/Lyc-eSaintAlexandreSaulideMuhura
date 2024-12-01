@@ -192,10 +192,6 @@ const DashboardLayout = () => {
           <StaffManagement />
         )}
 
-{activeMenu === 'babyeyi' && (
-  <BabyeyiLetter />
-)}
-
         {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow p-3 md:p-6">
             <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Update/ Current Information</h2>
@@ -234,6 +230,10 @@ const DashboardLayout = () => {
               </button>
             </div>
           </div>
+        )}
+
+        {activeMenu === 'babyeyi' && (
+          <BabyeyiLetter />
         )}
 
         {activeMenu === '' && (

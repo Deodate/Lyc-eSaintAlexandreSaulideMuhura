@@ -7,6 +7,7 @@ import { Courses } from "./pages/WhyLycee";
 import { Blog } from "./pages/NewsEvent";
 import { Instructor } from "./pages/ContactUs";
 import DashboardLayout from "./components/Authentications";
+import BabyeyiLetter from "./components/Authentications/Babyeyi";
 
 function App() {
   return (
@@ -57,7 +58,7 @@ function App() {
             path="/babyeyi"
             element={
               <Layout>
-                 <babyeyi />
+                 <BabyeyiLetter />
               </Layout>
             }
           />
