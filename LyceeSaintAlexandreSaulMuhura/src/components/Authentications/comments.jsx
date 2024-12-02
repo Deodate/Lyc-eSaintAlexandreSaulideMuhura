@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { AgGridReact } from "@ag-grid-community/react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,62 +11,95 @@ import './index.css';
 // Register AG Grid Modules
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
+// Custom toast styles
+const toastStyles = {
+    success: {
+        background: "#d9f6e8", // Green color for success
+        color: "#238c09"
+    },
+    error: {
+        background: "#e1c3c0", // Red color for error
+        color: "#ec190f"
+    },
+    warning: {
+        background: "#bfcafb", // Orange color for warning
+        color: "#0633fc"
+    }
+};
+
 const Comments = () => {
     const [commentsData, setCommentsData] = useState([]);
-
-    // State to track selected rows
     const [selectedRows, setSelectedRows] = useState([]);
+    const gridRef = useRef(null);
 
     useEffect(() => {
         const sampleCommentsData = [
             {
                 id: 1,
-                staffName: "Kigali Paul",
-                phoneNumber: "+250 788 123 456",
-                emailAddress: "johndoe@example.com",
-                position: "Teacher",
+                dateTime: "2024-12-01 08:00 AM",
+                fullName: "Kigali Paul",
+                title: "Teacher",
+                comments: "Comment 1 description goes here.",
                 status: "Pending",
             },
             {
                 id: 2,
-                staffName: "Jane Smith",
-                phoneNumber: "+250 788 654 321",
-                emailAddress: "janesmith@example.com",
-                position: "Head Master",
+                dateTime: "2024-12-01 09:30 AM",
+                fullName: "Jane Smith",
+                title: "Head Master",
+                comments: "Comment 2 description goes here.",
                 status: "Pending",
             },
             {
                 id: 3,
-                staffName: "Kamana Isae",
-                phoneNumber: "+250 788 654 321",
-                emailAddress: "kemmy@example.com",
-                position: "Teacher",
+                dateTime: "2024-12-01 11:00 AM",
+                fullName: "Kamana Isae",
+                title: "Teacher",
+                comments: "Comment 3 description goes here.",
                 status: "Pending",
             },
         ];
         setCommentsData(sampleCommentsData);
     }, []);
 
-    // Handle status change
-    const handleStatusChange = useCallback((id, currentStatus) => {
-        const newStatus = currentStatus === "Pending" ? "Publish" :
-            currentStatus === "Publish" ? "Cancel" :
-                "Pending"; // Cycle through Pending -> Publish -> Cancel
+    // Handle status change with improved notifications
+    const handleStatusChange = useCallback(
+        (id, currentStatus) => {
+            const newStatus =
+                currentStatus === "Pending" ? "Publish" :
+                    currentStatus === "Publish" ? "Cancel" :
+                        "Pending"; // Cycle through Pending -> Publish -> Cancel
 
-        const updatedCommentsData = commentsData.map(comment =>
-            comment.id === id ? { ...comment, status: newStatus } : comment
-        );
+            const updatedCommentsData = commentsData.map(comment =>
+                comment.id === id ? { ...comment, status: newStatus } : comment
+            );
 
-        setCommentsData(updatedCommentsData);
+            setCommentsData(updatedCommentsData);
 
-        // Display notification
-        toast.success(`Status changed to "${newStatus}"`, {
-            position: "top-right",
-            autoClose: 2000,
-        });
-    }, [commentsData]);
+            // Find the updated row and refresh it
+            if (gridRef.current) {
+                const rowNode = gridRef.current.api.getRowNode(id.toString());
+                if (rowNode) {
+                    rowNode.setData({ ...rowNode.data, status: newStatus });
+                }
+            }
 
-    // Define columnDefs with useMemo
+            // Display notification with custom styling
+            toast(
+                `Status changed to "${newStatus}"`, 
+                {
+                    position: "top-right",
+                    autoClose: 2000,
+                    style: newStatus === "Publish" ? toastStyles.success : 
+                           newStatus === "Cancel" ? toastStyles.error : 
+                           toastStyles.warning,
+                    className: 'custom-toast-notification'
+                }
+            );
+        },
+        [commentsData]
+    );
+
     // Define columnDefs with useMemo
     const columnDefs = useMemo(() => [
         {
@@ -78,10 +111,10 @@ const Comments = () => {
             minWidth: 40,
             headerClass: 'text-center',
         },
-        { headerName: "Date & Time", field: "staffName", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Full Name", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Title", field: "emailAddress", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Comment", field: "position", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Date & Time", field: "dateTime", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Full Name", field: "fullName", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Title", field: "title", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Comments", field: "comments", sortable: true, filter: true, floatingFilter: true },
         {
             headerName: "Status",
             field: "status",
@@ -134,6 +167,7 @@ const Comments = () => {
             {/* Data Table */}
             <div className="ag-theme-quartz mt-6" style={{ height: 400 }}>
                 <AgGridReact
+                    ref={gridRef}
                     rowData={commentsData}
                     columnDefs={columnDefs}
                     defaultColDef={defaultColDef}

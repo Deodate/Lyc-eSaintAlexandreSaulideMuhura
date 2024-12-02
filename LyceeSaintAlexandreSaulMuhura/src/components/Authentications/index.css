@@ -1,10 +1,39 @@
 /* custom-styles.css */
 .ag-theme-quartz {
-    --ag-background-color: #f1f7ff; /* Set the desired background color */
-    --ag-header-background-color: #e5edfb; /* Set the desired header background color */
-    --ag-border-color: #cbd5e0; /* Set the desired border color */
-    --ag-odd-row-background-color: #f5f7fa; /* Set the desired odd row background color */
-    --ag-even-row-background-color: #e2e8f0; /* Set the desired even row background color */
-    --ag-selected-row-background-color: #c6d2e6; /* Set the desired selected row background color */
-    --ag-foreground-color: #030303; /* Set the desired text color */
-  }
+  --ag-background-color: #f1f7ff; /* Set the desired background color */
+  --ag-header-background-color: #e5edfb; /* Set the desired header background color */
+  --ag-border-color: #cbd5e0; /* Set the desired border color */
+  --ag-odd-row-background-color: #f5f7fa; /* Set the desired odd row background color */
+  --ag-even-row-background-color: #e2e8f0; /* Set the desired even row background color */
+  --ag-selected-row-background-color: #c6d2e6; /* Set the desired selected row background color */
+  --ag-foreground-color: #030303; /* Set the desired text color */
+}
+
+/* Custom Toast Notification Styles */
+.Toastify__toast.custom-toast-notification {
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-weight: 500; /* Slightly bold text */
+  padding: 4px 16px; /* Reduced padding to decrease height */
+  min-height: 30px; /* Ensures height remains 20px */
+  font-size: 12px; /* Smaller font size */
+}
+
+.Toastify__toast-body {
+  padding: 0; /* Remove extra padding */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  height: 30px; /* Match the desired height */
+}
+
+/* Optional: Style for toast close button */
+.Toastify__close-button {
+  height: 30px; /* Match toast height */
+  margin: 0; /* Reduce margins */
+  line-height: 20px; /* Align text inside button */
+}
+
+/* Position Toast container 50px from the top */
+.Toastify__toast-container {
+  top: 50px !important; /* Apply custom positioning */
+}
