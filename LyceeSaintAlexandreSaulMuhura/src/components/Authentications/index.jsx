@@ -5,6 +5,7 @@ import StaffManagement from './StaffManagement';
 import BabyeyiLetter from './Babyeyi';
 import Comments from './comments';
 import GalleryManagement from './gallery';
+import NewsEventsManagement from './newsEvents';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -243,7 +244,11 @@ const DashboardLayout = () => {
         )}
 
         {activeMenu === 'gallery' && (
-          <GalleryManagement />
+          <GalleryManagement /> 
+        )}
+
+{activeMenu === 'newsEvents' && (
+          <NewsEventsManagement  />
         )}
 
         {activeMenu === '' && (

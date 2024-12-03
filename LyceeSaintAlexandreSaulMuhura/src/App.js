@@ -78,6 +78,14 @@ function App() {
               </Layout>
             }
           />
+           <Route
+            path="/newsEvents"
+            element={
+              <Layout>
+                 <newsEvents />
+              </Layout>
+            }
+          />
           <Route
             path="/blog"
             element={

@@ -11,7 +11,7 @@ export const LinkData = [
   },
   {
     id: 3,
-    title: "Why Lycee",
+    title: "Student Life",
     url: "/courses",
   },
   {
