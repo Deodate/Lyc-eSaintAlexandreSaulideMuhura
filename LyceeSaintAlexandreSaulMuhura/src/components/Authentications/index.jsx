@@ -6,6 +6,8 @@ import BabyeyiLetter from './Babyeyi';
 import Comments from './comments';
 import GalleryManagement from './gallery';
 import NewsEventsManagement from './newsEvents';
+import { Link } from 'react-router-dom';
+import StudentList from './studentsList';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -58,10 +60,12 @@ const DashboardLayout = () => {
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <button className="flex items-center text-xs md:text-sm text-blue-600">
-            <svg className="w-4 h-4 md:w-5 md:h-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-            Students List
+            <Link to="/student-lists" className="flex items-center">
+              <svg className="w-4 h-4 md:w-5 md:h-5 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+              </svg>
+              Student List
+            </Link>
           </button>
 
           {/* Notification Icon */}
@@ -125,7 +129,7 @@ const DashboardLayout = () => {
             { id: 'comments', label: 'Comments', icon: '💬' }, // Speech bubble for comments.
             { id: 'gallery', label: 'Gallery', icon: '📸' },
             { id: 'header', label: 'Header', icon: '🔝' }, // Top arrow represents a header.
-            { id: 'footer', label: 'Footer', icon: '🔽' }, // Down arrow for footer.
+            { id: 'student-lists', label: 'Student List', icon: '🔽' }, // Down arrow for footer.
             { id: 'contact', label: 'Contact', icon: '📞' }, // Telephone for contact.
             { id: 'newsEvents', label: 'News & Events', icon: '📰' }, // Newspaper for news.
             { id: 'StudentLife', label: 'Students Life', icon: '❓' },
@@ -244,11 +248,15 @@ const DashboardLayout = () => {
         )}
 
         {activeMenu === 'gallery' && (
-          <GalleryManagement /> 
+          <GalleryManagement />
         )}
 
-{activeMenu === 'newsEvents' && (
-          <NewsEventsManagement  />
+        {activeMenu === 'newsEvents' && (
+          <NewsEventsManagement />
+        )}
+
+        {activeMenu === 'student-lists' && (
+          <StudentList />
         )}
 
         {activeMenu === '' && (

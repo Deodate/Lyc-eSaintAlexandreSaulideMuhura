@@ -30,6 +30,14 @@ function App() {
               </Layout>
             }
           />
+           <Route
+            path="/student-lists"
+            element={
+              <Layout>
+                <student-lists/>
+              </Layout>
+            }
+          />
           <Route
             path="/courses"
             element={
