@@ -70,6 +70,14 @@ function App() {
               </Layout>
             }
           />
+           <Route
+            path="/gallery"
+            element={
+              <Layout>
+                 <gallery />
+              </Layout>
+            }
+          />
           <Route
             path="/blog"
             element={

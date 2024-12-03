@@ -4,6 +4,7 @@ import logo from '../assets/images/logo-black.png';
 import StaffManagement from './StaffManagement';
 import BabyeyiLetter from './Babyeyi';
 import Comments from './comments';
+import GalleryManagement from './gallery';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -239,6 +240,10 @@ const DashboardLayout = () => {
 
         {activeMenu === 'comments' && (
           <Comments />
+        )}
+
+        {activeMenu === 'gallery' && (
+          <GalleryManagement />
         )}
 
         {activeMenu === '' && (
