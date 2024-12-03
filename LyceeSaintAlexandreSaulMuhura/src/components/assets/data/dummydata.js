@@ -31,6 +31,11 @@ export const LinkData = [
   },
   {
     id: 7,
+    title: "suggestion Box",
+    url: "/ContactUs",
+  },
+  {
+    id: 7,
     title: "contact Us",
     url: "/ContactUs",
   }

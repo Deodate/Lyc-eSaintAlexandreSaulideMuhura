@@ -15,7 +15,7 @@ export const Header = () => {
             <img src={LogoImg} alt='logo' className='h-9' />
             <div className='category flex items-center text-sm gap-3'>
               <HiViewGrid size={20} />
-              <span>Lycee St. Alexandre Saulis</span>
+              <span>Lycee St. Alexandre Sauli</span>
             </div>
           </div>
           <nav className={open ? "mobile-view" : "desktop-view"}>

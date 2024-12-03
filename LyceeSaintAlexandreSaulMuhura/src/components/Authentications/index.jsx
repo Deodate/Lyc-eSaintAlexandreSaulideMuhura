@@ -128,7 +128,7 @@ const DashboardLayout = () => {
             { id: 'footer', label: 'Footer', icon: '🔽' }, // Down arrow for footer.
             { id: 'contact', label: 'Contact', icon: '📞' }, // Telephone for contact.
             { id: 'newsEvents', label: 'News & Events', icon: '📰' }, // Newspaper for news.
-            { id: 'whyLyce', label: 'Why Lycee', icon: '❓' },
+            { id: 'StudentLife', label: 'Students Life', icon: '❓' },
             { id: 'logout', label: 'Logout', icon: '⛔' }
           ].map((item) => (
             <button
