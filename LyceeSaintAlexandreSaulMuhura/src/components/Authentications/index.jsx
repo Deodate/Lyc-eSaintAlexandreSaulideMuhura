@@ -199,46 +199,6 @@ const DashboardLayout = () => {
           <StaffManagement />
         )}
 
-        {activeMenu === '' && (
-          <div className="bg-white rounded-lg shadow p-3 md:p-6">
-            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Update/ Current Information</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">Vision and Values</label>
-                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="Vision and Values" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">History & Location</label>
-                <input type="text" className="w-full p-1.5 md:p-2 border rounded-lg text-sm" placeholder="History & Location" />
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">Payment status</label>
-                <select className="w-full p-1.5 md:p-2 border rounded-lg text-sm">
-                  <option>Select payment status</option>
-                  <option>Paid</option>
-                  <option>Payment pending</option>
-                </select>
-              </div>
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-gray-600">Sent status</label>
-                <select className="w-full p-1.5 md:p-2 border rounded-lg text-sm">
-                  <option>Select sent status</option>
-                  <option>True</option>
-                  <option>False</option>
-                </select>
-              </div>
-            </div>
-            <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 hover:bg-red-50 rounded-lg">
-                Clear Filter
-              </button>
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 hover:bg-blue-50 rounded-lg">
-                Search
-              </button>
-            </div>
-          </div>
-        )}
-
         {activeMenu === 'babyeyi' && (
           <BabyeyiLetter />
         )}
@@ -259,7 +219,7 @@ const DashboardLayout = () => {
           <StudentList />
         )}
 
-        {activeMenu === '' && (
+        {/* {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow">
             <div className="p-3 md:p-4 flex justify-between items-center">
               <h2 className="text-base md:text-lg font-semibold">Data</h2>
@@ -308,7 +268,7 @@ const DashboardLayout = () => {
               </table>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );

@@ -12,24 +12,27 @@ import './index.css';
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 const StudentList = () => {
-    const [staffName, setStaffName] = useState("");
+   
     const [photo, setPhoto] = useState(null);
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [emailAddress, setEmailAddress] = useState("");
+   
     const [position, setPosition] = useState("SELECT");
-    const [teacherOption, setTeacherOption] = useState("");
+  
     const [staffData, setStaffData] = useState([]);
+    const [validationErrors, setValidationErrors] = useState({});
+
 
     // State to track selected rows
     const [selectedRows, setSelectedRows] = useState([]);
 
     const handleUpdate = (data) => {
-        setStaffName(data.staffName);
-        setPhoneNumber(data.phoneNumber);
-        setEmailAddress(data.emailAddress);
-        setPosition(data.position);
-        setTeacherOption(data.teacherOption || "");
+
         alert(`You are updating the record of ${data.staffName}`);
+    };
+    const handleClear = () => {
+        // Reset file input and position state
+        setPhoto(null);
+        setPosition("SELECT");
+        setValidationErrors({});
     };
 
     // Bulk delete function for selected rows
@@ -58,62 +61,64 @@ const StudentList = () => {
         const sampleStaffData = [
             {
                 id: 1,
-                staffName: "Kigali Paul",
-                phoneNumber: "+250 788 123 456",
-                emailAddress: "johndoe@example.com",
-                position: "Teacher",
-                teacherOption: "ICT",
+                fullName: "Kigali Paul",
+                gender: "Male",
+                option: "Network and Internet Technology",
+                dateBirth: "1995-04-25",
+                "acadmic year": "2023 / 2024",
             },
             {
                 id: 2,
-                staffName: "Jane Smith",
-                phoneNumber: "+250 788 654 321",
-                emailAddress: "janesmith@example.com",
-                position: "Head Master",
-                teacherOption: null,
+                fullName: "Jane Smith",
+                gender: "Female",
+                option: "Software Development",
+                dateBirth: "1990-07-15",
+                "acadmic year": "2022 / 2023",
             },
             {
                 id: 3,
-                staffName: "Kamana Isae",
-                phoneNumber: "+250 788 654 321",
-                emailAddress: "kemmy@example.com",
-                position: "Teacher",
-                teacherOption: null,
+                fullName: "Kamana Isaac",
+                gender: "Male",
+                option: "Accounting",
+                dateBirth: "1988-12-05",
+                "acadmic year": "2021 / 2022",
             },
             {
                 id: 4,
-                staffName: "Jane Smith",
-                phoneNumber: "+250 788 654 321",
-                emailAddress: "janesmith@example.com",
-                position: "Head Master",
-                teacherOption: null,
+                fullName: "Nyirahabimana Alice",
+                gender: "Female",
+                option: "Software Development",
+                dateBirth: "2000-09-10",
+                "acadmic year": "2023 / 2024",
             },
         ];
         setStaffData(sampleStaffData);
     }, []);
 
     const handleSave = () => {
-        const newStaff = {
+        const errors = {};
+
+        if (!photo) errors.photo = "Please upload a PDF file.";
+        if (position === "SELECT") errors.position = "Please select an academic year.";
+
+        if (Object.keys(errors).length > 0) {
+            setValidationErrors(errors);
+            return;
+        }
+
+        // Clear errors if all validations pass
+        setValidationErrors({});
+
+        const newEntry = {
             id: staffData.length + 1,
-            staffName,
-            phoneNumber,
-            emailAddress,
-            position,
-            teacherOption: position === "Teacher" ? teacherOption : null,
+            fileName: photo.name,
+            academicYear: position,
             dateSaved: new Date().toLocaleString(),
         };
-        setStaffData([...staffData, newStaff]);
-        alert("Staff data saved successfully!");
-        handleClear();
-    };
 
-    const handleClear = () => {
-        setStaffName("");
-        setPhoto(null);
-        setPhoneNumber("");
-        setEmailAddress("");
-        setPosition("SELECT");
-        setTeacherOption("");
+        setStaffData([...staffData, newEntry]);
+        alert("Form submitted successfully!");
+        handleClear();
     };
 
     // Define columnDefs with useMemo
@@ -127,14 +132,13 @@ const StudentList = () => {
             minWidth: 40,
             headerClass: 'text-center',
         },
-
-        { headerName: "Full Name", field: "staffName", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Gender", field: "phoneNumber", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Option", field: "emailAddress", sortable: true, filter: true, floatingFilter: true },
-        { headerName: "Date of Birth", field: "position", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Full Name", field: "fullName", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Gender", field: "gender", sortable: true, filter: true, floatingFilter: true },
+        { headerName: "Option", field: "option", sortable: true, filter: true, floatingFilter: true },  // Update field name
+        { headerName: "Date of Birth", field: "dateBirth", sortable: true, filter: true, floatingFilter: true }, // Updated field
         {
             headerName: "Academic Year",
-            field: "teacherOption",
+            field: "acadmic year", // This field name is correct as per your data
             sortable: true,
             filter: true,
             floatingFilter: true,
@@ -162,8 +166,8 @@ const StudentList = () => {
                 );
             },
         },
-
     ], [handleDelete]);
+    
 
     // Define defaultColDef separately with useMemo
     const defaultColDef = useMemo(() => ({
@@ -196,46 +200,37 @@ const StudentList = () => {
                 <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-black">All Students Management</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
                     <div className="space-y-1 md:space-y-2">
-                        <label className="block text-xs md:text-sm text-black font-bold">Full Name</label>
+                        <label className="block text-xs md:text-sm text-black font-bold">Upload Students</label>
                         <input
-                            type="text"
+                            type="file"
+                            accept=".pdf"
                             className="w-full p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm text-black"
-                            placeholder="Enter Full Name"
-                            value={staffName}
-                            onChange={(e) => setStaffName(e.target.value)}
+                            onChange={(e) => {
+                                const file = e.target.files[0];
+                                setPhoto(file);
+                                if (file) setValidationErrors((prev) => ({ ...prev, photo: null }));
+                            }}
                         />
+                        {validationErrors.photo && <span className="text-red-600 text-xs">{validationErrors.photo}</span>}
                     </div>
 
-                
                     <div className="space-y-1 md:space-y-2">
-                        <label className="block text-xs md:text-sm text-black font-bold">Position</label>
+                        <label className="block text-xs md:text-sm text-black font-bold">Academic Year</label>
                         <select
                             className="w-full p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm text-black"
                             value={position}
-                            onChange={(e) => setPosition(e.target.value)}
+                            onChange={(e) => {
+                                setPosition(e.target.value);
+                                setValidationErrors((prev) => ({ ...prev, position: null }));
+                            }}
                         >
                             <option value="SELECT">SELECT</option>
-                            <option value="Teacher">Teacher</option>
-                            <option value="Head Master">Head Master</option>
-                            <option value="Matron">Matron</option>
-                            <option value="Patron">Patron</option>
+                            <option value="2023 / 2024">2023 / 2024</option>
+                            <option value="2022 / 2023">2022 / 2023</option>
                         </select>
+                        {validationErrors.position && <span className="text-red-600 text-xs">{validationErrors.position}</span>}
                     </div>
 
-                    {position === 'Teacher' && (
-                        <div className="space-y-1 md:space-y-2">
-                            <label className="block text-xs md:text-sm text-black font-bold">Teacher Option</label>
-                            <select
-                                className="w-full p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm text-black"
-                                value={teacherOption}
-                                onChange={(e) => setTeacherOption(e.target.value)}
-                            >
-                                <option value="">Select Option</option>
-                                <option value="Account">Account</option>
-                                <option value="ICT">ICT</option>
-                            </select>
-                        </div>
-                    )}
                 </div>
 
                 <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
