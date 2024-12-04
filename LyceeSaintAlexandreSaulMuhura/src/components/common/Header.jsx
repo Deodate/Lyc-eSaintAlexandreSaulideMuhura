@@ -61,7 +61,7 @@ export const Header = () => {
             </div>
 
             {/* Sign Up Button */}
-            <Link to="/signup">
+            <Link to="/LoginAuth">
               <DropdownButton />
             </Link>
 

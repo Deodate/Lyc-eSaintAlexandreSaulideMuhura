@@ -10,6 +10,7 @@ import DashboardLayout from "./components/Authentications";
 import BabyeyiLetter from "./components/Authentications/Babyeyi";
 import LoginAuth from "./components/Authentications/login";
 import SignupAuth from "./components/Authentications/signupAuth";
+import ForgetPwdAuth from "./components/Authentications/forgetPwd";
 
 function App() {
   return (
@@ -101,6 +102,22 @@ function App() {
             element={
               <Layout>
                 <SignupAuth />
+              </Layout>
+            }
+          />
+            <Route
+            path="/LoginAuth"
+            element={
+              <Layout>
+                <LoginAuth />
+              </Layout>
+            }
+          />
+           <Route
+            path="/ForgetPwdAuth"
+            element={
+              <Layout>
+                <ForgetPwdAuth />
               </Layout>
             }
           />

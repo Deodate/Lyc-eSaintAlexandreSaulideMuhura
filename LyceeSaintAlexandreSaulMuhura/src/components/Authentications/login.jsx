@@ -103,7 +103,7 @@ const LoginAuth = () => {
                     </div>
                 </form>
                 <div className="links">
-                    <a href="/">Forgot password?</a>
+                    <a href="/ForgetPwdAuth">Forgot password?</a>
                 </div>
                 <div className="social-login">
                     <p>Connect with us </p>

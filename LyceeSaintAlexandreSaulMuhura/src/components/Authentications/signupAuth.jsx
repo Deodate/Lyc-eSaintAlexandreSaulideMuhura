@@ -13,98 +13,80 @@ const SignupAuth = () => {
         confirmPassword: "",
     });
     const [errors, setErrors] = useState({});
+    const [validity, setValidity] = useState({});
 
-    const validateForm = () => {
-        const newErrors = {};
+    const validateField = (name, value) => {
+        let error = "";
+        let isValid = false;
 
-        // Validate Full Name
-        if (!formData.fullName.trim()) {
-            newErrors.fullName = "Full Name is required";
-        } else if (formData.fullName.trim().split(" ").filter(word => word).length < 2) {
-            newErrors.fullName = "Full Name must contain at least two words";
+        switch (name) {
+            case "fullName":
+                isValid = value.split(" ").filter(word => word).length >= 2;
+                error = isValid ? "" : "Full Name must contain at least two words.";
+                break;
+            case "phone":
+                isValid = /^[0-9]{10}$/.test(value);
+                error = isValid ? "" : "Phone number must be 10 digits.";
+                break;
+            case "email":
+                isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                error = isValid ? "" : "Enter a valid email address.";
+                break;
+            case "password":
+                isValid = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$/.test(value);
+                error = isValid ? "" : "Password must be alphanumeric and 6-8 characters.";
+                break;
+            case "confirmPassword":
+                isValid = value === formData.password;
+                error = isValid ? "" : "Passwords do not match.";
+                break;
+            case "nationality":
+                isValid = value.trim() !== "";
+                error = isValid ? "" : "Nationality is required.";
+                break;
+            case "gender":
+                isValid = value !== "";
+                error = isValid ? "" : "Gender is required.";
+                break;
+            case "position":
+                isValid = value !== "";
+                error = isValid ? "" : "Position is required.";
+                break;
+            default:
+                break;
         }
 
-        // Validate Gender
-        if (!formData.gender) {
-            newErrors.gender = "Gender is required";
-        }
+        setErrors(prev => ({ ...prev, [name]: error }));
+        setValidity(prev => ({ ...prev, [name]: isValid }));
+    };
 
-        // Validate Phone
-        const phoneRegex = /^[0-9]{10}$/;
-        if (!formData.phone) {
-            newErrors.phone = "Phone number is required";
-        } else if (!phoneRegex.test(formData.phone)) {
-            newErrors.phone = "Phone number must be 10 digits";
-        }
-
-        // Validate Position
-        if (!formData.position) {
-            newErrors.position = "Position is required";
-        }
-
-        // Validate Email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!formData.email) {
-            newErrors.email = "Email is required";
-        } else if (!emailRegex.test(formData.email)) {
-            newErrors.email = "Enter a valid email address";
-        }
-
-        // Validate Nationality
-        if (!formData.nationality.trim()) {
-            newErrors.nationality = "Nationality is required";
-        }
-
-        // Validate Password
-        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$/;
-        if (!formData.password) {
-            newErrors.password = "Password is required";
-        } else if (!passwordRegex.test(formData.password)) {
-            newErrors.password = "Password must be alphanumeric and between 6-8 characters";
-        }
-
-        // Validate Confirm Password
-        if (!formData.confirmPassword) {
-            newErrors.confirmPassword = "Confirm Password is required";
-        } else if (formData.confirmPassword !== formData.password) {
-            newErrors.confirmPassword = "Passwords do not match";
-        }
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
+    
+    // Handle input change
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+        validateField(name, value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (validateForm()) {
+        const formIsValid = Object.values(validity).every(Boolean);
+        if (formIsValid) {
             console.log("Form submitted:", formData);
+        } else {
+            console.log("Validation failed. Check errors.");
         }
     };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({ ...prevData, [name]: value }));
-
-        if (name === "fullName") {
-            const isValid = value.trim().split(" ").filter(word => word).length >= 2;
-            const input = document.getElementById("full-name");
-            if (isValid) {
-                input.classList.add("valid");
-                input.classList.remove("invalid");
-            } else {
-                input.classList.add("invalid");
-                input.classList.remove("valid");
-            }
-        }
-    };
 
     return (
         <div className="signup-container">
             <div className="signup-box">
                 <h2>Sign Up</h2>
-                <form onSubmit={handleSubmit}>
+                <form className="form-container" onSubmit={handleSubmit}>
+                    {/* Full Name */}
                     <div className="input-group">
-                        <label htmlFor="full-name">Full Name</label>
+                        <label htmlFor="fullName">Full Name</label>
                         <input
                             type="text"
                             id="full-name"
@@ -112,15 +94,19 @@ const SignupAuth = () => {
                             placeholder="Enter your full name"
                             value={formData.fullName}
                             onChange={handleInputChange}
+                            className={validity.fullName ? "valid" : "invalid"}
                         />
                         {errors.fullName && <p className="error">{errors.fullName}</p>}
                     </div>
+
+                    {/* Gender */}
                     <div className="input-group">
                         <label>Gender</label>
                         <select
                             name="gender"
                             value={formData.gender}
                             onChange={handleInputChange}
+                            className={validity.gender ? "valid" : "invalid"}
                         >
                             <option value="">Select Gender</option>
                             <option value="Male">Male</option>
@@ -128,6 +114,8 @@ const SignupAuth = () => {
                         </select>
                         {errors.gender && <p className="error">{errors.gender}</p>}
                     </div>
+
+                    {/* Phone */}
                     <div className="input-group">
                         <label htmlFor="phone">Phone</label>
                         <input
@@ -137,15 +125,19 @@ const SignupAuth = () => {
                             placeholder="Enter your phone number"
                             value={formData.phone}
                             onChange={handleInputChange}
+                            className={validity.phone ? "valid" : "invalid"}
                         />
                         {errors.phone && <p className="error">{errors.phone}</p>}
                     </div>
+
+                    {/* Position */}
                     <div className="input-group">
                         <label>Position</label>
                         <select
                             name="position"
                             value={formData.position}
                             onChange={handleInputChange}
+                            className={validity.position ? "valid" : "invalid"}
                         >
                             <option value="">Select Position</option>
                             <option value="Teacher">Teacher</option>
@@ -154,6 +146,8 @@ const SignupAuth = () => {
                         </select>
                         {errors.position && <p className="error">{errors.position}</p>}
                     </div>
+
+                    {/* Email */}
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input
@@ -163,9 +157,12 @@ const SignupAuth = () => {
                             placeholder="Enter your email"
                             value={formData.email}
                             onChange={handleInputChange}
+                            className={validity.email ? "valid" : "invalid"}
                         />
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
+
+                    {/* Nationality */}
                     <div className="input-group">
                         <label htmlFor="nationality">Nationality</label>
                         <input
@@ -175,9 +172,12 @@ const SignupAuth = () => {
                             placeholder="Enter your nationality"
                             value={formData.nationality}
                             onChange={handleInputChange}
+                            className={validity.nationality ? "valid" : "invalid"}
                         />
                         {errors.nationality && <p className="error">{errors.nationality}</p>}
                     </div>
+
+                    {/* Password */}
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
                         <input
@@ -187,9 +187,12 @@ const SignupAuth = () => {
                             placeholder="Enter your password"
                             value={formData.password}
                             onChange={handleInputChange}
+                            className={validity.password ? "valid" : "invalid"}
                         />
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
+
+                    {/* Confirm Password */}
                     <div className="input-group">
                         <label htmlFor="confirmPassword">Confirm Password</label>
                         <input
@@ -199,11 +202,13 @@ const SignupAuth = () => {
                             placeholder="Confirm your password"
                             value={formData.confirmPassword}
                             onChange={handleInputChange}
+                            className={validity.confirmPassword ? "valid" : "invalid"}
                         />
                         {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     </div>
                     <div className="buttons-container">
-                        <button type="submit" className="signup-btn">Sign Up</button>
+                        <button type="submit" className="login-btn">Submit</button>
+                        <a className="link-btn" href="/LoginAuth">Log in</a>
                     </div>
                 </form>
             </div>
