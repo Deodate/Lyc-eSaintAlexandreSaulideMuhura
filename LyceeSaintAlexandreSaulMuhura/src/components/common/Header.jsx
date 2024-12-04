@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import LogoImg from "../assets/images/logo-black.png";
 import { LinkData } from "../assets/data/dummydata";
 import { NavLink, Link } from "react-router-dom";
-import { BiShoppingBag } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
 import { HiOutlineMenuAlt1, HiViewGrid } from "react-icons/hi";
+import DropdownButton from './Button';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
+  const [userDropdownVisible, setUserDropdownVisible] = useState(false); // State for user icon dropdown
+
   return (
     <>
       <header className='bg-white py-4 text-black sticky z-50 shadow-md top-0 left-0 w-full'>
@@ -35,14 +38,34 @@ export const Header = () => {
             </ul>
           </nav>
           <div className='account flex items-center gap-5'>
-            <button>
-              <BiShoppingBag size={22} />
-            </button>
-            <Link to="/dashboard">
-              <button className='px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600'>
-                Go to Dashboard
-              </button>
+            {/* User Icon with Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setUserDropdownVisible(true)}
+              onMouseLeave={() => setUserDropdownVisible(false)}
+            >
+              <Link to="/LoginAuth">
+                <button>
+                  <BiUser size={22} color="#0b1dcc" />
+                </button>
+              </Link>
+
+              {userDropdownVisible && (
+                <div className="absolute top-8 left-0 bg-white border shadow-lg py-2 px-4 rounded-lg z-10" style={{ width: 'auto', minWidth: '100px' }}>
+                  <Link to="/signup" className="block text-blue-500 hover:underline">
+                    Sign in
+                  </Link>
+                </div>
+
+              )}
+            </div>
+
+            {/* Sign Up Button */}
+            <Link to="/signup">
+              <DropdownButton />
             </Link>
+
+            {/* Menu Button */}
             <button className='open-menu' onClick={() => setOpen(!open)}>
               <HiOutlineMenuAlt1 size={25} />
             </button>

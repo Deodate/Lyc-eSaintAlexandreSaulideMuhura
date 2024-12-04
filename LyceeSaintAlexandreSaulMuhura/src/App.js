@@ -8,6 +8,7 @@ import { Blog } from "./pages/NewsEvent";
 import { Instructor } from "./pages/ContactUs";
 import DashboardLayout from "./components/Authentications";
 import BabyeyiLetter from "./components/Authentications/Babyeyi";
+import LoginAuth from "./components/Authentications/login";
 
 function App() {
   return (
@@ -35,6 +36,22 @@ function App() {
             element={
               <Layout>
                 <student-lists/>
+              </Layout>
+            }
+          />
+            <Route
+            path="/student-lists"
+            element={
+              <Layout>
+                <student-lists/>
+              </Layout>
+            }
+          />
+            <Route
+            path="/LoginAuth"
+            element={
+              <Layout>
+                <LoginAuth />
               </Layout>
             }
           />
