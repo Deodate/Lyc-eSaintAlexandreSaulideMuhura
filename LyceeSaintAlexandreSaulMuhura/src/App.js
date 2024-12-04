@@ -31,24 +31,16 @@ function App() {
               </Layout>
             }
           />
-           <Route
+          <Route
             path="/student-lists"
             element={
               <Layout>
-                <student-lists/>
+                <student-lists />
               </Layout>
             }
           />
-            <Route
-            path="/student-lists"
-            element={
-              <Layout>
-                <student-lists/>
-              </Layout>
-            }
-          />
-            <Route
-            path="/LoginAuth"
+          <Route
+            path="/:id"  // dynamic URL with a parameter
             element={
               <Layout>
                 <LoginAuth />
@@ -79,35 +71,35 @@ function App() {
               </Layout>
             }
           />
-           <Route
+          <Route
             path="/babyeyi"
             element={
               <Layout>
-                 <BabyeyiLetter />
+                <BabyeyiLetter />
               </Layout>
             }
           />
-           <Route
+          <Route
             path="/comments"
             element={
               <Layout>
-                 <comments />
+                <comments />
               </Layout>
             }
           />
-           <Route
+          <Route
             path="/gallery"
             element={
               <Layout>
-                 <gallery />
+                <gallery />
               </Layout>
             }
           />
-           <Route
+          <Route
             path="/newsEvents"
             element={
               <Layout>
-                 <newsEvents />
+                <newsEvents />
               </Layout>
             }
           />
