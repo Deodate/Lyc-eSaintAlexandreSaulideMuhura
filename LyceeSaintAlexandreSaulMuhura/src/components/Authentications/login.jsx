@@ -3,7 +3,7 @@ import './index.css';
 
 const LoginAuth = () => {
     // State to handle form input values and error messages
-    const [phone, setPhone] = useState("");
+    const [phoneOrEmail, setPhoneOrEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
 
@@ -11,16 +11,18 @@ const LoginAuth = () => {
     const validateForm = () => {
         const newErrors = {};
 
-        // Validate phone number (must be 10 digits)
-        const phoneRegex = /^[0-9]{10}$/;
-        if (!phone) {
-            newErrors.phone = "Phone number is required";
-        } else if (!phoneRegex.test(phone)) {
-            newErrors.phone = "Phone number must be 10 digits";
+        // Validate phone number or email
+        const phoneRegex = /^[0-9]{10}$/; // 10-digit phone number
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email format
+
+        if (!phoneOrEmail) {
+            newErrors.phoneOrEmail = "Phone number or email is required";
+        } else if (!phoneRegex.test(phoneOrEmail) && !emailRegex.test(phoneOrEmail)) {
+            newErrors.phoneOrEmail = "Enter a valid phone number (10 digits) or email";
         }
 
-        // Validate password (must be alphanumeric and max 8 characters)
-        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$/;  // Alphanumeric, 6-8 characters
+        // Validate password (alphanumeric, 6-8 characters)
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$/; // Alphanumeric, 6-8 characters
         if (!password) {
             newErrors.password = "Password is required";
         } else if (!passwordRegex.test(password)) {
@@ -39,7 +41,7 @@ const LoginAuth = () => {
 
         if (validateForm()) {
             // Handle successful form submission (e.g., API call, redirect)
-            console.log("Form submitted:", { phone, password });
+            console.log("Form submitted:", { phoneOrEmail, password });
         }
     };
 
@@ -47,12 +49,12 @@ const LoginAuth = () => {
     const handleInputChange = (e, field) => {
         const { value } = e.target;
 
-        if (field === "phone") {
-            setPhone(value);
+        if (field === "phoneOrEmail") {
+            setPhoneOrEmail(value);
             if (value) {
                 setErrors((prevErrors) => {
                     const newErrors = { ...prevErrors };
-                    delete newErrors.phone;
+                    delete newErrors.phoneOrEmail;
                     return newErrors;
                 });
             }
@@ -74,15 +76,15 @@ const LoginAuth = () => {
                 <h2>Log in</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <label htmlFor="phone">Phone Number</label>
+                        <label htmlFor="phoneOrEmail">Phone Number or Email</label>
                         <input
                             type="text"
-                            id="phone"
-                            placeholder="Enter your phone"
-                            value={phone}
-                            onChange={(e) => handleInputChange(e, "phone")}
+                            id="phoneOrEmail"
+                            placeholder="Enter your phone or email"
+                            value={phoneOrEmail}
+                            onChange={(e) => handleInputChange(e, "phoneOrEmail")}
                         />
-                        {errors.phone && <p className="error">{errors.phone}</p>}
+                        {errors.phoneOrEmail && <p className="error">{errors.phoneOrEmail}</p>}
                     </div>
                     <div className="input-group">
                         <label htmlFor="password">Password</label>
@@ -97,7 +99,7 @@ const LoginAuth = () => {
                     </div>
                     <div className="buttons-container">
                         <button type="submit" className="login-btn">Log in</button>
-                        <a className="link-btn" href="/">Create new account</a>
+                        <a className="link-btn" href="/SignupAuth">Create new account</a>
                     </div>
                 </form>
                 <div className="links">

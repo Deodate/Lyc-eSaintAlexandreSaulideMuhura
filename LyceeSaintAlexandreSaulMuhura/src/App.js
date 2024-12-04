@@ -9,6 +9,7 @@ import { Instructor } from "./pages/ContactUs";
 import DashboardLayout from "./components/Authentications";
 import BabyeyiLetter from "./components/Authentications/Babyeyi";
 import LoginAuth from "./components/Authentications/login";
+import SignupAuth from "./components/Authentications/signupAuth";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
             }
           />
           <Route
-            path="/:id"  // dynamic URL with a parameter
+            path="/:id"  
             element={
               <Layout>
                 <LoginAuth />
@@ -92,6 +93,14 @@ function App() {
             element={
               <Layout>
                 <gallery />
+              </Layout>
+            }
+          />
+           <Route
+            path="/SignupAuth"
+            element={
+              <Layout>
+                <SignupAuth />
               </Layout>
             }
           />

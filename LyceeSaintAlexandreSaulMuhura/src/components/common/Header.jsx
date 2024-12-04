@@ -52,7 +52,7 @@ export const Header = () => {
 
               {userDropdownVisible && (
                 <div className="absolute top-8 left-0 bg-white border shadow-lg py-2 px-4 rounded-lg z-10" style={{ width: 'auto', minWidth: '100px' }}>
-                  <Link to="/signup" className="block text-blue-500 hover:underline">
+                  <Link to="/SignupAuth" className="block text-blue-500 hover:underline">
                     Sign in
                   </Link>
                 </div>
