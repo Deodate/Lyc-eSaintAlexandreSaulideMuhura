@@ -8,6 +8,7 @@ import { Instructor } from "./ContactUs"
 import { Blog } from "./NewsEvent"
 import { FaDesktop } from "react-icons/fa";
 import { FaPlug } from "react-icons/fa";
+import ChatAssistant from "./ChatAssistant"; 
 
 
 export const Home = () => {
@@ -20,6 +21,7 @@ export const Home = () => {
       <br />
       <Courses />
       <Instructor />
+      <ChatAssistant />
       <Blog />
     </>
   )
