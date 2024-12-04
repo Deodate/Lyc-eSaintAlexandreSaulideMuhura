@@ -1,0 +1,554 @@
+2024-12-04 20:29:54 - Starting BackendApplicationTests using Java 19.0.2 with PID 32554 (started by apple in /Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend)
+2024-12-04 20:29:54 - No active profile set, falling back to 1 default profile: "default"
+2024-12-04 20:29:55 - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@64bc21ac
+2024-12-04 20:29:56 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-04 20:29:56 - Finished Spring Data repository scanning in 32 ms. Found 0 JPA repository interfaces.
+2024-12-04 20:29:58 - PersistenceUnitInfo [
+	name: default
+	persistence provider classname: null
+	classloader: jdk.internal.loader.ClassLoaders$AppClassLoader@5b37e0d2
+	excludeUnlistedClasses: true
+	JTA datasource: null
+	Non JTA datasource: HikariDataSource (null)
+	Transaction type: RESOURCE_LOCAL
+	PU root URL: file:/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/test-classes/
+	Shared Cache Mode: UNSPECIFIED
+	Validation Mode: AUTO
+	Jar files URLs []
+	Managed classes names []
+	Mapping files names []
+	Properties []
+2024-12-04 20:29:58 - Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+2024-12-04 20:29:58 - Adding Integrator [org.hibernate.cache.internal.CollectionCacheInvalidator].
+2024-12-04 20:29:58 - HHH000412: Hibernate ORM core version 6.1.5.Final
+2024-12-04 20:29:58 - HHH000206: hibernate.properties not found
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+2024-12-04 20:29:59 - Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+2024-12-04 20:29:59 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2024-12-04 20:29:59 - Cannot default RegionFactory based on registered strategies as `[]` RegionFactory strategies were registered
+2024-12-04 20:29:59 - Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+2024-12-04 20:29:59 - addDescriptor(FloatTypeDescriptor) replaced previous registration(DoubleTypeDescriptor)
+2024-12-04 20:29:59 - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@46320c9a
+2024-12-04 20:29:59 - Adding type registration boolean -> org.hibernate.type.BasicTypeReference@46320c9a
+2024-12-04 20:29:59 - Adding type registration java.lang.Boolean -> org.hibernate.type.BasicTypeReference@46320c9a
+2024-12-04 20:29:59 - Adding type registration numeric_boolean -> org.hibernate.type.BasicTypeReference@32256e68
+2024-12-04 20:29:59 - Adding type registration org.hibernate.type.NumericBooleanConverter -> org.hibernate.type.BasicTypeReference@32256e68
+2024-12-04 20:29:59 - Adding type registration true_false -> org.hibernate.type.BasicTypeReference@5e7abaf7
+2024-12-04 20:29:59 - Adding type registration org.hibernate.type.TrueFalseConverter -> org.hibernate.type.BasicTypeReference@5e7abaf7
+2024-12-04 20:29:59 - Adding type registration yes_no -> org.hibernate.type.BasicTypeReference@353f472a
+2024-12-04 20:29:59 - Adding type registration org.hibernate.type.YesNoConverter -> org.hibernate.type.BasicTypeReference@353f472a
+2024-12-04 20:29:59 - Adding type registration byte -> org.hibernate.type.BasicTypeReference@63bfdbcb
+2024-12-04 20:29:59 - Adding type registration byte -> org.hibernate.type.BasicTypeReference@63bfdbcb
+2024-12-04 20:29:59 - Adding type registration java.lang.Byte -> org.hibernate.type.BasicTypeReference@63bfdbcb
+2024-12-04 20:29:59 - Adding type registration binary -> org.hibernate.type.BasicTypeReference@7af0affa
+2024-12-04 20:29:59 - Adding type registration byte[] -> org.hibernate.type.BasicTypeReference@7af0affa
+2024-12-04 20:29:59 - Adding type registration [B -> org.hibernate.type.BasicTypeReference@7af0affa
+2024-12-04 20:29:59 - Adding type registration binary_wrapper -> org.hibernate.type.BasicTypeReference@71560f51
+2024-12-04 20:29:59 - Adding type registration wrapper-binary -> org.hibernate.type.BasicTypeReference@71560f51
+2024-12-04 20:29:59 - Adding type registration Byte[] -> org.hibernate.type.BasicTypeReference@71560f51
+2024-12-04 20:29:59 - Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.BasicTypeReference@71560f51
+2024-12-04 20:29:59 - Adding type registration image -> org.hibernate.type.BasicTypeReference@3e1f1046
+2024-12-04 20:29:59 - Adding type registration blob -> org.hibernate.type.BasicTypeReference@23e3f5cd
+2024-12-04 20:29:59 - Adding type registration java.sql.Blob -> org.hibernate.type.BasicTypeReference@23e3f5cd
+2024-12-04 20:29:59 - Adding type registration materialized_blob -> org.hibernate.type.BasicTypeReference@5c931134
+2024-12-04 20:29:59 - Adding type registration materialized_blob_wrapper -> org.hibernate.type.BasicTypeReference@1d7eb170
+2024-12-04 20:29:59 - Adding type registration short -> org.hibernate.type.BasicTypeReference@5b251fb9
+2024-12-04 20:29:59 - Adding type registration short -> org.hibernate.type.BasicTypeReference@5b251fb9
+2024-12-04 20:29:59 - Adding type registration java.lang.Short -> org.hibernate.type.BasicTypeReference@5b251fb9
+2024-12-04 20:29:59 - Adding type registration integer -> org.hibernate.type.BasicTypeReference@67d4c48d
+2024-12-04 20:29:59 - Adding type registration int -> org.hibernate.type.BasicTypeReference@67d4c48d
+2024-12-04 20:29:59 - Adding type registration java.lang.Integer -> org.hibernate.type.BasicTypeReference@67d4c48d
+2024-12-04 20:29:59 - Adding type registration long -> org.hibernate.type.BasicTypeReference@230a73f2
+2024-12-04 20:29:59 - Adding type registration long -> org.hibernate.type.BasicTypeReference@230a73f2
+2024-12-04 20:29:59 - Adding type registration java.lang.Long -> org.hibernate.type.BasicTypeReference@230a73f2
+2024-12-04 20:29:59 - Adding type registration float -> org.hibernate.type.BasicTypeReference@4b97b3d2
+2024-12-04 20:29:59 - Adding type registration float -> org.hibernate.type.BasicTypeReference@4b97b3d2
+2024-12-04 20:29:59 - Adding type registration java.lang.Float -> org.hibernate.type.BasicTypeReference@4b97b3d2
+2024-12-04 20:29:59 - Adding type registration double -> org.hibernate.type.BasicTypeReference@383cb5ce
+2024-12-04 20:29:59 - Adding type registration double -> org.hibernate.type.BasicTypeReference@383cb5ce
+2024-12-04 20:29:59 - Adding type registration java.lang.Double -> org.hibernate.type.BasicTypeReference@383cb5ce
+2024-12-04 20:29:59 - Adding type registration big_integer -> org.hibernate.type.BasicTypeReference@798deee8
+2024-12-04 20:29:59 - Adding type registration java.math.BigInteger -> org.hibernate.type.BasicTypeReference@798deee8
+2024-12-04 20:29:59 - Adding type registration big_decimal -> org.hibernate.type.BasicTypeReference@96897c8
+2024-12-04 20:29:59 - Adding type registration java.math.BigDecimal -> org.hibernate.type.BasicTypeReference@96897c8
+2024-12-04 20:29:59 - Adding type registration character -> org.hibernate.type.BasicTypeReference@7f97bc14
+2024-12-04 20:29:59 - Adding type registration char -> org.hibernate.type.BasicTypeReference@7f97bc14
+2024-12-04 20:29:59 - Adding type registration java.lang.Character -> org.hibernate.type.BasicTypeReference@7f97bc14
+2024-12-04 20:29:59 - Adding type registration character_nchar -> org.hibernate.type.BasicTypeReference@22d8f4ed
+2024-12-04 20:29:59 - Adding type registration string -> org.hibernate.type.BasicTypeReference@3434a4f0
+2024-12-04 20:29:59 - Adding type registration java.lang.String -> org.hibernate.type.BasicTypeReference@3434a4f0
+2024-12-04 20:29:59 - Adding type registration nstring -> org.hibernate.type.BasicTypeReference@79afa369
+2024-12-04 20:29:59 - Adding type registration characters -> org.hibernate.type.BasicTypeReference@3b9ac754
+2024-12-04 20:29:59 - Adding type registration char[] -> org.hibernate.type.BasicTypeReference@3b9ac754
+2024-12-04 20:29:59 - Adding type registration [C -> org.hibernate.type.BasicTypeReference@3b9ac754
+2024-12-04 20:29:59 - Adding type registration wrapper-characters -> org.hibernate.type.BasicTypeReference@5e002356
+2024-12-04 20:29:59 - Adding type registration [Ljava.lang.Character; -> org.hibernate.type.BasicTypeReference@5e002356
+2024-12-04 20:29:59 - Adding type registration Character[] -> org.hibernate.type.BasicTypeReference@5e002356
+2024-12-04 20:29:59 - Adding type registration text -> org.hibernate.type.BasicTypeReference@4f820f42
+2024-12-04 20:29:59 - Adding type registration ntext -> org.hibernate.type.BasicTypeReference@4b325930
+2024-12-04 20:29:59 - Adding type registration clob -> org.hibernate.type.BasicTypeReference@267f9765
+2024-12-04 20:29:59 - Adding type registration java.sql.Clob -> org.hibernate.type.BasicTypeReference@267f9765
+2024-12-04 20:29:59 - Adding type registration nclob -> org.hibernate.type.BasicTypeReference@79ba0a6f
+2024-12-04 20:29:59 - Adding type registration java.sql.NClob -> org.hibernate.type.BasicTypeReference@79ba0a6f
+2024-12-04 20:29:59 - Adding type registration materialized_clob -> org.hibernate.type.BasicTypeReference@261de205
+2024-12-04 20:29:59 - Adding type registration materialized_clob_char_array -> org.hibernate.type.BasicTypeReference@7f3fc42f
+2024-12-04 20:29:59 - Adding type registration materialized_clob_character_array -> org.hibernate.type.BasicTypeReference@25a1a012
+2024-12-04 20:29:59 - Adding type registration materialized_nclob -> org.hibernate.type.BasicTypeReference@ce12fbb
+2024-12-04 20:29:59 - Adding type registration materialized_nclob_character_array -> org.hibernate.type.BasicTypeReference@4525e9e8
+2024-12-04 20:29:59 - Adding type registration materialized_nclob_char_array -> org.hibernate.type.BasicTypeReference@443a53df
+2024-12-04 20:29:59 - Adding type registration Duration -> org.hibernate.type.BasicTypeReference@6c33da7a
+2024-12-04 20:29:59 - Adding type registration java.time.Duration -> org.hibernate.type.BasicTypeReference@6c33da7a
+2024-12-04 20:29:59 - Adding type registration LocalDateTime -> org.hibernate.type.BasicTypeReference@69aabcb0
+2024-12-04 20:29:59 - Adding type registration java.time.LocalDateTime -> org.hibernate.type.BasicTypeReference@69aabcb0
+2024-12-04 20:29:59 - Adding type registration LocalDate -> org.hibernate.type.BasicTypeReference@32a72c4
+2024-12-04 20:29:59 - Adding type registration java.time.LocalDate -> org.hibernate.type.BasicTypeReference@32a72c4
+2024-12-04 20:29:59 - Adding type registration LocalTime -> org.hibernate.type.BasicTypeReference@15986dd5
+2024-12-04 20:29:59 - Adding type registration java.time.LocalTime -> org.hibernate.type.BasicTypeReference@15986dd5
+2024-12-04 20:29:59 - Adding type registration OffsetDateTime -> org.hibernate.type.BasicTypeReference@678a9516
+2024-12-04 20:29:59 - Adding type registration java.time.OffsetDateTime -> org.hibernate.type.BasicTypeReference@678a9516
+2024-12-04 20:29:59 - Adding type registration OffsetDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@5bf9ea6b
+2024-12-04 20:29:59 - Adding type registration OffsetDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@b950f82
+2024-12-04 20:29:59 - Adding type registration OffsetTime -> org.hibernate.type.BasicTypeReference@5d352de0
+2024-12-04 20:29:59 - Adding type registration java.time.OffsetTime -> org.hibernate.type.BasicTypeReference@5d352de0
+2024-12-04 20:29:59 - Adding type registration ZonedDateTime -> org.hibernate.type.BasicTypeReference@6e243175
+2024-12-04 20:29:59 - Adding type registration java.time.ZonedDateTime -> org.hibernate.type.BasicTypeReference@6e243175
+2024-12-04 20:29:59 - Adding type registration ZonedDateTimeWithTimezone -> org.hibernate.type.BasicTypeReference@7a1a3468
+2024-12-04 20:29:59 - Adding type registration ZonedDateTimeWithoutTimezone -> org.hibernate.type.BasicTypeReference@59d0cdb6
+2024-12-04 20:29:59 - Adding type registration date -> org.hibernate.type.BasicTypeReference@2dfeb141
+2024-12-04 20:29:59 - Adding type registration java.sql.Date -> org.hibernate.type.BasicTypeReference@2dfeb141
+2024-12-04 20:29:59 - Adding type registration time -> org.hibernate.type.BasicTypeReference@629e8212
+2024-12-04 20:29:59 - Adding type registration java.sql.Time -> org.hibernate.type.BasicTypeReference@629e8212
+2024-12-04 20:29:59 - Adding type registration timestamp -> org.hibernate.type.BasicTypeReference@498c535d
+2024-12-04 20:29:59 - Adding type registration java.sql.Timestamp -> org.hibernate.type.BasicTypeReference@498c535d
+2024-12-04 20:29:59 - Adding type registration java.util.Date -> org.hibernate.type.BasicTypeReference@498c535d
+2024-12-04 20:29:59 - Adding type registration calendar -> org.hibernate.type.BasicTypeReference@16ee9aa7
+2024-12-04 20:29:59 - Adding type registration java.util.Calendar -> org.hibernate.type.BasicTypeReference@16ee9aa7
+2024-12-04 20:29:59 - Adding type registration java.util.GregorianCalendar -> org.hibernate.type.BasicTypeReference@16ee9aa7
+2024-12-04 20:29:59 - Adding type registration calendar_date -> org.hibernate.type.BasicTypeReference@4e424582
+2024-12-04 20:29:59 - Adding type registration calendar_time -> org.hibernate.type.BasicTypeReference@58dad04a
+2024-12-04 20:29:59 - Adding type registration instant -> org.hibernate.type.BasicTypeReference@73e776b7
+2024-12-04 20:29:59 - Adding type registration java.time.Instant -> org.hibernate.type.BasicTypeReference@73e776b7
+2024-12-04 20:29:59 - Adding type registration uuid -> org.hibernate.type.BasicTypeReference@113ee1ce
+2024-12-04 20:29:59 - Adding type registration java.util.UUID -> org.hibernate.type.BasicTypeReference@113ee1ce
+2024-12-04 20:29:59 - Adding type registration pg-uuid -> org.hibernate.type.BasicTypeReference@113ee1ce
+2024-12-04 20:29:59 - Adding type registration uuid-binary -> org.hibernate.type.BasicTypeReference@4d0cc83e
+2024-12-04 20:29:59 - Adding type registration uuid-char -> org.hibernate.type.BasicTypeReference@43da0955
+2024-12-04 20:29:59 - Adding type registration class -> org.hibernate.type.BasicTypeReference@bc09d57
+2024-12-04 20:29:59 - Adding type registration java.lang.Class -> org.hibernate.type.BasicTypeReference@bc09d57
+2024-12-04 20:29:59 - Adding type registration currency -> org.hibernate.type.BasicTypeReference@467045c4
+2024-12-04 20:29:59 - Adding type registration Currency -> org.hibernate.type.BasicTypeReference@467045c4
+2024-12-04 20:29:59 - Adding type registration java.util.Currency -> org.hibernate.type.BasicTypeReference@467045c4
+2024-12-04 20:29:59 - Adding type registration locale -> org.hibernate.type.BasicTypeReference@55736cfe
+2024-12-04 20:29:59 - Adding type registration java.util.Locale -> org.hibernate.type.BasicTypeReference@55736cfe
+2024-12-04 20:29:59 - Adding type registration serializable -> org.hibernate.type.BasicTypeReference@5a566922
+2024-12-04 20:29:59 - Adding type registration java.io.Serializable -> org.hibernate.type.BasicTypeReference@5a566922
+2024-12-04 20:29:59 - Adding type registration timezone -> org.hibernate.type.BasicTypeReference@6f7a2a5
+2024-12-04 20:29:59 - Adding type registration java.util.TimeZone -> org.hibernate.type.BasicTypeReference@6f7a2a5
+2024-12-04 20:29:59 - Adding type registration ZoneOffset -> org.hibernate.type.BasicTypeReference@42ed89da
+2024-12-04 20:29:59 - Adding type registration java.time.ZoneOffset -> org.hibernate.type.BasicTypeReference@42ed89da
+2024-12-04 20:29:59 - Adding type registration url -> org.hibernate.type.BasicTypeReference@c3719e5
+2024-12-04 20:29:59 - Adding type registration java.net.URL -> org.hibernate.type.BasicTypeReference@c3719e5
+2024-12-04 20:29:59 - Adding type registration row_version -> org.hibernate.type.BasicTypeReference@65c17e38
+2024-12-04 20:29:59 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@608cd501
+2024-12-04 20:29:59 - Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@608cd501
+2024-12-04 20:29:59 - Adding type registration object -> org.hibernate.type.JavaObjectType@4f1fb828
+2024-12-04 20:29:59 - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@4f1fb828
+2024-12-04 20:29:59 - Adding type registration null -> org.hibernate.type.NullType@4b88ca8e
+2024-12-04 20:29:59 - Adding type registration imm_date -> org.hibernate.type.BasicTypeReference@6fa02932
+2024-12-04 20:29:59 - Adding type registration imm_time -> org.hibernate.type.BasicTypeReference@61608e1a
+2024-12-04 20:30:00 - Adding type registration imm_timestamp -> org.hibernate.type.BasicTypeReference@7c46c9c3
+2024-12-04 20:30:00 - Adding type registration imm_calendar -> org.hibernate.type.BasicTypeReference@7197b07f
+2024-12-04 20:30:00 - Adding type registration imm_calendar_date -> org.hibernate.type.BasicTypeReference@1f10fec6
+2024-12-04 20:30:00 - Adding type registration imm_calendar_time -> org.hibernate.type.BasicTypeReference@7a65a360
+2024-12-04 20:30:00 - Adding type registration imm_binary -> org.hibernate.type.BasicTypeReference@30a7653e
+2024-12-04 20:30:00 - Adding type registration imm_serializable -> org.hibernate.type.BasicTypeReference@7cff3f1d
+2024-12-04 20:30:00 - Injecting JPA temp ClassLoader [org.springframework.instrument.classloading.SimpleThrowawayClassLoader@a1691c0] into BootstrapContext; was [null]
+2024-12-04 20:30:00 - ClassLoaderAccessImpl#injectTempClassLoader(org.springframework.instrument.classloading.SimpleThrowawayClassLoader@a1691c0) [was null]
+2024-12-04 20:30:00 - Injecting ScanEnvironment [org.hibernate.jpa.boot.internal.StandardJpaScanEnvironmentImpl@1a21f43f] into BootstrapContext; was [null]
+2024-12-04 20:30:00 - Injecting ScanOptions [org.hibernate.boot.archive.scan.internal.StandardScanOptions@7f0a133d] into BootstrapContext; was [org.hibernate.boot.archive.scan.internal.StandardScanOptions@241fbec]
+2024-12-04 20:30:00 - Injecting JPA temp ClassLoader [null] into BootstrapContext; was [org.springframework.instrument.classloading.SimpleThrowawayClassLoader@a1691c0]
+2024-12-04 20:30:00 - ClassLoaderAccessImpl#injectTempClassLoader(null) [was org.springframework.instrument.classloading.SimpleThrowawayClassLoader@a1691c0]
+2024-12-04 20:30:00 - HikariPool-1 - Starting...
+2024-12-04 20:30:00 - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7e7740a5
+2024-12-04 20:30:00 - HikariPool-1 - Start completed.
+2024-12-04 20:30:00 - Database ->
+       name : PostgreSQL
+    version : 15.4
+      major : 15
+      minor : 4
+2024-12-04 20:30:00 - Driver ->
+       name : PostgreSQL JDBC Driver
+    version : 42.5.1
+      major : 42
+      minor : 5
+2024-12-04 20:30:00 - JDBC version : 4.2
+2024-12-04 20:30:00 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2024-12-04 20:30:00 - JDBC driver metadata reported database stores quoted identifiers in neither upper, lower nor mixed case
+2024-12-04 20:30:00 - addDescriptor(6, org.hibernate.type.descriptor.sql.internal.CapacityDependentDdlType@5faeeb56) replaced previous registration(org.hibernate.type.descriptor.sql.internal.DdlTypeImpl@5396eeb1)
+2024-12-04 20:30:00 - addDescriptor(2004, BlobTypeDescriptor(BLOB_BINDING)) replaced previous registration(BlobTypeDescriptor(DEFAULT))
+2024-12-04 20:30:00 - addDescriptor(2005, ClobTypeDescriptor(CLOB_BINDING)) replaced previous registration(ClobTypeDescriptor(DEFAULT))
+2024-12-04 20:30:01 - addDescriptor(3003, TimestampUtcDescriptor) replaced previous registration(TimestampUtcDescriptor)
+2024-12-04 20:30:01 - Adding type registration JAVA_OBJECT -> org.hibernate.type.JavaObjectType@78c74647
+2024-12-04 20:30:01 - Adding type registration java.lang.Object -> org.hibernate.type.JavaObjectType@78c74647
+2024-12-04 20:30:01 - Type registration key [java.lang.Object] overrode previous entry : `org.hibernate.type.JavaObjectType@4f1fb828`
+2024-12-04 20:30:01 - Adding type registration org.hibernate.type.OffsetDateTimeType -> basicType@1(java.time.OffsetDateTime,93)
+2024-12-04 20:30:01 - Adding type registration OffsetDateTime -> basicType@1(java.time.OffsetDateTime,93)
+2024-12-04 20:30:01 - Adding type registration java.time.OffsetDateTime -> basicType@1(java.time.OffsetDateTime,93)
+2024-12-04 20:30:01 - Adding type registration org.hibernate.type.ZonedDateTimeType -> basicType@2(java.time.ZonedDateTime,93)
+2024-12-04 20:30:01 - Adding type registration ZonedDateTime -> basicType@2(java.time.ZonedDateTime,93)
+2024-12-04 20:30:01 - Adding type registration java.time.ZonedDateTime -> basicType@2(java.time.ZonedDateTime,93)
+2024-12-04 20:30:01 - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@3e43f049] to MetadataBuildingContext [org.hibernate.boot.internal.MetadataBuildingContextRootImpl@147cc940]
+2024-12-04 20:30:01 - Created database namespace [logicalName=Name{catalog=null, schema=null}, physicalName=Name{catalog=null, schema=null}]
+2024-12-04 20:30:01 - Building session factory
+2024-12-04 20:30:01 - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-12-04 20:30:01 - Session factory constructed with filter configurations : {}
+2024-12-04 20:30:01 - Instantiating session factory with properties: {hibernate.format_sql=true, java.specification.version=19, hibernate.resource.beans.container=org.springframework.orm.hibernate5.SpringBeanContainer@3962ec84, hibernate.connection.handling_mode=DELAYED_ACQUISITION_AND_HOLD, sun.jnu.encoding=UTF-8, hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect, hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy, java.class.path=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/test-classes:/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/classes:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.0.0/spring-boot-starter-data-jpa-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.0.0/spring-boot-starter-aop-3.0.0.jar:/Users/apple/.m2/repository/org/aspectj/aspectjweaver/1.9.9.1/aspectjweaver-1.9.9.1.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.0.0/spring-boot-starter-jdbc-3.0.0.jar:/Users/apple/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/Users/apple/.m2/repository/org/springframework/spring-jdbc/6.0.2/spring-jdbc-6.0.2.jar:/Users/apple/.m2/repository/org/hibernate/orm/hibernate-core/6.1.5.Final/hibernate-core-6.1.5.Final.jar:/Users/apple/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/apple/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/apple/.m2/repository/org/jboss/logging/jboss-logging/3.5.0.Final/jboss-logging-3.5.0.Final.jar:/Users/apple/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.2.Final/hibernate-commons-annotations-6.0.2.Final.jar:/Users/apple/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/Users/apple/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/Users/apple/.m2/repository/net/bytebuddy/byte-buddy/1.12.19/byte-buddy-1.12.19.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.1/jaxb-runtime-4.0.1.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.1/jaxb-core-4.0.1.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/txw2/4.0.1/txw2-4.0.1.jar:/Users/apple/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar:/Users/apple/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.0/jakarta.inject-api-2.0.0.jar:/Users/apple/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/Users/apple/.m2/repository/org/springframework/data/spring-data-jpa/3.0.0/spring-data-jpa-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/data/spring-data-commons/3.0.0/spring-data-commons-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-orm/6.0.2/spring-orm-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-context/6.0.2/spring-context-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-tx/6.0.2/spring-tx-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-beans/6.0.2/spring-beans-6.0.2.jar:/Users/apple/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/apple/.m2/repository/org/springframework/spring-aspects/6.0.2/spring-aspects-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-oauth2-client/3.0.0/spring-boot-starter-oauth2-client-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter/3.0.0/spring-boot-starter-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.0.0/spring-boot-starter-logging-3.0.0.jar:/Users/apple/.m2/repository/ch/qos/logback/logback-classic/1.4.5/logback-classic-1.4.5.jar:/Users/apple/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar:/Users/apple/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.19.0/log4j-to-slf4j-2.19.0.jar:/Users/apple/.m2/repository/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar:/Users/apple/.m2/repository/org/slf4j/jul-to-slf4j/2.0.4/jul-to-slf4j-2.0.4.jar:/Users/apple/.m2/repository/org/yaml/snakeyaml/1.33/snakeyaml-1.33.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-config/6.0.0/spring-security-config-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-core/6.0.0/spring-security-core-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-crypto/6.0.0/spring-security-crypto-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-expression/6.0.2/spring-expression-6.0.2.jar:/Users/apple/.m2/repository/io/micrometer/micrometer-observation/1.10.2/micrometer-observation-1.10.2.jar:/Users/apple/.m2/repository/io/micrometer/micrometer-commons/1.10.2/micrometer-commons-1.10.2.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-client/6.0.0/spring-security-oauth2-client-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-core/6.0.0/spring-security-oauth2-core-6.0.0.jar:/Users/apple/.m2/repository/com/nimbusds/oauth2-oidc-sdk/9.43.1/oauth2-oidc-sdk-9.43.1.jar:/Users/apple/.m2/repository/com/github/stephenc/jcip/jcip-annotations/1.0-1/jcip-annotations-1.0-1.jar:/Users/apple/.m2/repository/com/nimbusds/content-type/2.2/content-type-2.2.jar:/Users/apple/.m2/repository/com/nimbusds/lang-tag/1.7/lang-tag-1.7.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-jose/6.0.0/spring-security-oauth2-jose-6.0.0.jar:/Users/apple/.m2/repository/com/nimbusds/nimbus-jose-jwt/9.24.4/nimbus-jose-jwt-9.24.4.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.0.0/spring-boot-starter-security-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-aop/6.0.2/spring-aop-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-web/6.0.0/spring-security-web-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.0.0/spring-boot-starter-web-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.0.0/spring-boot-starter-json-3.0.0.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.14.1/jackson-datatype-jdk8-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.14.1/jackson-module-parameter-names-2.14.1.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.0.0/spring-boot-starter-tomcat-3.0.0.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.1/tomcat-embed-core-10.1.1.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.1/tomcat-embed-el-10.1.1.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.1/tomcat-embed-websocket-10.1.1.jar:/Users/apple/.m2/repository/org/springframework/spring-web/6.0.2/spring-web-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-webmvc/6.0.2/spring-webmvc-6.0.2.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-impl/0.11.5/jjwt-impl-0.11.5.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.11.5/jjwt-jackson-0.11.5.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar:/Users/apple/.m2/repository/com/twilio/sdk/twilio/8.28.0/twilio-8.28.0.jar:/Users/apple/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/Users/apple/.m2/repository/commons-io/commons-io/2.7/commons-io-2.7.jar:/Users/apple/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/apple/.m2/repository/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.14.1/jackson-datatype-jsr310-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.14.1/jackson-dataformat-xml-2.14.1.jar:/Users/apple/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/Users/apple/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.4.0/woodstox-core-6.4.0.jar:/Users/apple/.m2/repository/org/slf4j/slf4j-api/2.0.4/slf4j-api-2.0.4.jar:/Users/apple/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/Users/apple/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-devtools/3.0.0/spring-boot-devtools-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot/3.0.0/spring-boot-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.0.0/spring-boot-autoconfigure-3.0.0.jar:/Users/apple/.m2/repository/org/postgresql/postgresql/42.5.1/postgresql-42.5.1.jar:/Users/apple/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/Users/apple/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.0.0/spring-boot-starter-test-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-test/3.0.0/spring-boot-test-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.0.0/spring-boot-test-autoconfigure-3.0.0.jar:/Users/apple/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar:/Users/apple/.m2/repository/net/minidev/json-smart/2.4.8/json-smart-2.4.8.jar:/Users/apple/.m2/repository/net/minidev/accessors-smart/2.4.8/accessors-smart-2.4.8.jar:/Users/apple/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:/Users/apple/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/Users/apple/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/Users/apple/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/Users/apple/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.1/junit-jupiter-5.9.1.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/Users/apple/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/apple/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/Users/apple/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/Users/apple/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/Users/apple/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/Users/apple/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.19/byte-buddy-agent-1.12.19.jar:/Users/apple/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/apple/.m2/repository/org/mockito/mockito-junit-jupiter/4.8.1/mockito-junit-jupiter-4.8.1.jar:/Users/apple/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/apple/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/apple/.m2/repository/org/springframework/spring-core/6.0.2/spring-core-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-jcl/6.0.2/spring-jcl-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-test/6.0.2/spring-test-6.0.2.jar:/Users/apple/.m2/repository/org/xmlunit/xmlunit-core/2.9.0/xmlunit-core-2.9.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-test/6.0.0/spring-security-test-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-mail/3.0.0/spring-boot-starter-mail-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-context-support/6.0.2/spring-context-support-6.0.2.jar:/Users/apple/.m2/repository/org/eclipse/angus/jakarta.mail/1.0.0/jakarta.mail-1.0.0.jar:/Users/apple/.m2/repository/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0.jar:, java.vm.vendor=Oracle Corporation, LOG_PATH=./logs, sun.arch.data.model=64, java.vendor.url=https://java.oracle.com/, user.timezone=Africa/Kigali, jakarta.persistence.sharedCache.mode=UNSPECIFIED, org.jboss.logging.provider=slf4j, hibernate.jdbc.time_zone=UTC, java.vm.specification.version=19, os.name=Mac OS X, javax.persistence.validation.mode=AUTO, jakarta.persistence.nonJtaDataSource=HikariDataSource (HikariPool-1), sun.java.launcher=SUN_STANDARD, user.country=AE, sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home/lib, sun.java.command=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/surefire/surefirebooter11780117082142839341.jar /Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/surefire 2024-12-04T20-29-47_516-jvmRun1 surefire4430506146418292166tmp surefire_011615746423307408851tmp, javax.persistence.nonJtaDataSource=HikariDataSource (HikariPool-1), hibernate.transaction.jta.platform=org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform@147e0734, http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16, javax.persistence.sharedCache.mode=UNSPECIFIED, jdk.debug=release, surefire.test.class.path=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/test-classes:/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/classes:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.0.0/spring-boot-starter-data-jpa-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.0.0/spring-boot-starter-aop-3.0.0.jar:/Users/apple/.m2/repository/org/aspectj/aspectjweaver/1.9.9.1/aspectjweaver-1.9.9.1.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.0.0/spring-boot-starter-jdbc-3.0.0.jar:/Users/apple/.m2/repository/com/zaxxer/HikariCP/5.0.1/HikariCP-5.0.1.jar:/Users/apple/.m2/repository/org/springframework/spring-jdbc/6.0.2/spring-jdbc-6.0.2.jar:/Users/apple/.m2/repository/org/hibernate/orm/hibernate-core/6.1.5.Final/hibernate-core-6.1.5.Final.jar:/Users/apple/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/apple/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/apple/.m2/repository/org/jboss/logging/jboss-logging/3.5.0.Final/jboss-logging-3.5.0.Final.jar:/Users/apple/.m2/repository/org/hibernate/common/hibernate-commons-annotations/6.0.2.Final/hibernate-commons-annotations-6.0.2.Final.jar:/Users/apple/.m2/repository/org/jboss/jandex/2.4.2.Final/jandex-2.4.2.Final.jar:/Users/apple/.m2/repository/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar:/Users/apple/.m2/repository/net/bytebuddy/byte-buddy/1.12.19/byte-buddy-1.12.19.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.1/jaxb-runtime-4.0.1.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.1/jaxb-core-4.0.1.jar:/Users/apple/.m2/repository/org/glassfish/jaxb/txw2/4.0.1/txw2-4.0.1.jar:/Users/apple/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.1/istack-commons-runtime-4.1.1.jar:/Users/apple/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.0/jakarta.inject-api-2.0.0.jar:/Users/apple/.m2/repository/org/antlr/antlr4-runtime/4.10.1/antlr4-runtime-4.10.1.jar:/Users/apple/.m2/repository/org/springframework/data/spring-data-jpa/3.0.0/spring-data-jpa-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/data/spring-data-commons/3.0.0/spring-data-commons-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-orm/6.0.2/spring-orm-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-context/6.0.2/spring-context-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-tx/6.0.2/spring-tx-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-beans/6.0.2/spring-beans-6.0.2.jar:/Users/apple/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/apple/.m2/repository/org/springframework/spring-aspects/6.0.2/spring-aspects-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-oauth2-client/3.0.0/spring-boot-starter-oauth2-client-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter/3.0.0/spring-boot-starter-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.0.0/spring-boot-starter-logging-3.0.0.jar:/Users/apple/.m2/repository/ch/qos/logback/logback-classic/1.4.5/logback-classic-1.4.5.jar:/Users/apple/.m2/repository/ch/qos/logback/logback-core/1.4.5/logback-core-1.4.5.jar:/Users/apple/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.19.0/log4j-to-slf4j-2.19.0.jar:/Users/apple/.m2/repository/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar:/Users/apple/.m2/repository/org/slf4j/jul-to-slf4j/2.0.4/jul-to-slf4j-2.0.4.jar:/Users/apple/.m2/repository/org/yaml/snakeyaml/1.33/snakeyaml-1.33.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-config/6.0.0/spring-security-config-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-core/6.0.0/spring-security-core-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-crypto/6.0.0/spring-security-crypto-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-expression/6.0.2/spring-expression-6.0.2.jar:/Users/apple/.m2/repository/io/micrometer/micrometer-observation/1.10.2/micrometer-observation-1.10.2.jar:/Users/apple/.m2/repository/io/micrometer/micrometer-commons/1.10.2/micrometer-commons-1.10.2.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-client/6.0.0/spring-security-oauth2-client-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-core/6.0.0/spring-security-oauth2-core-6.0.0.jar:/Users/apple/.m2/repository/com/nimbusds/oauth2-oidc-sdk/9.43.1/oauth2-oidc-sdk-9.43.1.jar:/Users/apple/.m2/repository/com/github/stephenc/jcip/jcip-annotations/1.0-1/jcip-annotations-1.0-1.jar:/Users/apple/.m2/repository/com/nimbusds/content-type/2.2/content-type-2.2.jar:/Users/apple/.m2/repository/com/nimbusds/lang-tag/1.7/lang-tag-1.7.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-oauth2-jose/6.0.0/spring-security-oauth2-jose-6.0.0.jar:/Users/apple/.m2/repository/com/nimbusds/nimbus-jose-jwt/9.24.4/nimbus-jose-jwt-9.24.4.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.0.0/spring-boot-starter-security-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-aop/6.0.2/spring-aop-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-web/6.0.0/spring-security-web-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.0.0/spring-boot-starter-web-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.0.0/spring-boot-starter-json-3.0.0.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.14.1/jackson-datatype-jdk8-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.14.1/jackson-module-parameter-names-2.14.1.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.0.0/spring-boot-starter-tomcat-3.0.0.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.1/tomcat-embed-core-10.1.1.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.1/tomcat-embed-el-10.1.1.jar:/Users/apple/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.1/tomcat-embed-websocket-10.1.1.jar:/Users/apple/.m2/repository/org/springframework/spring-web/6.0.2/spring-web-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-webmvc/6.0.2/spring-webmvc-6.0.2.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-api/0.11.5/jjwt-api-0.11.5.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-impl/0.11.5/jjwt-impl-0.11.5.jar:/Users/apple/.m2/repository/io/jsonwebtoken/jjwt-jackson/0.11.5/jjwt-jackson-0.11.5.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.14.1/jackson-databind-2.14.1.jar:/Users/apple/.m2/repository/com/twilio/sdk/twilio/8.28.0/twilio-8.28.0.jar:/Users/apple/.m2/repository/commons-codec/commons-codec/1.15/commons-codec-1.15.jar:/Users/apple/.m2/repository/commons-io/commons-io/2.7/commons-io-2.7.jar:/Users/apple/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar:/Users/apple/.m2/repository/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.14.1/jackson-core-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.14.1/jackson-annotations-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.14.1/jackson-datatype-jsr310-2.14.1.jar:/Users/apple/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.14.1/jackson-dataformat-xml-2.14.1.jar:/Users/apple/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.1/stax2-api-4.2.1.jar:/Users/apple/.m2/repository/com/fasterxml/woodstox/woodstox-core/6.4.0/woodstox-core-6.4.0.jar:/Users/apple/.m2/repository/org/slf4j/slf4j-api/2.0.4/slf4j-api-2.0.4.jar:/Users/apple/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar:/Users/apple/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-devtools/3.0.0/spring-boot-devtools-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot/3.0.0/spring-boot-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.0.0/spring-boot-autoconfigure-3.0.0.jar:/Users/apple/.m2/repository/org/postgresql/postgresql/42.5.1/postgresql-42.5.1.jar:/Users/apple/.m2/repository/org/checkerframework/checker-qual/3.5.0/checker-qual-3.5.0.jar:/Users/apple/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.0.0/spring-boot-starter-test-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-test/3.0.0/spring-boot-test-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.0.0/spring-boot-test-autoconfigure-3.0.0.jar:/Users/apple/.m2/repository/com/jayway/jsonpath/json-path/2.7.0/json-path-2.7.0.jar:/Users/apple/.m2/repository/net/minidev/json-smart/2.4.8/json-smart-2.4.8.jar:/Users/apple/.m2/repository/net/minidev/accessors-smart/2.4.8/accessors-smart-2.4.8.jar:/Users/apple/.m2/repository/org/ow2/asm/asm/9.1/asm-9.1.jar:/Users/apple/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.0/jakarta.xml.bind-api-4.0.0.jar:/Users/apple/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.0/jakarta.activation-api-2.1.0.jar:/Users/apple/.m2/repository/org/assertj/assertj-core/3.23.1/assertj-core-3.23.1.jar:/Users/apple/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter/5.9.1/junit-jupiter-5.9.1.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.1/junit-jupiter-api-5.9.1.jar:/Users/apple/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/apple/.m2/repository/org/junit/platform/junit-platform-commons/1.9.1/junit-platform-commons-1.9.1.jar:/Users/apple/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.9.1/junit-jupiter-params-5.9.1.jar:/Users/apple/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.1/junit-jupiter-engine-5.9.1.jar:/Users/apple/.m2/repository/org/junit/platform/junit-platform-engine/1.9.1/junit-platform-engine-1.9.1.jar:/Users/apple/.m2/repository/org/mockito/mockito-core/4.8.1/mockito-core-4.8.1.jar:/Users/apple/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.19/byte-buddy-agent-1.12.19.jar:/Users/apple/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar:/Users/apple/.m2/repository/org/mockito/mockito-junit-jupiter/4.8.1/mockito-junit-jupiter-4.8.1.jar:/Users/apple/.m2/repository/org/skyscreamer/jsonassert/1.5.1/jsonassert-1.5.1.jar:/Users/apple/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/apple/.m2/repository/org/springframework/spring-core/6.0.2/spring-core-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-jcl/6.0.2/spring-jcl-6.0.2.jar:/Users/apple/.m2/repository/org/springframework/spring-test/6.0.2/spring-test-6.0.2.jar:/Users/apple/.m2/repository/org/xmlunit/xmlunit-core/2.9.0/xmlunit-core-2.9.0.jar:/Users/apple/.m2/repository/org/springframework/security/spring-security-test/6.0.0/spring-security-test-6.0.0.jar:/Users/apple/.m2/repository/org/springframework/boot/spring-boot-starter-mail/3.0.0/spring-boot-starter-mail-3.0.0.jar:/Users/apple/.m2/repository/org/springframework/spring-context-support/6.0.2/spring-context-support-6.0.2.jar:/Users/apple/.m2/repository/org/eclipse/angus/jakarta.mail/1.0.0/jakarta.mail-1.0.0.jar:/Users/apple/.m2/repository/org/eclipse/angus/angus-activation/1.0.0/angus-activation-1.0.0.jar:, sun.cpu.endian=little, user.home=/Users/apple, user.language=en, java.specification.vendor=Oracle Corporation, java.version.date=2023-01-17, java.home=/Library/Java/JavaVirtualMachines/jdk-19.jdk/Contents/Home, file.separator=/, basedir=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend, java.vm.compressedOopsMode=Zero based, line.separator=
+, hibernate.persistenceUnitName=default, java.vm.specification.vendor=Oracle Corporation, java.specification.name=Java Platform API Specification, FILE_LOG_CHARSET=UTF-8, hibernate.transaction.coordinator_class=org.hibernate.transaction.JDBCTransactionFactory, java.awt.headless=true, apple.awt.application.name=ForkedBooter, surefire.real.class.path=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend/target/surefire/surefirebooter11780117082142839341.jar, jakarta.persistence.validation.mode=AUTO, hibernate.hbm2ddl.auto=update, sun.management.compiler=HotSpot 64-Bit Tiered Compilers, ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16, java.runtime.version=19.0.2+7-44, user.name=apple, stdout.encoding=UTF-8, path.separator=:, os.version=12.7.6, java.runtime.name=Java(TM) SE Runtime Environment, file.encoding=UTF-8, FILE_LOG_PATTERN=%d{yyyy-MM-dd HH:mm:ss} - %msg%n, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, hibernate.show_sql=true, LOG_FILE=logs/application.log, localRepository=/Users/apple/.m2/repository, java.vendor.url.bug=https://bugreport.java.com/bugreport/, java.io.tmpdir=/var/folders/cb/n8p30hm12jjfjphb025j11w80000gn/T/, java.version=19.0.2, hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy, user.dir=/Users/apple/Lyc-eSaintAlexandreSaulideMuhura/Backend, os.arch=x86_64, java.vm.specification.name=Java Virtual Machine Specification, PID=32554, CONSOLE_LOG_CHARSET=UTF-8, hibernate.boot.CfgXmlAccessService.key=org.hibernate.boot.registry.StandardServiceRegistryBuilder$1@2bdab835, native.encoding=UTF-8, java.library.path=/Users/apple/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:., stderr.encoding=UTF-8, java.vendor=Oracle Corporation, java.vm.info=mixed mode, sharing, java.vm.version=19.0.2+7-44, hibernate.bytecode.use_reflection_optimizer=false, sun.io.unicode.encoding=UnicodeBig, hibernate.archive.scanner=org.hibernate.boot.archive.scan.internal.DisabledScanner, hibernate.connection.datasource=HikariDataSource (HikariPool-1), socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16, CONSOLE_LOG_PATTERN=%d{yyyy-MM-dd HH:mm:ss} - %msg%n, java.class.version=63.0}
+2024-12-04 20:30:01 - Instantiated session factory
+2024-12-04 20:30:01 - Starting QueryPlanCache(2048)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(max)] under max; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(min)] under min; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sum)] under sum; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(avg)] under avg; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CountFunction@b3857e2] under count; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@36463b09] under every; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.EveryAnyEmulation@4adf3582] under any; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(round)] under round; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(floor)] under floor; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ceiling)] under ceiling; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(mod)] under mod; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(abs)] under abs; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sign)] under sign; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sqrt)] under sqrt; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ln)] under ln; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(exp)] under exp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(power)] under power; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(sin)] under sin; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cos)] under cos; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(tan)] under tan; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(asin)] under asin; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(acos)] under acos; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan)] under atan; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(atan2)] under atan2; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(coalesce)] under coalesce; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(nullif)] under nullif; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(left)] under left; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(right)] under right; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(replace)] under replace; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(concat)] under concat; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lower)] under lower; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(upper)] under upper; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substring)] under substring; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(locate)] under locate; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(character_length)] under character_length; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : length -> character_length
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LocatePositionEmulation@6f8667bb] under position; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InsertSubstringOverlayEmulation@7c5f29c6] under overlay; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TrimFunction@61ab6521] under trim; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastFunction@510da778] under cast; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@bfb93cf] under collate; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ExtractFunction@7d3bf8db] under extract; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(least)] under least; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(greatest)] under greatest; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CoalesceIfnullEmulation@64910b2d] under ifnull; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lpad)] under lpad; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rpad)] under rpad; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LpadRpadPadEmulation@334540a0] under pad; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CastStrEmulation@42aa1324] under str; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.FormatFunction@50778bde] under format; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampaddFunction@72eed547] under timestampadd; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.TimestampdiffFunction@7c7ed72a] under timestampdiff; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : dateadd -> timestampadd
+2024-12-04 20:30:02 - Registering alternate key : datediff -> timestampdiff
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@36dafa24] under current_date; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@2b098563] under current_time; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@c758a2d] under current_timestamp; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : current date -> current_date
+2024-12-04 20:30:02 - Registering alternate key : current time -> current_time
+2024-12-04 20:30:02 - Registering alternate key : current timestamp -> current_timestamp
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@d0b814d] under local_date; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@6ce15112] under local_time; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@ba4f370] under local_datetime; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@2ba024cb] under offset_datetime; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : local date -> local_date
+2024-12-04 20:30:02 - Registering alternate key : local time -> local_time
+2024-12-04 20:30:02 - Registering alternate key : local datetime -> local_datetime
+2024-12-04 20:30:02 - Registering alternate key : offset datetime -> offset_datetime
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.CurrentFunction@7af0d91b] under instant; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : current_instant -> instant
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.SqlFunction@6684f7f2] under sql; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@1682e6a] under round; prior registration was NamedSqmFunctionTemplate(round)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cot)] under cot; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(radians)] under radians; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(degrees)] under degrees; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(trunc)] under trunc; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log)] under log; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(log10)] under log10; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(cbrt)] under cbrt; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ltrim)] under ltrim; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(rtrim)] under rtrim; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(repeat)] under repeat; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(md5)] under md5; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(initcap)] under initcap; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substr)] under substr; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(substr)] under substring; prior registration was NamedSqmFunctionTemplate(substring)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(translate)] under translate; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(to_number)] under to_number; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(to_char)] under to_char; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(to_date)] under to_date; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(to_timestamp)] under to_timestamp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ConcatPipeFunction@4d4df0f4] under concat; prior registration was NamedSqmFunctionTemplate(concat)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under localtime; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under localtimestamp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtime)] under local_time; prior registration was org.hibernate.dialect.function.CurrentFunction@6ce15112
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(localtimestamp)] under local_datetime; prior registration was org.hibernate.dialect.function.CurrentFunction@ba4f370
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@74f4a2ba] under date_trunc; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LengthFunction@14ed7ddf] under character_length; prior registration was NamedSqmFunctionTemplate(character_length)
+2024-12-04 20:30:02 - Registering alternate key : length -> character_length
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LengthFunction@892af0e] under bit_length; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.LengthFunction@446c8c72] under octet_length; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(ascii)] under ascii; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(chr)] under chr; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : char -> chr
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6e2eead5] under position; prior registration was org.hibernate.dialect.function.LocatePositionEmulation@6f8667bb
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@11d2714a] under bitand; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@ca546a1] under bitor; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@2c8a445b] under bitxor; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@356b6b5d] under bitnot; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_and)] under bit_and; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bit_or)] under bit_or; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bool_and)] under bool_and; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : every -> bool_and
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(bool_or)] under bool_or; prior registration was null
+2024-12-04 20:30:02 - Registering alternate key : any -> bool_or
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@37b1149b] under median; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev)] under stddev; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_pop)] under stddev_pop; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(stddev_samp)] under stddev_samp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(variance)] under variance; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_pop)] under var_pop; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(var_samp)] under var_samp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(covar_pop)] under covar_pop; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(covar_samp)] under covar_samp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(corr)] under corr; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_avgx)] under regr_avgx; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_avgy)] under regr_avgy; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_count)] under regr_count; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_intercept)] under regr_intercept; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_r2)] under regr_r2; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_slope)] under regr_slope; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_sxx)] under regr_sxx; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_sxy)] under regr_sxy; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(regr_syy)] under regr_syy; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.PatternBasedSqmFunctionDescriptor@6fd1ea75] under insert; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@710ae6a7] under overlay; prior registration was org.hibernate.dialect.function.InsertSubstringOverlayEmulation@7c5f29c6
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(soundex)] under soundex; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.query.sqm.function.MultipatternSqmFunctionDescriptor@25d911a] under locate; prior registration was NamedSqmFunctionTemplate(locate)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(row_number)] under row_number; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lag)] under lag; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(lead)] under lead; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(first_value)] under first_value; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(last_value)] under last_value; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(nth_value)] under nth_value; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.ListaggStringAggEmulation@62058742] under listagg; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(make_date)] under make_date; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(make_time)] under make_time; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(make_timestamp)] under make_timestamp; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [NamedSqmFunctionTemplate(make_timestamptz)] under make_timestamptz; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InverseDistributionFunction@2fee69a1] under mode; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InverseDistributionFunction@4d25f816] under percentile_cont; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.InverseDistributionFunction@6c6c2a73] under percentile_disc; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetFunction@590013c7] under rank; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetFunction@64f32e9e] under dense_rank; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetFunction@7b211077] under percent_rank; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.HypotheticalSetFunction@3b770d07] under cume_dist; prior registration was null
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.PostgreSQLMinMaxFunction@6f07d414] under min; prior registration was NamedSqmFunctionTemplate(min)
+2024-12-04 20:30:02 - Registered SqmFunctionTemplate [org.hibernate.dialect.function.PostgreSQLMinMaxFunction@8ac12e6] under max; prior registration was NamedSqmFunctionTemplate(max)
+2024-12-04 20:30:02 - abs(NUMERIC arg)
+2024-12-04 20:30:02 - Double acos(NUMERIC arg)
+2024-12-04 20:30:02 - Boolean any(BOOLEAN arg)
+2024-12-04 20:30:02 - Integer ascii(STRING arg)
+2024-12-04 20:30:02 - Double asin(NUMERIC arg)
+2024-12-04 20:30:02 - Double atan(NUMERIC arg)
+2024-12-04 20:30:02 - Double atan2(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double avg(NUMERIC arg)
+2024-12-04 20:30:02 - bit_and(arg)
+2024-12-04 20:30:02 - Integer bit_length(STRING_OR_CLOB arg)
+2024-12-04 20:30:02 - bit_or(arg)
+2024-12-04 20:30:02 - bitand(arg0, arg1)
+2024-12-04 20:30:02 - bitnot(arg)
+2024-12-04 20:30:02 - bitor(arg0, arg1)
+2024-12-04 20:30:02 - bitxor(arg0, arg1)
+2024-12-04 20:30:02 - Boolean bool_and(BOOLEAN predicate)
+2024-12-04 20:30:02 - Boolean bool_or(BOOLEAN predicate)
+2024-12-04 20:30:02 - cast(arg as Type)
+2024-12-04 20:30:02 - Double cbrt(NUMERIC arg)
+2024-12-04 20:30:02 - ceiling(NUMERIC arg)
+2024-12-04 20:30:02 - Integer character_length(STRING_OR_CLOB arg)
+2024-12-04 20:30:02 - Character chr(INTEGER arg)
+2024-12-04 20:30:02 - coalesce(arg0[, arg1[, ...]])
+2024-12-04 20:30:02 - String collate(STRING string as COLLATION collation)
+2024-12-04 20:30:02 - (STRING string0[, STRING string1[, ...]])
+2024-12-04 20:30:02 - Double corr(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double cos(NUMERIC arg)
+2024-12-04 20:30:02 - Double cot(NUMERIC arg)
+2024-12-04 20:30:02 - Long count([distinct ]{arg|*})
+2024-12-04 20:30:02 - Double covar_pop(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double covar_samp(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double cume_dist([arg0[, ...]])
+2024-12-04 20:30:02 - Date current_date
+2024-12-04 20:30:02 - Time current_time
+2024-12-04 20:30:02 - Timestamp current_timestamp
+2024-12-04 20:30:02 - Timestamp date_trunc(TEMPORAL_UNIT field, TEMPORAL datetime)
+2024-12-04 20:30:02 - Double degrees(NUMERIC arg)
+2024-12-04 20:30:02 - Long dense_rank([arg0[, ...]])
+2024-12-04 20:30:02 - Boolean every(BOOLEAN arg)
+2024-12-04 20:30:02 - Double exp(NUMERIC arg)
+2024-12-04 20:30:02 - extract(TEMPORAL_UNIT field from TEMPORAL arg)
+2024-12-04 20:30:02 - first_valueANY value
+2024-12-04 20:30:02 - floor(NUMERIC arg)
+2024-12-04 20:30:02 - String format(TEMPORAL datetime as STRING pattern)
+2024-12-04 20:30:02 - greatest(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+2024-12-04 20:30:02 - ifnull(arg0, arg1)
+2024-12-04 20:30:02 - String initcap(arg)
+2024-12-04 20:30:02 - String insert(STRING string, INTEGER start, INTEGER length, STRING replacement)
+2024-12-04 20:30:02 - Instant instant
+2024-12-04 20:30:02 - lagANY value[, INTEGER offset[, ANY default]]
+2024-12-04 20:30:02 - last_valueANY value
+2024-12-04 20:30:02 - leadANY value[, INTEGER offset[, ANY default]]
+2024-12-04 20:30:02 - least(COMPARABLE arg0, COMPARABLE arg1[, arg2[, ...]])
+2024-12-04 20:30:02 - String left(STRING string, INTEGER length)
+2024-12-04 20:30:02 - String listagg(STRING arg0, STRING arg1)
+2024-12-04 20:30:02 - Double ln(NUMERIC arg)
+2024-12-04 20:30:02 - LocalDate local_date
+2024-12-04 20:30:02 - LocalDateTime local_datetime
+2024-12-04 20:30:02 - LocalTime local_time
+2024-12-04 20:30:02 - Time localtime
+2024-12-04 20:30:02 - Timestamp localtimestamp
+2024-12-04 20:30:02 - Integer locate(STRING pattern, STRING string[, INTEGER start])
+2024-12-04 20:30:02 - Double log(NUMERIC arg0[, NUMERIC arg1])
+2024-12-04 20:30:02 - Double log10(NUMERIC arg)
+2024-12-04 20:30:02 - String lower(STRING string)
+2024-12-04 20:30:02 - String lpad(STRING string, INTEGER length[, STRING padding])
+2024-12-04 20:30:02 - String ltrim(STRING string[, STRING characters])
+2024-12-04 20:30:02 - Date make_date(INTEGER arg0, INTEGER arg1, INTEGER arg2)
+2024-12-04 20:30:02 - Time make_time(INTEGER arg0, INTEGER arg1, INTEGER arg2)
+2024-12-04 20:30:02 - Timestamp make_timestamp(INTEGER arg0, INTEGER arg1, INTEGER arg2, INTEGER arg3, INTEGER arg4, INTEGER arg5)
+2024-12-04 20:30:02 - Timestamp make_timestamptz(INTEGER arg0, INTEGER arg1, INTEGER arg2, INTEGER arg3, INTEGER arg4, INTEGER arg5[, INTEGER arg6])
+2024-12-04 20:30:02 - max(COMPARABLE arg)
+2024-12-04 20:30:02 - String md5(arg)
+2024-12-04 20:30:02 - Double median(NUMERIC arg)
+2024-12-04 20:30:02 - min(COMPARABLE arg)
+2024-12-04 20:30:02 - Integer mod(INTEGER arg0, INTEGER arg1)
+2024-12-04 20:30:02 - mode()
+2024-12-04 20:30:02 - nth_valueANY value, INTEGER nth
+2024-12-04 20:30:02 - nullif(arg0, arg1)
+2024-12-04 20:30:02 - Integer octet_length(STRING_OR_CLOB arg)
+2024-12-04 20:30:02 - OffsetDateTime offset_datetime
+2024-12-04 20:30:02 - String overlay(string placing replacement from start[ for length])
+2024-12-04 20:30:02 - String pad(STRING string with INTEGER length {leading|trailing}[ STRING character])
+2024-12-04 20:30:02 - Double percent_rank([arg0[, ...]])
+2024-12-04 20:30:02 - percentile_cont(NUMERIC arg)
+2024-12-04 20:30:02 - percentile_disc(NUMERIC arg)
+2024-12-04 20:30:02 - Integer position(STRING pattern in STRING string)
+2024-12-04 20:30:02 - Double power(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double radians(NUMERIC arg)
+2024-12-04 20:30:02 - Long rank([arg0[, ...]])
+2024-12-04 20:30:02 - Double regr_avgx(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_avgy(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_count(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_intercept(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_r2(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_slope(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_sxx(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_sxy(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - Double regr_syy(NUMERIC arg0, NUMERIC arg1)
+2024-12-04 20:30:02 - String repeat(STRING string, INTEGER times)
+2024-12-04 20:30:02 - String replace(STRING string, STRING pattern, STRING replacement)
+2024-12-04 20:30:02 - String right(STRING string, INTEGER length)
+2024-12-04 20:30:02 - round(NUMERIC arg0, INTEGER arg1)
+2024-12-04 20:30:02 - Long row_number()
+2024-12-04 20:30:02 - String rpad(STRING string, INTEGER length[, STRING padding])
+2024-12-04 20:30:02 - String rtrim(STRING string[, STRING characters])
+2024-12-04 20:30:02 - Integer sign(NUMERIC arg)
+2024-12-04 20:30:02 - Double sin(NUMERIC arg)
+2024-12-04 20:30:02 - String soundex(arg)
+2024-12-04 20:30:02 - Object sql
+2024-12-04 20:30:02 - Double sqrt(NUMERIC arg)
+2024-12-04 20:30:02 - Double stddev(NUMERIC arg)
+2024-12-04 20:30:02 - Double stddev_pop(NUMERIC arg)
+2024-12-04 20:30:02 - Double stddev_samp(NUMERIC arg)
+2024-12-04 20:30:02 - String str(arg)
+2024-12-04 20:30:02 - String substr(STRING string, INTEGER start[, INTEGER length])
+2024-12-04 20:30:02 - String substring(STRING string{ from|,} INTEGER start[{ for|,} INTEGER length])
+2024-12-04 20:30:02 - sum(arg)
+2024-12-04 20:30:02 - Double tan(NUMERIC arg)
+2024-12-04 20:30:02 - timestampadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+2024-12-04 20:30:02 - basicType@10(java.lang.Long,-5)|basicType@15(java.lang.Double,6) timestampdiff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+2024-12-04 20:30:02 - String to_char(ANY arg0[, STRING arg1, STRING arg2])
+2024-12-04 20:30:02 - Date to_date(STRING arg0[, STRING arg1, STRING arg2])
+2024-12-04 20:30:02 - Double to_number(STRING arg0[, STRING arg1, STRING arg2])
+2024-12-04 20:30:02 - Timestamp to_timestamp(STRING arg0[, STRING arg1, STRING arg2])
+2024-12-04 20:30:02 - String translate(STRING arg0, STRING arg1, STRING arg2)
+2024-12-04 20:30:02 - String trim([[{leading|trailing|both} ][STRING arg0 ]from] STRING arg1)
+2024-12-04 20:30:02 - Double trunc(NUMERIC number[, INTEGER places])
+2024-12-04 20:30:02 - String upper(STRING string)
+2024-12-04 20:30:02 - Double var_pop(NUMERIC arg)
+2024-12-04 20:30:02 - Double var_samp(NUMERIC arg)
+2024-12-04 20:30:02 - Double variance(NUMERIC arg)
+2024-12-04 20:30:02 - Boolean any(BOOLEAN predicate)
+2024-12-04 20:30:02 - Character char(INTEGER arg)
+2024-12-04 20:30:02 - Date current date
+2024-12-04 20:30:02 - Time current time
+2024-12-04 20:30:02 - Timestamp current timestamp
+2024-12-04 20:30:02 - Instant current_instant
+2024-12-04 20:30:02 - dateadd(TEMPORAL_UNIT field, INTEGER magnitude, TEMPORAL datetime)
+2024-12-04 20:30:02 - basicType@10(java.lang.Long,-5)|basicType@15(java.lang.Double,6) datediff(TEMPORAL_UNIT field, TEMPORAL start, TEMPORAL end)
+2024-12-04 20:30:02 - Boolean every(BOOLEAN predicate)
+2024-12-04 20:30:02 - Integer length(STRING_OR_CLOB arg)
+2024-12-04 20:30:02 - LocalDate local date
+2024-12-04 20:30:02 - LocalDateTime local datetime
+2024-12-04 20:30:02 - LocalTime local time
+2024-12-04 20:30:02 - OffsetDateTime offset datetime
+2024-12-04 20:30:02 - Scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration@3e43f049] to SessionFactoryImplementor [org.hibernate.internal.SessionFactoryImpl@59e082f8]
+2024-12-04 20:30:02 - Starting post-init callbacks
+2024-12-04 20:30:02 - Checking 0 named HQL queries
+2024-12-04 20:30:02 - Checking 0 named SQL queries
+2024-12-04 20:30:02 - No actions found; doing nothing
+2024-12-04 20:30:02 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-12-04 20:30:02 - EventListenerRegistry access via ServiceRegistry is deprecated.  Use `sessionFactory.getEventEngine().getListenerRegistry()` instead
+2024-12-04 20:30:02 - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@6f3b13d0
+2024-12-04 20:30:02 - Registering SessionFactory: 3f1edc86-8ad7-4fce-909a-495dbe20c321 (<unnamed>)
+2024-12-04 20:30:02 - Not binding SessionFactory to JNDI, no JNDI name configured
+2024-12-04 20:30:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-04 20:30:02 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-04 20:30:03 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-12-04 20:30:03 - 2 mappings in 'requestMappingHandlerMapping'
+2024-12-04 20:30:03 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-12-04 20:30:03 - ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-12-04 20:30:04 - 
+
+Using generated security password: f161390b-abb9-4df6-bac5-181b83409e64
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-12-04 20:30:04 - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@16d4024e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11e24688, org.springframework.security.web.context.SecurityContextHolderFilter@470135da, org.springframework.security.web.header.HeaderWriterFilter@492fa72a, org.springframework.security.web.csrf.CsrfFilter@7210f559, org.springframework.security.web.authentication.logout.LogoutFilter@878feb2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13d1f898, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@58b5f7d2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@63d3c9dc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72ceafeb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f68eec6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74b7497b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a1a0bc, org.springframework.security.web.access.ExceptionTranslationFilter@41d877bb, org.springframework.security.web.access.intercept.AuthorizationFilter@14b48f39]
+2024-12-04 20:30:04 - Started BackendApplicationTests in 10.36 seconds (process running for 12.711)
+2024-12-04 20:30:05 - Closing org.springframework.web.context.support.GenericWebApplicationContext@64bc21ac, started on Wed Dec 04 20:29:55 CAT 2024
+2024-12-04 20:30:05 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-04 20:30:05 - HHH000031: Closing
+2024-12-04 20:30:05 - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@744adb6e] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@59e082f8]
+2024-12-04 20:30:05 - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2024-12-04 20:30:05 - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries
+2024-12-04 20:30:05 - HikariPool-1 - Shutdown initiated...
+2024-12-04 20:30:05 - HikariPool-1 - Shutdown completed.
