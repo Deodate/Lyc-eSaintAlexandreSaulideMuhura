@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import './index.css';
 
+
 const SignupAuth = () => {
-    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: "",
         gender: "",
@@ -14,16 +13,16 @@ const SignupAuth = () => {
         password: "",
         confirmPassword: "",
     });
+
     const [errors, setErrors] = useState({});
     const [validity, setValidity] = useState({});
     const [apiError, setApiError] = useState("");
-    const [isLoading, setIsLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [validationMessage, setValidationMessage] = useState("");
 
     const validateField = (name, value) => {
         let error = "";
         let isValid = false;
-
-        console.log(`Validating field: ${name} with value: ${value}`);
 
         switch (name) {
             case "fullName":
@@ -66,81 +65,79 @@ const SignupAuth = () => {
         setValidity(prev => ({ ...prev, [name]: isValid }));
     };
 
-    // Handle input change
+    const checkAvailability = async (field, value) => {
+        if (field === "phone" || field === "email") {
+            try {
+                const response = await fetch(`http://localhost:8080/api/auth/validate?${field}=${value}`);
+                const data = await response.text();
+                if (response.status === 400) {
+                    setValidationMessage(data);  // Show error message from backend
+                } else {
+                    setValidationMessage("");  // Clear any validation message
+                }
+            } catch (error) {
+                console.error("Error checking availability:", error);
+            }
+        }
+    };
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        console.log(`Input changed: ${name} with value: ${value}`);
         setFormData(prev => ({ ...prev, [name]: value }));
         validateField(name, value);
-        
-        // Clear any previous API errors when user starts typing
-        if (apiError) setApiError("");
+        checkAvailability(name, value);  // Check if the phone or email is available
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        // Reset any previous API errors
         setApiError("");
-        
-        // Validate all fields before submission
-        const allFields = { ...formData, confirmPassword: formData.confirmPassword };
-        Object.keys(allFields).forEach(key => {
-            validateField(key, allFields[key]);
-        });
-
-        console.log("Form data:", formData);
-        console.log("Form validity:", validity);
-
-        // Check if form is valid
-        const formIsValid = Object.values(validity).every(Boolean);
-        console.log("Form is valid:", formIsValid);
-
+        setSuccessMessage("");
+    
+        const formIsValid = Object.values(validity).every(value => value === true) && Object.values(errors).every(error => error === "");
+    
         if (formIsValid) {
-            setIsLoading(true);
             try {
-                // Prepare data for backend (remove confirmPassword)
-                const submitData = { ...formData };
-                delete submitData.confirmPassword;
-
-                console.log("Submitting data to the server:", submitData);
-
-                const response = await fetch('http://localhost:8081/api/auth/signup', {
-                    method: 'POST',
+                const response = await fetch("http://localhost:8080/api/auth/signup", {
+                    method: "POST",
                     headers: {
-                        'Content-Type': 'application/json',
+                        "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(submitData)
+                    body: JSON.stringify(formData),
                 });
-
-                const responseData = await response.json();
-                console.log("Response data:", responseData);
-
+    
                 if (response.ok) {
-                    // Successful signup
-                    alert('Registration Successful! Redirecting to login...');
-                    navigate('/LoginAuth');
+                    setSuccessMessage("User registered successfully!");
+                    setFormData({
+                        fullName: "",
+                        gender: "",
+                        phone: "",
+                        position: "",
+                        email: "",
+                        nationality: "",
+                        password: "",
+                        confirmPassword: "",
+                    });
                 } else {
-                    // Handle error from backend
-                    setApiError(responseData.message || 'Registration failed. Please try again.');
+                    const errorData = await response.json();
+                    setApiError(errorData.message || "Failed to register user.");
                 }
             } catch (error) {
-                console.error('Signup error:', error);
-                setApiError('Network error. Please check your connection.');
-            } finally {
-                setIsLoading(false);
+                setApiError("Email or Mobile Phone has been used!.");
             }
         } else {
             console.log("Validation failed. Check errors.");
         }
     };
 
+    
+
     return (
         <div className="signup-container">
             <div className="signup-box">
                 <h2>Sign Up</h2>
-                {apiError && <div className="api-error">{apiError}</div>}
                 <form className="form-container" onSubmit={handleSubmit}>
+                    {successMessage && <p className="success">{successMessage}</p>}
+                    {apiError && <p className="error">{apiError}</p>}
                     {/* Full Name */}
                     <div className="input-group">
                         <label htmlFor="fullName">Full Name</label>
@@ -263,10 +260,9 @@ const SignupAuth = () => {
                         />
                         {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     </div>
-                    <div className="buttons">
-                        <button type="submit" disabled={isLoading}>
-                            {isLoading ? 'Submitting...' : 'Sign Up'}
-                        </button>
+                    <div className="buttons-container">
+                        <button type="submit" className="login-btn">Submit</button>
+                        <a className="link-btn" href="/LoginAuth">Log in</a>
                     </div>
                 </form>
             </div>

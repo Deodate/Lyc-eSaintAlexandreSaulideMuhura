@@ -326,3 +326,10 @@ h2 {
 .reset-btn:hover {
   background-color: #3a6f27;
 }
+
+.success {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 20px;  
+}
+
