@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import './index.css';
 
 const SignupAuth = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: "",
         gender: "",
@@ -14,10 +16,14 @@ const SignupAuth = () => {
     });
     const [errors, setErrors] = useState({});
     const [validity, setValidity] = useState({});
+    const [apiError, setApiError] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const validateField = (name, value) => {
         let error = "";
         let isValid = false;
+
+        console.log(`Validating field: ${name} with value: ${value}`);
 
         switch (name) {
             case "fullName":
@@ -60,29 +66,80 @@ const SignupAuth = () => {
         setValidity(prev => ({ ...prev, [name]: isValid }));
     };
 
-    
     // Handle input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+        console.log(`Input changed: ${name} with value: ${value}`);
         setFormData(prev => ({ ...prev, [name]: value }));
         validateField(name, value);
+        
+        // Clear any previous API errors when user starts typing
+        if (apiError) setApiError("");
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Reset any previous API errors
+        setApiError("");
+        
+        // Validate all fields before submission
+        const allFields = { ...formData, confirmPassword: formData.confirmPassword };
+        Object.keys(allFields).forEach(key => {
+            validateField(key, allFields[key]);
+        });
+
+        console.log("Form data:", formData);
+        console.log("Form validity:", validity);
+
+        // Check if form is valid
         const formIsValid = Object.values(validity).every(Boolean);
+        console.log("Form is valid:", formIsValid);
+
         if (formIsValid) {
-            console.log("Form submitted:", formData);
+            setIsLoading(true);
+            try {
+                // Prepare data for backend (remove confirmPassword)
+                const submitData = { ...formData };
+                delete submitData.confirmPassword;
+
+                console.log("Submitting data to the server:", submitData);
+
+                const response = await fetch('http://localhost:8081/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submitData)
+                });
+
+                const responseData = await response.json();
+                console.log("Response data:", responseData);
+
+                if (response.ok) {
+                    // Successful signup
+                    alert('Registration Successful! Redirecting to login...');
+                    navigate('/LoginAuth');
+                } else {
+                    // Handle error from backend
+                    setApiError(responseData.message || 'Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                setApiError('Network error. Please check your connection.');
+            } finally {
+                setIsLoading(false);
+            }
         } else {
             console.log("Validation failed. Check errors.");
         }
     };
 
-
     return (
         <div className="signup-container">
             <div className="signup-box">
                 <h2>Sign Up</h2>
+                {apiError && <div className="api-error">{apiError}</div>}
                 <form className="form-container" onSubmit={handleSubmit}>
                     {/* Full Name */}
                     <div className="input-group">
@@ -206,9 +263,10 @@ const SignupAuth = () => {
                         />
                         {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     </div>
-                    <div className="buttons-container">
-                        <button type="submit" className="login-btn">Submit</button>
-                        <a className="link-btn" href="/LoginAuth">Log in</a>
+                    <div className="buttons">
+                        <button type="submit" disabled={isLoading}>
+                            {isLoading ? 'Submitting...' : 'Sign Up'}
+                        </button>
                     </div>
                 </form>
             </div>
