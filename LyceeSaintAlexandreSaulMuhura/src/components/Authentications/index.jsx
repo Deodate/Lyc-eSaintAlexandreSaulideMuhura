@@ -7,7 +7,7 @@ import Comments from './comments';
 import GalleryManagement from './gallery';
 import NewsEventsManagement from './newsEvents';
 import { Link } from 'react-router-dom';
-import StudentList from './studentsList';
+import UserList from './UserList';
 
 const DashboardLayout = () => {
   const [activeMenu, setActiveMenu] = useState('');
@@ -132,7 +132,7 @@ const DashboardLayout = () => {
             { id: 'student-lists', label: 'Student List', icon: '🔽' }, // Down arrow for footer.
             { id: 'contact', label: 'Contact', icon: '📞' }, // Telephone for contact.
             { id: 'newsEvents', label: 'News & Events', icon: '📰' }, // Newspaper for news.
-            { id: 'StudentLife', label: 'Students Life', icon: '❓' },
+            { id: 'UserList', label: 'User List', icon: '❓' },
             { id: 'logout', label: 'Logout', icon: '⛔' }
           ].map((item) => (
             <button
@@ -215,8 +215,8 @@ const DashboardLayout = () => {
           <NewsEventsManagement />
         )}
 
-        {activeMenu === 'student-lists' && (
-          <StudentList />
+        {activeMenu === 'UserList' && (
+          <UserList />
         )}
 
         {/* {activeMenu === '' && (

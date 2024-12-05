@@ -50,7 +50,7 @@ public class User {
     }
 
     // MD5 hashing method
-    private String hashWithMD5(String password) {
+    public static String hashWithMD5(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] hashBytes = md.digest(password.getBytes());

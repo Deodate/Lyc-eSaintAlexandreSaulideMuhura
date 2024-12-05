@@ -129,8 +129,6 @@ const SignupAuth = () => {
         }
     };
 
-    
-
     return (
         <div className="signup-container">
             <div className="signup-box">

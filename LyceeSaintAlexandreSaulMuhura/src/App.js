@@ -11,6 +11,7 @@ import BabyeyiLetter from "./components/Authentications/Babyeyi";
 import LoginAuth from "./components/Authentications/login";
 import SignupAuth from "./components/Authentications/signupAuth";
 import ForgetPwdAuth from "./components/Authentications/forgetPwd";
+import UserList from "./components/Authentications/UserList";
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
             element={
               <Layout>
                 <Courses />
+              </Layout>
+            }
+          />
+           <Route
+            path="/UserList"
+            element={
+              <Layout>
+                <UserList />
               </Layout>
             }
           />
