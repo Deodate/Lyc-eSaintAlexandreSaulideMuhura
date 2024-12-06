@@ -6,6 +6,7 @@ const LoginAuth = () => {
     const [phoneOrEmail, setPhoneOrEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState("");
 
     // Validation function
     const validateForm = () => {
@@ -36,14 +37,48 @@ const LoginAuth = () => {
     };
 
     // Handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent form from submitting
-
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setErrors({}); // Clear previous errors
+        setSuccessMessage(""); // Clear any success message
+    
+        // Validate the form before making the request
         if (validateForm()) {
-            // Handle successful form submission (e.g., API call, redirect)
-            console.log("Form submitted:", { phoneOrEmail, password });
+            try {
+                const response = await fetch("http://localhost:8080/api/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: phoneOrEmail.includes('@') ? phoneOrEmail : null,
+                        phone: !phoneOrEmail.includes('@') ? phoneOrEmail : null,
+                        password,
+                    }),
+                });
+    
+                if (response.ok) {
+                    // Handle successful login
+                    const data = await response.json();
+                    setSuccessMessage("Login successful!");
+                    console.log(data); // You can handle the response data as needed
+                } else {
+                    const errorData = await response.json();
+                    setErrors({
+                        submit: errorData.message || "Login failed. Please try again.",
+                    });
+                }
+            } catch (error) {
+                // Handle any errors that occur during the request
+                setErrors({
+                    submit: "An error occurred during login. Please try again later.",
+                });
+            }
+        } else {
+            console.log("Validation failed. Check errors.");
         }
     };
+    
 
     // Handle input change and remove error message
     const handleInputChange = (e, field) => {
@@ -69,14 +104,15 @@ const LoginAuth = () => {
             }
         }
     };
-
     return (
         <div className="login-container">
             <div className="login-box">
                 <h2>Log in</h2>
+                 {/* Display success message here */}
+                {successMessage && <p className="success">{successMessage}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <label htmlFor="phoneOrEmail">Phone Number or Email</label>
+                        <label htmlFor="phoneOrEmail">Phone Number or Email is Incorrect!</label>
                         <input
                             type="text"
                             id="phoneOrEmail"
@@ -113,7 +149,7 @@ const LoginAuth = () => {
                 </div>
             </div>
         </div>
-    );
+    );    
 };
 
 export default LoginAuth;
