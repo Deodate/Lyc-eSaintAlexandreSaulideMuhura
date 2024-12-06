@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './index.css';
 
 const LoginAuth = () => {
@@ -7,6 +8,9 @@ const LoginAuth = () => {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState("");
+
+    // Initialize navigation hook
+    const navigate = useNavigate();
 
     // Validation function
     const validateForm = () => {
@@ -61,7 +65,9 @@ const LoginAuth = () => {
                     // Handle successful login
                     const data = await response.json();
                     setSuccessMessage("Login successful!");
-                    console.log(data); // You can handle the response data as needed
+                    
+                    // Navigate to DashboardLayout after successful login
+                    navigate('/dashboard');
                 } else {
                     const errorData = await response.json();
                     setErrors({
@@ -104,15 +110,17 @@ const LoginAuth = () => {
             }
         }
     };
+
     return (
         <div className="login-container">
             <div className="login-box">
                 <h2>Log in</h2>
                  {/* Display success message here */}
                 {successMessage && <p className="success">{successMessage}</p>}
+                {errors.submit && <p className="error">{errors.submit}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <label htmlFor="phoneOrEmail">Phone Number or Email is Incorrect!</label>
+                        <label htmlFor="phoneOrEmail">Phone Number or Email</label>
                         <input
                             type="text"
                             id="phoneOrEmail"
