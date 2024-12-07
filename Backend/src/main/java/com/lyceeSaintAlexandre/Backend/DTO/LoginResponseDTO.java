@@ -6,12 +6,14 @@ import lombok.Data;
 @Data
 public class LoginResponseDTO {
     private String message;
-    private UUID userId;
+    private UUID userId;  // Change Long to UUID
     private String fullName;
+    private String token;
 
-    public LoginResponseDTO(String message, UUID userId, String fullName) {
+    public LoginResponseDTO(String message, UUID userId, String fullName, String token) {
         this.message = message;
         this.userId = userId;
         this.fullName = fullName;
+        this.token = token;
     }
 }
