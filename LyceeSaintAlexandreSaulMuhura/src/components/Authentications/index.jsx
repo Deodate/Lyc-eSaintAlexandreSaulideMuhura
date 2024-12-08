@@ -6,7 +6,7 @@ import BabyeyiLetter from './Babyeyi';
 import Comments from './comments';
 import GalleryManagement from './gallery';
 import NewsEventsManagement from './newsEvents';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UserList from './UserList';
 
 const DashboardLayout = () => {
@@ -15,6 +15,7 @@ const DashboardLayout = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(5);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate(); // Replace useHistory with useNavigate
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -30,8 +31,17 @@ const DashboardLayout = () => {
 
   // Example function to demonstrate use of setNotificationCount
   const updateNotifications = () => {
-    // Simulate updating notification count, e.g., after reading notifications
     setNotificationCount(prevCount => Math.max(0, prevCount - 1));
+  };
+
+  // Function to handle logout securely
+  const handleLogout = () => {
+    // Clear session storage or token from local storage (depending on your authentication method)
+    localStorage.removeItem('authToken');
+    sessionStorage.clear();
+    
+    // Redirect to login or home page
+    navigate('/login'); // Use navigate instead of history.push
   };
 
   return (
@@ -103,10 +113,7 @@ const DashboardLayout = () => {
             {isProfileOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-1 z-50 border">
                 <button
-                  onClick={() => {
-                    // Add logout logic here
-                    setIsProfileOpen(false);
-                  }}
+                  onClick={handleLogout} // Use the secure logout handler
                   className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 >
                   <LogOut className="w-4 h-4" />
@@ -118,26 +125,33 @@ const DashboardLayout = () => {
         </div>
       </div>
 
-      {/* Side Navigation - With hover animations */}
+      {/* Side Navigation */}
       <div className={`fixed left-0 top-0 h-full bg-blue-600 text-white transition-all duration-300 ${isNavExpanded ? 'w-48 md:w-64' : 'w-16 md:w-20'} pt-14 md:pt-16`}>
         <div className="flex flex-col space-y-1 p-2 md:p-3">
           {[
-            { id: 'home', label: 'Home', icon: '🏠' }, // A house represents the home page.
-            { id: 'about', label: 'About', icon: 'ℹ️' }, // Information symbol fits the "About" section.
-            { id: 'staff', label: 'Staff', icon: '👩‍🏫' }, // Teacher or staff member emoji.
-            { id: 'babyeyi', label: 'Babyeyi', icon: '🧒' }, // Represents children.
-            { id: 'comments', label: 'Comments', icon: '💬' }, // Speech bubble for comments.
+            { id: 'home', label: 'Home', icon: '🏠' },
+            { id: 'about', label: 'About', icon: 'ℹ️' },
+            { id: 'staff', label: 'Staff', icon: '👩‍🏫' },
+            { id: 'babyeyi', label: 'Babyeyi', icon: '🧒' },
+            { id: 'comments', label: 'Comments', icon: '💬' },
             { id: 'gallery', label: 'Gallery', icon: '📸' },
-            { id: 'header', label: 'Header', icon: '🔝' }, // Top arrow represents a header.
-            { id: 'student-lists', label: 'Student List', icon: '🔽' }, // Down arrow for footer.
-            { id: 'contact', label: 'Contact', icon: '📞' }, // Telephone for contact.
-            { id: 'newsEvents', label: 'News & Events', icon: '📰' }, // Newspaper for news.
+            { id: 'header', label: 'Header', icon: '🔝' },
+            { id: 'student-lists', label: 'Student List', icon: '🔽' },
+            { id: 'contact', label: 'Contact', icon: '📞' },
+            { id: 'newsEvents', label: 'News & Events', icon: '📰' },
             { id: 'UserList', label: 'User List', icon: '❓' },
             { id: 'logout', label: 'Logout', icon: '⛔' }
           ].map((item) => (
             <button
               key={item.id}
-              onClick={() => setActiveMenu(activeMenu === item.id ? '' : item.id)}
+              onClick={() => {
+                // Special handling for logout
+                if (item.id === 'logout') {
+                  handleLogout();
+                  return;
+                }
+                setActiveMenu(activeMenu === item.id ? '' : item.id);
+              }}
               className={`flex items-center p-2 md:p-3 rounded-lg transition-all duration-300 
                 hover:bg-blue-700 hover:translate-x-2
                 group relative
@@ -160,66 +174,24 @@ const DashboardLayout = () => {
         </div>
       </div>
 
-      {/* Main Content Area - Responsive padding and spacing */}
-      <div className={`mt-14 md:mt-16 transition-all duration-300 relative z-10 ${isNavExpanded ? 'ml-48 md:ml-64' : 'ml-16 md:ml-20'} p-3 md:p-6`}>
-        {activeMenu === 'about' && (
-          <div className="bg-white rounded-lg shadow p-3 md:p-6">
-            <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">Update/ Current Information</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 md:gap-10 justify-items-center"> {/* Center items in the grid */}
-              <div className="space-y-1 md:space-y-2">
-                <label className="block text-xs md:text-sm text-black font-bold">Vision and Values</label>
-                <input
-                  type="text"
-                  className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                  placeholder="Vision and Values"
-                />
-              </div>
-              <div className="space-y-1 md:space-y-2 ml-[30px]">
-                <label className="block text-xs md:text-sm text-black font-bold">History & Location</label>
-                <input
-                  type="text"
-                  className="w-[37vw] h-[20vw] p-1.5 md:p-2 border border-blue-500 rounded-lg text-sm focus:border-blue-500"
-                  placeholder="History & Location"
-                />
-              </div>
-            </div>
-            <div className="flex justify-end mt-3 md:mt-4 space-x-2 md:space-x-4">
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-red-600 bg-[#feb3b0] hover:bg-[#ff8f8c] rounded-lg">
-                Clear Filter
-              </button>
-              <button className="px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm text-blue-600 bg-[#95d2ff] hover:bg-[#7bb8e6] rounded-lg">
-                Update
-              </button>
+      {/* Main Content Area */}
+      <div className={`mt-14 md:mt-16 ml-0 md:ml-64 flex-grow pt-4 pb-8 px-2 md:px-4 ${isNavExpanded ? 'w-full' : 'w-full'}`}>
+        {activeMenu === 'home' && <div>Home Content</div>}
+        {activeMenu === 'about' && <div>About Content</div>}
+        {activeMenu === 'staff' && <StaffManagement />}
+        {activeMenu === 'babyeyi' && <BabyeyiLetter />}
+        {activeMenu === 'comments' && <Comments />}
+        {activeMenu === 'gallery' && <GalleryManagement />}
+        {activeMenu === 'newsEvents' && <NewsEventsManagement />}
+        {activeMenu === 'UserList' && <UserList />}
+      </div>
+    </div>
+  );
+};
 
-            </div>
-          </div>
-        )}
+export default DashboardLayout;
 
-        {activeMenu === 'staff' && (
-          <StaffManagement />
-        )}
-
-        {activeMenu === 'babyeyi' && (
-          <BabyeyiLetter />
-        )}
-
-        {activeMenu === 'comments' && (
-          <Comments />
-        )}
-
-        {activeMenu === 'gallery' && (
-          <GalleryManagement />
-        )}
-
-        {activeMenu === 'newsEvents' && (
-          <NewsEventsManagement />
-        )}
-
-        {activeMenu === 'UserList' && (
-          <UserList />
-        )}
-
-        {/* {activeMenu === '' && (
+{/* {activeMenu === '' && (
           <div className="bg-white rounded-lg shadow">
             <div className="p-3 md:p-4 flex justify-between items-center">
               <h2 className="text-base md:text-lg font-semibold">Data</h2>
@@ -269,9 +241,3 @@ const DashboardLayout = () => {
             </div>
           </div>
         )} */}
-      </div>
-    </div>
-  );
-};
-
-export default DashboardLayout;

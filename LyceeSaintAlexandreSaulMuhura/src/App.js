@@ -12,6 +12,7 @@ import LoginAuth from "./components/Authentications/login";
 import SignupAuth from "./components/Authentications/signupAuth";
 import ForgetPwdAuth from "./components/Authentications/forgetPwd";
 import UserList from "./components/Authentications/UserList";
+import ProtectedRoute from "./components/Authentications/ProtectedRoute"; 
 
 function App() {
   return (
@@ -154,10 +155,14 @@ function App() {
               </Layout>
             }
           />
-          {/* Add the DashboardLayout Route */}
+          {/* Protect the Dashboard Route */}
           <Route
             path="/dashboard"
-            element={<DashboardLayout />}
+            element={
+              <ProtectedRoute>
+                <DashboardLayout />
+              </ProtectedRoute>
+            }
           />
         </Routes>
       </BrowserRouter>

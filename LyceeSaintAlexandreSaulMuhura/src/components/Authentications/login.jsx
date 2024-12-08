@@ -64,7 +64,12 @@ const LoginAuth = () => {
                 if (response.ok) {
                     // Handle successful login
                     const data = await response.json();
+                    
+                    // Store the authentication token
+                    localStorage.setItem('authToken', data.token || 'default-token');
+                    
                     setSuccessMessage("Login successful!");
+                    console.log('Login Response:', data);
                     
                     // Navigate to DashboardLayout after successful login
                     navigate('/dashboard');
@@ -73,18 +78,19 @@ const LoginAuth = () => {
                     setErrors({
                         submit: errorData.message || "Login failed. Please try again.",
                     });
+                    console.error('Login Error:', errorData);
                 }
             } catch (error) {
                 // Handle any errors that occur during the request
                 setErrors({
                     submit: "An error occurred during login. Please try again later.",
                 });
+                console.error('Login Request Error:', error);
             }
         } else {
             console.log("Validation failed. Check errors.");
         }
     };
-    
 
     // Handle input change and remove error message
     const handleInputChange = (e, field) => {
@@ -120,7 +126,7 @@ const LoginAuth = () => {
                 {errors.submit && <p className="error">{errors.submit}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="input-group">
-                        <label htmlFor="phoneOrEmail">Phone Number or Email</label>
+                        {/* <label htmlFor="phoneOrEmail">Phone Number or Email</label> */}
                         <input
                             type="text"
                             id="phoneOrEmail"
