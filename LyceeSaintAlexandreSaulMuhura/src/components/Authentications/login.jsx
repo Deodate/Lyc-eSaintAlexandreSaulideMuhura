@@ -14,26 +14,34 @@ const LoginAuth = () => {
 
     // Validation function
     const validateForm = () => {
+        console.log("Starting form validation");
         const newErrors = {};
 
         // Validate phone number or email
         const phoneRegex = /^[0-9]{10}$/; // 10-digit phone number
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Email format
 
+        console.log("Current input:", { phoneOrEmail, password });
+
         if (!phoneOrEmail) {
             newErrors.phoneOrEmail = "Phone number or email is required";
+            console.log("Validation Error: Phone/Email is empty");
         } else if (!phoneRegex.test(phoneOrEmail) && !emailRegex.test(phoneOrEmail)) {
             newErrors.phoneOrEmail = "Enter a valid phone number (10 digits) or email";
+            console.log("Validation Error: Invalid phone/email format");
         }
 
         // Validate password (alphanumeric, 6-8 characters)
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,8}$/; // Alphanumeric, 6-8 characters
         if (!password) {
             newErrors.password = "Password is required";
+            console.log("Validation Error: Password is empty");
         } else if (!passwordRegex.test(password)) {
             newErrors.password = "Password must be alphanumeric and between 6-8 characters";
+            console.log("Validation Error: Invalid password format");
         }
 
+        console.log("Validation Errors:", newErrors);
         setErrors(newErrors);
 
         // Return false if there are validation errors
@@ -46,7 +54,6 @@ const LoginAuth = () => {
         setErrors({}); // Clear previous errors
         setSuccessMessage(""); // Clear any success message
     
-        // Validate the form before making the request
         if (validateForm()) {
             try {
                 const response = await fetch("http://localhost:8080/api/auth/login", {
@@ -62,11 +69,9 @@ const LoginAuth = () => {
                 });
     
                 if (response.ok) {
-                    // Handle successful login
                     const data = await response.json();
+                    console.log("Login successful, navigating to dashboard");
                     setSuccessMessage("Login successful!");
-                    
-                    // Navigate to DashboardLayout after successful login
                     navigate('/dashboard');
                 } else {
                     const errorData = await response.json();
@@ -75,20 +80,17 @@ const LoginAuth = () => {
                     });
                 }
             } catch (error) {
-                // Handle any errors that occur during the request
                 setErrors({
                     submit: "An error occurred during login. Please try again later.",
                 });
             }
-        } else {
-            console.log("Validation failed. Check errors.");
         }
-    };
-    
+    };     
 
     // Handle input change and remove error message
     const handleInputChange = (e, field) => {
         const { value } = e.target;
+        console.log(`Input change: ${field} = ${value}`);
 
         if (field === "phoneOrEmail") {
             setPhoneOrEmail(value);
@@ -96,6 +98,7 @@ const LoginAuth = () => {
                 setErrors((prevErrors) => {
                     const newErrors = { ...prevErrors };
                     delete newErrors.phoneOrEmail;
+                    console.log("Updated errors after phone/email input:", newErrors);
                     return newErrors;
                 });
             }
@@ -105,6 +108,7 @@ const LoginAuth = () => {
                 setErrors((prevErrors) => {
                     const newErrors = { ...prevErrors };
                     delete newErrors.password;
+                    console.log("Updated errors after password input:", newErrors);
                     return newErrors;
                 });
             }
@@ -115,7 +119,6 @@ const LoginAuth = () => {
         <div className="login-container">
             <div className="login-box">
                 <h2>Log in</h2>
-                 {/* Display success message here */}
                 {successMessage && <p className="success">{successMessage}</p>}
                 {errors.submit && <p className="error">{errors.submit}</p>}
                 <form onSubmit={handleSubmit}>
@@ -151,9 +154,11 @@ const LoginAuth = () => {
                 </div>
                 <div className="social-login">
                     <p>Connect with us </p>
-                    <button className="google-btn">Instagram</button>
-                    <button className="facebook-btn">Facebook</button>
-                    <button className="twitter-btn">Twitter</button>
+                    <div>
+                        <button className="google-btn">Instagram</button>
+                        <button className="facebook-btn">Facebook</button>
+                        <button className="twitter-btn">Twitter</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lyceeSaintAlexandre.Backend.DTO.ApiResponse;
 import com.lyceeSaintAlexandre.Backend.DTO.LoginRequestDTO;
 import com.lyceeSaintAlexandre.Backend.DTO.LoginResponseDTO;
 import com.lyceeSaintAlexandre.Backend.config.JwtTokenUtil;
@@ -69,8 +71,14 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    List<User> getAllUsers() {
-        return userRepository.findAll();
+    public ResponseEntity<ApiResponse<List<User>>> getAllUsers() {
+        try {
+            List<User> users = userRepository.findAll();
+            return ResponseEntity.ok(new ApiResponse<>(HttpStatus.OK, "Users retrieved successfully", users));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponse<>(HttpStatus.INTERNAL_SERVER_ERROR, "Error retrieving users", null));
+        }
     }
 
     @PostMapping("/login")
@@ -126,5 +134,16 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new LoginResponseDTO("Login error", null, null, null));
         }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser(@RequestHeader("Authorization") String token) {
+        // In a stateless JWT system, logout is typically handled client-side
+        // The client should remove the token from local storage/cookies
+
+        // Optionally, you can implement token blacklisting for added security
+        // This would involve storing invalidated tokens in a cache or database
+
+        return ResponseEntity.ok().body("Logout successful");
     }
 }

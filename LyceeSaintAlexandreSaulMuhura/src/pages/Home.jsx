@@ -10,7 +10,6 @@ import { FaDesktop } from "react-icons/fa";
 import { FaPlug } from "react-icons/fa";
 import ChatAssistant from "./ChatAssistant"; 
 
-
 export const Home = () => {
   return (
     <>
